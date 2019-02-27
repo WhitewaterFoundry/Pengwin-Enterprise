@@ -1,0 +1,2 @@
+set_flags DB_NOMMAP
+set_cachesize 0 1 1
