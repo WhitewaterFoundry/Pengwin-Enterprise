@@ -46,6 +46,7 @@ tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 #copy some custom files into our build directory 
 sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
+sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/
 
 #set some environmental variables in our build directory
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
