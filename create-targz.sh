@@ -12,7 +12,7 @@ BOOTISO="http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/images/bo
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/sl-7.ks"
 
 #upstream enterprise boot ISO
-#BOOTISO="http://mirror.centos.org/centos/7.5.1804/os/x86_64/images/boot.iso"
+#BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 #KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 
 #ARM64
