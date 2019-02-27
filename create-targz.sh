@@ -23,10 +23,13 @@ KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-b
 cd $TMPDIR
 
 #make sure we are up to date
-sudo yum update
+# sudo yum update
+
+#downgrade lorax
+sudo yum install lorax-29.16-1.fc29
 
 #get livemedia-creator dependencies
-sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu
+sudo yum install libvirt virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
