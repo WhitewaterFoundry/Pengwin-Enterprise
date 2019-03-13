@@ -51,6 +51,7 @@ sudo chroot $BUILDDIR yum update
 #install wslutilities
 wget https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh $BUILDDIR/tmp/
 sudo chroot $BUILDDIR bash /tmp/script.rpm.sh
+sudo chroot $BUILDDIR yum -y install wslu
 
 #get weasel-pageant
 wget https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip
