@@ -21,3 +21,6 @@ echo $string > /etc/profile.d/pageant.sh
 echo "Installing VcXsrv"
 mkdir ${wHome}/.vcxsrv
 cp /opt/vcxsrv/vcxsrv-installer.exe ${wHome}/.vcxsrv/vcxsrv-installer.exe
+
+echo "Removing this script"
+mv /etc/profile.d/firstrun.sh /opt/firstrun.sh"
