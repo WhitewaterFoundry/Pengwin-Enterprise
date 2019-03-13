@@ -12,8 +12,8 @@ BOOTISO="http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/images/bo
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/sl-7.ks"
 
 #upstream enterprise boot ISO
-#BOOTISO="http://mirror.centos.org/centos/7.5.1804/os/x86_64/images/boot.iso"
-#KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7.ks"
+#BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
+#KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 
 #ARM64
 #BOOTISO="http://vault.centos.org/altarch/7.3.1611/os/aarch64/images/boot.iso"
@@ -46,11 +46,12 @@ tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 #copy some custom files into our build directory 
 sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
+sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/
 
 #set some environmental variables in our build directory
-sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile"
-sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile"
-sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile"
+sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
+sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsh.sh"
+sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
 
 #re-build our tar image
 cd $BUILDDIR
