@@ -54,7 +54,9 @@ sudo chroot $BUILDDIR bash /tmp/script.rpm.sh
 
 #get weasel pageant
 wget https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip
-unzip weasel-pageant-1.3.zip $BUILDDIR/opt/pageant/
+unzip weasel-pageant-1.3.zip
+cp ./weasel-pageant-1.3/helper.exe $BUILDDIR/opt/pageant/
+cp ./weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
 
 #set some environmental variables in our build directory
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
