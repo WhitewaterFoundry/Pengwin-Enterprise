@@ -1,2 +1,1 @@
-set_flags DB_NOMMAP
-set_cachesize 0 10 1
+set_open_flags DB_PRIVATE on
