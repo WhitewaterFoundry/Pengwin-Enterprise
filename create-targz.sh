@@ -36,8 +36,7 @@ tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
 sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/DB_CONFIG
-sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/root/firstrun.sh
-sudo chroot $BUILDDIR chmod u+x /root/firstrun.sh
+sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
 
 #copy pageant.exe to /opt/pageant
 mkdir $BUILDDIR/opt/pageant
@@ -64,7 +63,7 @@ mkdir $BUILDDIR/opt/vcxsrv
 wget https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download vcxsrv-installer.exe
 cp vcxsrv-installer.exe $BUILDDIR/opt/vcxsrv/
 
-#set some environmental variables in our build directory
+#set some environmental variables
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
 sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsh.sh"
 sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
