@@ -52,11 +52,16 @@ sudo chroot $BUILDDIR yum update
 wget https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh $BUILDDIR/tmp/
 sudo chroot $BUILDDIR bash /tmp/script.rpm.sh
 
-#get weasel pageant
+#get weasel-pageant
 wget https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip
 unzip weasel-pageant-1.3.zip
 cp ./weasel-pageant-1.3/helper.exe $BUILDDIR/opt/pageant/
 cp ./weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
+
+#get vcxsrv
+mkdir $BUILDDIR/opt/vcxsrv
+wget https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download vcxsrv-installer.exe
+cp vcxsrv-installer.exe $BUILDDIR/opt/vcxsrv/
 
 #set some environmental variables in our build directory
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
