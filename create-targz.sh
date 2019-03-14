@@ -1,3 +1,5 @@
+#!/bin/sh
+
 set -e
 
 #declare variables
@@ -40,15 +42,15 @@ sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
 
 #copy pageant.exe to /opt/pageant
 mkdir $BUILDDIR/opt/pageant
-wget https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe $BUILDDIR/opt/pageant/
+wget -P $BUILDDIR/opt/pageant "https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe"
 
 #install epel repo (needed for pygpgme)
-wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm $BUILDDIR/tmp/
+wget -P $BUILDDIR/tmp "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
 
 #install wslutilities
-wget https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh $BUILDDIR/tmp/
+wget -P $BUILDDIR/tmp "https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh"
 sudo chroot $BUILDDIR bash /tmp/script.rpm.sh
 sudo chroot $BUILDDIR yum -y install wslu
 
@@ -60,7 +62,7 @@ cp ./weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
 
 #get vcxsrv
 mkdir $BUILDDIR/opt/vcxsrv
-wget https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download vcxsrv-installer.exe
+wget -P "vcxsrv-instsller.exe" "https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download"
 cp vcxsrv-installer.exe $BUILDDIR/opt/vcxsrv/
 
 #set some environmental variables
