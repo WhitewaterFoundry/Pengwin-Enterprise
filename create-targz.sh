@@ -46,6 +46,7 @@ wget -P $BUILDDIR/opt/pageant "https://the.earth.li/~sgtatham/putty/latest/w64/p
 
 #install epel repo (needed for pygpgme)
 wget -P $BUILDDIR/tmp "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
 
