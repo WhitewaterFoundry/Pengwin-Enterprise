@@ -1,1 +1,1 @@
-set_open_flags DB_PRIVATE on
+set_cachesize 0 35840 1
