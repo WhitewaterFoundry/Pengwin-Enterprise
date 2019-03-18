@@ -17,7 +17,7 @@ cd $TMPDIR
 sudo yum update
 
 #get livemedia-creator dependencies
-sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget
+sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget -y
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
@@ -44,6 +44,7 @@ wget -P $BUILDDIR/tmp "https://dl.fedoraproject.org/pub/epel/epel-release-latest
 sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
+sudo chroot $BUILDDIR yum -y install sudo
 
 #install wslutilities
 #wget -P $BUILDDIR/tmp "https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh"
