@@ -19,17 +19,19 @@ wHome=$(wslpath -u "${wHomeWinPath}")
 echo "wHome = ${wHome}"
 
 echo "Installing Pageant to ${wHome}/.pageant"
-mkdir ${wHome}/.pageant
-cp /opt/pageant/* ${wHome}/.pageant
+mkdir "${wHome}/.pageant"
+cp /opt/pageant/* "${wHome}/.pageant"
+chmod +x "${wHome}/.pageant/weasel-pageant"
 
 echo "Configuring Pageant Integration"
-string = "eval $(" + ${wHome} + "/.pageant/weasel-pageant -r)"
-echo "#!/bin/bash" > /etc/profile.d/pageant.sh
-echo $string > /etc/profile.d/pageant.sh
+string="eval \$(\""${wHome}/.pageant/weasel-pageant"\" -r --helper \"${wHome}\")"
+echo "#!/bin/bash" >> /etc/profile.d/pageant.sh
+echo $string >> /etc/profile.d/pageant.sh
 
 echo "Installing VcXsrv to ${wHome}/.vcxsrv"
-mkdir ${wHome}/.vcxsrv
-cp /opt/vcxsrv/vcxsrv-installer.exe ${wHome}/.vcxsrv/vcxsrv-installer.exe
+mkdir "${wHome}/.vcxsrv"
+cp /opt/vcxsrv/vcxsrv-installer.exe "${wHome}/.vcxsrv/vcxsrv-installer.exe"
 
 echo "Removing this script"
-mv /etc/profile.d/firstrun.sh /opt/firstrun.sh"
+mkdir /opt/pengwin
+mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
