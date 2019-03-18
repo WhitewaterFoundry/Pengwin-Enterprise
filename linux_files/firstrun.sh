@@ -1,16 +1,16 @@
 #!/bin/bash
 
 echo "Downloading and installing wslu repository"
-curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh | bash
+curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh > /dev/null 2>&1 | sudo bash
 
 echo "Updating repositories"
-yum update
+sudo yum update
 
 echo "Upgrading packages"
-yum upgrade -y
+sudo yum upgrade -y
 
 echo "Installing wslu"
-yum install wslu -y
+sudo yum install wslu -y
 
 echo "Getting required application paths"
 wHomeWinPath=$(cmd.exe /c 'echo %HOMEDRIVE%%HOMEPATH%' 2>&1 | tr -d '\r')
@@ -25,13 +25,13 @@ chmod +x "${wHome}/.pageant/weasel-pageant"
 
 echo "Configuring Pageant Integration"
 string="eval \$(\""${wHome}/.pageant/weasel-pageant"\" -r --helper \"${wHome}\")"
-echo "#!/bin/bash" >> /etc/profile.d/pageant.sh
-echo $string >> /etc/profile.d/pageant.sh
+echo "#!/bin/bash" | sudo tee -a /etc/profile.d/pageant.sh
+echo $string | sudo tee -a /etc/profile.d/pageant.sh
 
 echo "Installing VcXsrv to ${wHome}/.vcxsrv"
 mkdir "${wHome}/.vcxsrv"
 cp /opt/vcxsrv/vcxsrv-installer.exe "${wHome}/.vcxsrv/vcxsrv-installer.exe"
 
 echo "Removing this script"
-mkdir /opt/pengwin
-mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
+sudo mkdir /opt/pengwin
+sudo mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
