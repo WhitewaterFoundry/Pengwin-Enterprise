@@ -10,6 +10,7 @@ BUILDDIR=$(mktemp -d)
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+PAGEANTEXE="https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe"
 WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip"
 
 #go to our temporary directory
@@ -52,6 +53,10 @@ wget -O weasel-pageant.zip "${WEASELPAGEANT}"
 unzip weasel-pageant.zip
 cp weasel-pageant-1.3/helper.exe $BUILDDIR/opt/pageant/
 cp weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
+
+# get putty's pageant.exe
+wget -O pageant.exe "${PAGEANTEXE}"
+cp pageant.exe $BUILDDIR/opt/pageant/
 
 #set some environmental variables
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
