@@ -9,6 +9,8 @@ BUILDDIR=$(mktemp -d)
 
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
+EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip"
 
 #go to our temporary directory
 cd $TMPDIR
@@ -36,7 +38,7 @@ sudo livemedia-creator --make-tar --iso=/tmp/install.iso --image-name=install.ta
 tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 
 #install epel repo (needed for pygpgme)
-wget -P $BUILDDIR/tmp "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+wget -P $BUILDDIR/tmp "${EPELRPM}"
 sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
@@ -44,15 +46,10 @@ sudo chroot $BUILDDIR yum -y install sudo unzip
 
 # get weasel-pageant
 mkdir -p $BUILDDIR/opt/pageant
-wget https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip
-unzip weasel-pageant-1.3.zip
+wget -O weasel-pageant.zip "${WEASELPAGEANT}"
+unzip weasel-pageant.zip
 cp weasel-pageant-1.3/helper.exe $BUILDDIR/opt/pageant/
 cp weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
-
-# get vcxsrv
-mkdir -p $BUILDDIR/opt/vcxsrv
-#wget -O "vcxsrv-installer.exe" "https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download"
-#cp vcxsrv-installer.exe $BUILDDIR/opt/vcxsrv/
 
 #set some environmental variables
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
@@ -64,6 +61,8 @@ sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
 sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/DB_CONFIG
 sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
+
+mkdir -p $BUILDDIR/opt/vcxsrv
 sudo cp $ORIGINDIR/linux_files/vcxsrv.zip $BUILDDIR/opt/vcxsrv
 
 #re-build our tar image
