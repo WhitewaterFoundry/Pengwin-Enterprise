@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -25,7 +25,9 @@ sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvir
 sudo systemctl restart libvirtd
 
 #download enterprise boot ISO
-#sudo curl $BOOTISO -o $ORIGINDIR/install.iso
+if [[ ! -f "$ORIGINDIR/install.iso" ]] ; then
+	sudo curl $BOOTISO -o $ORIGINDIR/install.iso
+fi
 sudo cp $ORIGINDIR/install.iso /tmp/install.iso
 
 #download enterprise Docker kickstart file
