@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Downloading and installing wslu repository"
-curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh > /dev/null 2>&1 | sudo bash
+curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh | sudo bash
 
 echo "Updating repositories"
 sudo yum update
