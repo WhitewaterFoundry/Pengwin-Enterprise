@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Downloading and installing wslu repository"
-curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh > /dev/null 2>&1 | sudo bash
+curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh | sudo bash
 
 echo "Updating repositories"
 sudo yum update
@@ -24,13 +24,22 @@ cp /opt/pageant/* "${wHome}/.pageant"
 chmod +x "${wHome}/.pageant/weasel-pageant"
 
 echo "Configuring Pageant Integration"
-string="eval \$(\""${wHome}/.pageant/weasel-pageant"\" -r --helper \"${wHome}\")"
-echo "#!/bin/bash" | sudo tee -a /etc/profile.d/pageant.sh
-echo $string | sudo tee -a /etc/profile.d/pageant.sh
+string="eval \$(\""${wHome}/.pageant/weasel-pageant"\" -r --helper \"${wHome}/.pageant\")"
+sudo bash -c 'cat > /etc/profile.d/pageant.sh' << EOF
+#!/bin/bash
+$string
+EOF
 
 echo "Installing VcXsrv to ${wHome}/.vcxsrv"
 mkdir "${wHome}/.vcxsrv"
-cp /opt/vcxsrv/vcxsrv-installer.exe "${wHome}/.vcxsrv/vcxsrv-installer.exe"
+unzip /opt/vcxsrv/vcxsrv.zip -d "${wHome}/.vcxsrv" > /dev/null 2>&1
+
+echo "Configuring vcxsrv integration"
+sudo bash -c 'cat > /etc/profile.d/vcxsrv.sh' << EOF
+#!/bin/bash
+'$wHome/.vcxsrv/vcxsrv.exe' :0 -silent-dup-error -multiwindow &> /dev/null &
+disown
+EOF
 
 echo "Removing this script"
 sudo mkdir /opt/pengwin

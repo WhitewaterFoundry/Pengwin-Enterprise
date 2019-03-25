@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -9,6 +9,8 @@ BUILDDIR=$(mktemp -d)
 
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
+EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip"
 
 #go to our temporary directory
 cd $TMPDIR
@@ -23,7 +25,9 @@ sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvir
 sudo systemctl restart libvirtd
 
 #download enterprise boot ISO
-#sudo curl $BOOTISO -o $ORIGINDIR/install.iso
+if [[ ! -f "$ORIGINDIR/install.iso" ]] ; then
+	sudo curl $BOOTISO -o $ORIGINDIR/install.iso
+fi
 sudo cp $ORIGINDIR/install.iso /tmp/install.iso
 
 #download enterprise Docker kickstart file
@@ -35,43 +39,33 @@ sudo livemedia-creator --make-tar --iso=/tmp/install.iso --image-name=install.ta
 #open up the tar into our build directory
 tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 
-#copy pageant.exe to /opt/pageant
-mkdir $BUILDDIR/opt/pageant
-#wget -P $BUILDDIR/opt/pageant "https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe"
-
 #install epel repo (needed for pygpgme)
-wget -P $BUILDDIR/tmp "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+wget -P $BUILDDIR/tmp "${EPELRPM}"
 sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
-sudo chroot $BUILDDIR yum -y install sudo
+sudo chroot $BUILDDIR yum -y install sudo unzip
 
-#install wslutilities
-#wget -P $BUILDDIR/tmp "https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh"
-#sudo chroot $BUILDDIR bash /tmp/script.rpm.sh
-#sudo chroot $BUILDDIR yum -y install wslu
-
-#get weasel-pageant
-wget https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip
-unzip weasel-pageant-1.3.zip
+# get weasel-pageant
+mkdir -p $BUILDDIR/opt/pageant
+wget -O weasel-pageant.zip "${WEASELPAGEANT}"
+unzip weasel-pageant.zip
 cp weasel-pageant-1.3/helper.exe $BUILDDIR/opt/pageant/
 cp weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
-
-#get vcxsrv
-mkdir $BUILDDIR/opt/vcxsrv
-wget -O "vcxsrv-installer.exe" "https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download"
-cp vcxsrv-installer.exe $BUILDDIR/opt/vcxsrv/
 
 #set some environmental variables
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
 sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsh.sh"
 sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
 
-#
+# Copy over our own files
 sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
 sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/DB_CONFIG
 sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
+
+mkdir -p $BUILDDIR/opt/vcxsrv
+sudo cp $ORIGINDIR/linux_files/vcxsrv.zip $BUILDDIR/opt/vcxsrv
 
 #re-build our tar image
 cd $BUILDDIR
