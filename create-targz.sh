@@ -45,6 +45,7 @@ sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
 sudo chroot $BUILDDIR yum -y install sudo unzip
+sudo chroot $BUILDDIR yum clean all
 
 # get weasel-pageant
 mkdir -p $BUILDDIR/opt/pageant
