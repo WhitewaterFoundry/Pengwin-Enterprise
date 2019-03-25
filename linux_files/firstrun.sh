@@ -50,7 +50,7 @@ EOF
 # Unzip vcxsrv to user's directory
 echo "Installing vcxsrv to ${Home}/.vcxsrv"
 mkdir "${Home}/.vcxsrv"
-unzip /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv" > /dev/null 2>&1
+unzip -q /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv"
 
 # Add profile.d start script for vcxsrv
 echo "Configuring vcxsrv integration"
