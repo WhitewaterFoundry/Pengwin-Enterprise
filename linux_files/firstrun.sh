@@ -22,10 +22,15 @@ echo "Installing wslu"
 sudo yum install wslu -y
 
 # Install Putty's Pageant and weasel-pageant
-echo "Installing Pageant (with weasel-pageant WSL integration) to ${Home}/.pageant"
-mkdir "${Home}/.pageant"
-cp /opt/pageant/* "${Home}/.pageant"
-chmod +x "${Home}/.pageant/weasel-pageant"
+if [[ ! -d "${Home}/.pageant"  ]] ; then
+	echo "Installing Pageant (with weasel-pageant WSL integration) to ${Home}/.pageant"
+	mkdir "${Home}/.pageant"
+	cp /opt/pageant/* "${Home}/.pageant"
+	chmod +x "${Home}/.pageant/weasel-pageant"
+else
+        echo "${Home}/.pageant already exists, leaving in place."
+        echo "To reinstall pageant and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
+fi
 
 # Add Pageant startup registry entry
 echo "Configuring Pageant to execute on startup"
@@ -40,6 +45,8 @@ cmd.exe /C "Reg import %TEMP%\Install.reg"
 rm -rf "${TMPDIR}"
 
 # Add profile.d start script for weasel-pageant
+# NOTE: putting eval in a string like this is necessary to avoid bash executing it during
+# 	running of firstrun.sh
 echo "Configuring weasel-pageant WSL integration"
 string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r --helper \"${Home}/.pageant\")"
 sudo bash -c 'cat > /etc/profile.d/pageant.sh' << EOF
@@ -48,9 +55,14 @@ $string
 EOF
 
 # Unzip vcxsrv to user's directory
-echo "Installing vcxsrv to ${Home}/.vcxsrv"
-mkdir "${Home}/.vcxsrv"
-unzip -q /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv"
+if [[ ! -d "${Home}/.vcxsrv"  ]] ; then
+	echo "Installing vcxsrv to ${Home}/.vcxsrv"
+	mkdir "${Home}/.vcxsrv"
+	unzip -q /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv"
+else
+	echo "${Home}/.vcxsrv already exists, leaving in place."
+	echo "To reinstall vcxsrv and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
+fi
 
 # Add profile.d start script for vcxsrv
 echo "Configuring vcxsrv integration"
@@ -61,6 +73,6 @@ disown
 EOF
 
 # Move firstrun.sh out of profile.d to /opt/pengwin
-echo "Removing this script"
+echo "Removing this script and backing up to /opt/pengwin/firstrun.sh"
 sudo mkdir /opt/pengwin
 sudo mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
