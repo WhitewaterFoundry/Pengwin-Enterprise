@@ -29,10 +29,11 @@ chmod +x "${Home}/.pageant/weasel-pageant"
 
 # Add Pageant startup registry entry
 echo "Configuring Pageant to execute on startup"
+wHomeRegEntry="$(echo $wHome | sed 's|\\|\\\\|g')"
 cat << EOF >> "${TMPDIR}/Install.reg"
 Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
-"Pageant"="${wHome}\\.pageant\\pageant.exe"
+"Pageant"="${wHomeRegEntry}\\\\.pageant\\\\pageant.exe"
 EOF
 cp "${TMPDIR}/Install.reg" "$HomeDrive$(cmd.exe /C 'echo %TEMP%' 2>&1 | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
 cmd.exe /C "Reg import %TEMP%\Install.reg"
