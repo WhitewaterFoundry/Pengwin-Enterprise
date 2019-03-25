@@ -74,5 +74,5 @@ EOF
 
 # Move firstrun.sh out of profile.d to /opt/pengwin
 echo "Removing this script and backing up to /opt/pengwin/firstrun.sh"
-sudo mkdir /opt/pengwin
+sudo mkdir -p /opt/pengwin
 sudo mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
