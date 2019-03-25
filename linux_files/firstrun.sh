@@ -55,7 +55,7 @@ unzip /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv" > /dev/null 2>&1
 echo "Configuring vcxsrv integration"
 sudo bash -c 'cat > /etc/profile.d/vcxsrv.sh' << EOF
 #!/bin/bash
-'$Home/.vcxsrv/vcxsrv.exe' :0 -silent-dup-error -multiwindow &> /dev/null &
+cmd.exe /C '$wHome\.vcxsrv\vcxsrv.exe' :0 -silent-dup-error -multiwindow &> /dev/null &
 disown
 EOF
 
