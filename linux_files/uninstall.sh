@@ -10,11 +10,11 @@ fi
 
 # Remove .vcxsrv
 echo "Removing ${Home}/.vcxsrv folder"
-rm -rf "${Home}/.vcxsrv"
+sudo rm -rf "${Home}/.vcxsrv"
 
 # Remove vcxsrv.sh
 echo "Removing /etc/profile.d/vcxsrv.sh"
-rm /etc/profile.d/vcxsrv.sh
+sudo rm -f /etc/profile.d/vcxsrv.sh
 }
 
 function uninstall_pageant()
@@ -26,9 +26,9 @@ if cmd.exe /C tasklist | grep -Fq 'helper.exe' ; then
 	cmd.exe /C taskkill /IM 'helper.exe' /F
 fi
 
-if ps aux | grep -Fq 'weasel-pageant' ; then
-	echo "weasel-pageant linux executable running. Killing process..."
-	killall weasel-pageant
+if ps | grep -Fq 'weasel-pageant' ; then
+	echo "weasel-pageant running. Killing process..."
+	pkill weasel-pageant
 fi
 
 if cmd.exe /C tasklist | grep -Fq 'pageant.exe' ; then
@@ -38,11 +38,11 @@ fi
 
 # Remove .pageant
 echo "Removing ${Home}/.pageant"
-rm -rf "${Home}/.pageant"
+sudo rm -rf "${Home}/.pageant"
 
 # Remove weasel-pageant.sh
-echo "Removing /etc/profile.d/weasel-pageant.sh"
-rm /etc/profile.d/weasel-pageant.sh
+echo "Removing /etc/profile.d/pageant.sh"
+sudo rm -f /etc/profile.d/pageant.sh
 
 # Remove pageant startup registry key
 echo "Removing pageant.exe startup registry key"
@@ -66,10 +66,16 @@ HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
 wHome="$wHomeDrive$wHomePath"
 Home="$HomeDrive$HomePath"
 
-uninstall_vcxsrv()
-uninstall_pageant()
-rm -rf "${TMPDIR}"
+uninstall_vcxsrv
+uninstall_pageant
+sudo rm -rf "${TMPDIR}"
 }
+
+# Initial checks
+if [[ "$EUID" == 0 ]] ; then
+	echo "Please run as regular user (not root)."
+	exit 1
+fi
 
 # Initial user prompt message
 echo "Now running the Pengwin Enterprise integrations uninstaller."
@@ -79,7 +85,8 @@ echo -n "If you understand this and would like to continue type 'YES' (all capit
 read userprompt
 if [[ $userprompt == "YES" ]] ; then
 	main_uninstall
+	echo "To reinstall these integrations, please move /opt/pengwin/firstrun.sh into /etc/profile.d/"
+	echo "Then restart the shell."
 else
 	exit 0
 fi
-
