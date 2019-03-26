@@ -1,46 +1,78 @@
 #!/bin/bash
 
+echo "Getting required application paths"
+TMPDIR=$(mktemp -d)
+wHomeDrive="$(cmd.exe /C 'echo %HOMEDRIVE%' | tr -d '\r')"
+HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
+wHomePath="$(cmd.exe /C 'echo %HOMEPATH%' | tr -d '\r')"
+HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
+wHome="$wHomeDrive$wHomePath"
+Home="$HomeDrive$HomePath"
+
+# Add wslu repository and install wslu
 echo "Downloading and installing wslu repository"
-curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh | sudo bash
+curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh -o "${TMPDIR}/script.sh" > /dev/null 2>&1
+sudo bash "${TMPDIR}/script.sh"
 
 echo "Updating repositories"
 sudo yum update
-
 echo "Upgrading packages"
 sudo yum upgrade -y
-
 echo "Installing wslu"
 sudo yum install wslu -y
 
-echo "Getting required application paths"
-wHomeWinPath=$(cmd.exe /c 'echo %HOMEDRIVE%%HOMEPATH%' 2>&1 | tr -d '\r')
-echo "wHomeWinPath = ${wHomeWinPath}"
-wHome=$(wslpath -u "${wHomeWinPath}")
-echo "wHome = ${wHome}"
+# Install Putty's Pageant and weasel-pageant
+if [[ ! -d "${Home}/.pageant"  ]] ; then
+	echo "Installing Pageant (with weasel-pageant WSL integration) to ${Home}/.pageant"
+	mkdir "${Home}/.pageant"
+	cp /opt/pageant/* "${Home}/.pageant"
+	chmod +x "${Home}/.pageant/weasel-pageant"
+else
+        echo "${Home}/.pageant already exists, leaving in place."
+        echo "To reinstall pageant and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
+fi
 
-echo "Installing Pageant to ${wHome}/.pageant"
-mkdir "${wHome}/.pageant"
-cp /opt/pageant/* "${wHome}/.pageant"
-chmod +x "${wHome}/.pageant/weasel-pageant"
+# Add Pageant startup registry entry
+echo "Configuring Pageant to execute on startup"
+wHomeRegEntry="$(echo $wHome | sed 's|\\|\\\\|g')"
+cat << EOF >> "${TMPDIR}/Install.reg"
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
+"Pageant"="${wHomeRegEntry}\\\\.pageant\\\\pageant.exe"
+EOF
+cp "${TMPDIR}/Install.reg" "$HomeDrive$(cmd.exe /C 'echo %TEMP%' 2>&1 | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
+cmd.exe /C "Reg import %TEMP%\Install.reg"
+rm -rf "${TMPDIR}"
 
-echo "Configuring Pageant Integration"
-string="eval \$(\""${wHome}/.pageant/weasel-pageant"\" -r --helper \"${wHome}/.pageant\")"
+# Add profile.d start script for weasel-pageant
+# NOTE: putting eval in a string like this is necessary to avoid bash executing it during
+# 	running of firstrun.sh
+echo "Configuring weasel-pageant WSL integration"
+string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r --helper \"${Home}/.pageant\")"
 sudo bash -c 'cat > /etc/profile.d/pageant.sh' << EOF
 #!/bin/bash
 $string
 EOF
 
-echo "Installing VcXsrv to ${wHome}/.vcxsrv"
-mkdir "${wHome}/.vcxsrv"
-unzip /opt/vcxsrv/vcxsrv.zip -d "${wHome}/.vcxsrv" > /dev/null 2>&1
+# Unzip vcxsrv to user's directory
+if [[ ! -d "${Home}/.vcxsrv"  ]] ; then
+	echo "Installing vcxsrv to ${Home}/.vcxsrv"
+	mkdir "${Home}/.vcxsrv"
+	unzip -q /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv"
+else
+	echo "${Home}/.vcxsrv already exists, leaving in place."
+	echo "To reinstall vcxsrv and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
+fi
 
+# Add profile.d start script for vcxsrv
 echo "Configuring vcxsrv integration"
 sudo bash -c 'cat > /etc/profile.d/vcxsrv.sh' << EOF
 #!/bin/bash
-'$wHome/.vcxsrv/vcxsrv.exe' :0 -silent-dup-error -multiwindow &> /dev/null &
+cmd.exe /C '$wHome\.vcxsrv\vcxsrv.exe' :0 -silent-dup-error -multiwindow &> /dev/null &
 disown
 EOF
 
-echo "Removing this script"
-sudo mkdir /opt/pengwin
+# Move firstrun.sh out of profile.d to /opt/pengwin
+echo "Removing this script and backing up to /opt/pengwin/firstrun.sh"
+sudo mkdir -p /opt/pengwin
 sudo mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
