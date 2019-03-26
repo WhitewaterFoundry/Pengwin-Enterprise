@@ -82,6 +82,6 @@ sudo mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
 # Restart shell
 clear -x
 echo "firstrun.sh complete, launching integrations and restarting shell..."
-cmd.exe /C '$wHome\.pageant\pageant.exe' &> /dev/null &
+cmd.exe /C "$wHome\.pageant\pageant.exe" &> /dev/null &
 disown
 exec bash --login
