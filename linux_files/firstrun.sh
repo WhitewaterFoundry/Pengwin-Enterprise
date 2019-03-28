@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Executing firstrun.sh script"
+
 echo "Getting required application paths"
 TMPDIR=$(mktemp -d)
 wHomeDrive="$(cmd.exe /C 'echo %HOMEDRIVE%' | tr -d '\r')"
@@ -76,3 +78,10 @@ EOF
 echo "Removing this script and backing up to /opt/pengwin/firstrun.sh"
 sudo mkdir -p /opt/pengwin
 sudo mv /etc/profile.d/firstrun.sh /opt/pengwin/firstrun.sh
+
+# Restart shell
+clear -x
+echo "firstrun.sh complete, launching integrations and restarting shell..."
+cmd.exe /C "$wHome\.pageant\pageant.exe" &> /dev/null &
+disown
+exec bash --login

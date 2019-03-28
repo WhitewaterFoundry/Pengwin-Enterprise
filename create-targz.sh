@@ -45,7 +45,9 @@ wget -P $BUILDDIR/tmp "${EPELRPM}"
 sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
-sudo chroot $BUILDDIR yum -y install sudo unzip
+
+#install dependencies and clean yum cache
+sudo chroot $BUILDDIR yum -y install sudo unzip openssh openssh-clients
 sudo chroot $BUILDDIR yum clean all
 
 # get weasel-pageant
@@ -69,6 +71,9 @@ sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
 sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/DB_CONFIG
 sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
+
+mkdir -p $BUILDDIR/opt/pengwin
+sudo cp $ORIGINDIR/linux_files/uninstall.sh $BUILDDIR/opt/pengwin/uninstall.sh
 
 mkdir -p $BUILDDIR/opt/vcxsrv
 sudo cp $ORIGINDIR/linux_files/vcxsrv.zip $BUILDDIR/opt/vcxsrv
