@@ -69,7 +69,6 @@ sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
 # Copy over our own files
 sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
 sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
-sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/DB_CONFIG
 sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
 
 mkdir -p $BUILDDIR/opt/pengwin
