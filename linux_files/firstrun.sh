@@ -12,16 +12,16 @@ wHome="$wHomeDrive$wHomePath"
 Home="$HomeDrive$HomePath"
 
 # Add wslu repository and install wslu
-echo "Downloading and installing wslu repository"
-curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh -o "${TMPDIR}/script.sh" > /dev/null 2>&1
-sudo bash "${TMPDIR}/script.sh"
+# echo "Downloading and installing wslu repository"
+# curl -L https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.rpm.sh -o "${TMPDIR}/script.sh" > /dev/null 2>&1
+# sudo bash "${TMPDIR}/script.sh"
 
-echo "Updating repositories"
-sudo yum update
-echo "Upgrading packages"
-sudo yum upgrade -y
-echo "Installing wslu"
-sudo yum install wslu -y
+# echo "Updating repositories"
+# sudo yum update
+# echo "Upgrading packages"
+# sudo yum upgrade -y
+# echo "Installing wslu"
+# sudo yum install wslu -y
 
 # Install Putty's Pageant and weasel-pageant
 if [[ ! -d "${Home}/.pageant"  ]] ; then
