@@ -8,7 +8,7 @@ TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
-KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
+KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 PAGEANTEXE="https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe"
 WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip"
@@ -46,8 +46,7 @@ sudo mount -o bind /dev $BUILDDIR/dev
 sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
 sudo chroot $BUILDDIR yum update
 
-#install dependencies and clean yum cache
-sudo chroot $BUILDDIR yum -y install sudo unzip openssh openssh-clients
+#clean yum cache
 sudo chroot $BUILDDIR yum clean all
 
 # get weasel-pageant
