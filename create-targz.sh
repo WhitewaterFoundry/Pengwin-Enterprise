@@ -40,15 +40,6 @@ sudo livemedia-creator --make-tar --iso=/tmp/install.iso --image-name=install.ta
 #open up the tar into our build directory
 tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 
-#install epel repo (needed for pygpgme)
-wget -P $BUILDDIR/tmp "${EPELRPM}"
-sudo mount -o bind /dev $BUILDDIR/dev
-sudo chroot $BUILDDIR yum -y install /tmp/epel-release-latest-7.noarch.rpm
-sudo chroot $BUILDDIR yum update
-
-#clean yum cache
-sudo chroot $BUILDDIR yum clean all
-
 # get weasel-pageant
 mkdir -p $BUILDDIR/opt/pageant
 wget -O weasel-pageant.zip "${WEASELPAGEANT}"
