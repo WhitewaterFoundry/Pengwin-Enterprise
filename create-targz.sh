@@ -12,6 +12,7 @@ KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-b
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 PAGEANTEXE="https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe"
 WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip"
+VCXSRVINSTALLER="https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download"
 
 #go to our temporary directory
 cd $TMPDIR
@@ -20,7 +21,7 @@ cd $TMPDIR
 sudo yum update
 
 #get livemedia-creator dependencies
-sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget -y
+sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget p7zip p7zip-full p7zip-rar -y
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
@@ -51,7 +52,17 @@ cp weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
 wget -O pageant.exe "${PAGEANTEXE}"
 cp pageant.exe $BUILDDIR/opt/pageant/
 
-#set some environmental variables
+# download vcxsrv self-extracting executable, extract, zip again
+mkdir -p $BUILDDIR/opt/vcxsrv
+mkdir vcxsrv
+wget -O vcxsrvinstaller.exe "${VCXSRVINSTALLER}"
+7z x vcxsrvinstaller.exe -ovcxsrv
+cd vcxsrv
+zip -9 -r vcxsrv.zip *
+cp vcxsrv.zip $BUILDDIR/opt/vcxsrv
+cd ../
+
+# set some environmental variables
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
 sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsh.sh"
 sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
@@ -63,9 +74,6 @@ sudo cp $ORIGINDIR/linux_files/firstrun.sh $BUILDDIR/etc/profile.d/firstrun.sh
 
 mkdir -p $BUILDDIR/opt/pengwin
 sudo cp $ORIGINDIR/linux_files/uninstall.sh $BUILDDIR/opt/pengwin/uninstall.sh
-
-mkdir -p $BUILDDIR/opt/vcxsrv
-sudo cp $ORIGINDIR/linux_files/vcxsrv.zip $BUILDDIR/opt/vcxsrv
 
 #re-build our tar image
 cd $BUILDDIR
