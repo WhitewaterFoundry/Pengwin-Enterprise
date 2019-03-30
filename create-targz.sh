@@ -27,10 +27,9 @@ sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvir
 
 # install 7zip
 wget -O p7zip.rpm "${P7ZIPRPM}"
-wget -O p7zip-plugins.rpm "${P7ZIPRPM}"
-
-sudo rpm -U --quiet p7zip.rpm
-sudo rpm -U --quiet p7zip-plugins.rpm
+wget -O p7zip-plugins.rpm "${P7ZIPPLUGINSRPM}"
+sudo rpm -U --quiet --force p7zip.rpm
+sudo rpm -U --quiet --force p7zip-plugins.rpm
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
