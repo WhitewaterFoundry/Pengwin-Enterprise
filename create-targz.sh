@@ -7,6 +7,8 @@ ORIGINDIR=$(pwd)
 TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
+P7ZIPRPM="https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-16.02-10.el7.x86_64.rpm"
+P7ZIPPLUGINSRPM="https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-plugins-16.02-10.el7.x86_64.rpm"
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
@@ -21,7 +23,14 @@ cd $TMPDIR
 sudo yum update
 
 #get livemedia-creator dependencies
-sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget p7zip p7zip-full p7zip-rar -y
+sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget -y
+
+# install 7zip
+wget -O p7zip.rpm "${P7ZIPRPM}"
+wget -O p7zip-plugins.rpm "${P7ZIPRPM}"
+
+sudo rpm -U --quiet p7zip.rpm
+sudo rpm -U --quiet p7zip-plugins.rpm
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
