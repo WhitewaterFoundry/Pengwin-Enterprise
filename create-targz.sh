@@ -64,7 +64,7 @@ cp pageant.exe $BUILDDIR/opt/pageant/
 mkdir -p $BUILDDIR/opt/vcxsrv
 mkdir vcxsrv
 wget -O vcxsrvinstaller.exe "${VCXSRVINSTALLER}"
-7z x vcxsrvinstaller.exe -ovcxsrv
+/usr/libexec/p7zip/7za x vcxsrvinstaller.exe -ovcxsrv
 cd vcxsrv
 zip -9 -r vcxsrv.zip *
 cp vcxsrv.zip $BUILDDIR/opt/vcxsrv
