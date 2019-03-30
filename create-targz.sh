@@ -7,8 +7,6 @@ ORIGINDIR=$(pwd)
 TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
-P7ZIPRPM="https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-16.02-10.el7.x86_64.rpm"
-P7ZIPPLUGINSRPM="https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-plugins-16.02-10.el7.x86_64.rpm"
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
@@ -25,11 +23,9 @@ sudo yum update
 #get livemedia-creator dependencies
 sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu unzip wget -y
 
-# install 7zip
-wget -O p7zip.rpm "${P7ZIPRPM}"
-wget -O p7zip-plugins.rpm "${P7ZIPPLUGINSRPM}"
-sudo rpm -U --quiet --force p7zip.rpm
-sudo rpm -U --quiet --force p7zip-plugins.rpm
+# install 7zip + zip
+sudo yum install epel-release -y
+sudo yum install p7zip p7zip-plugins zip -y
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
@@ -64,7 +60,7 @@ cp pageant.exe $BUILDDIR/opt/pageant/
 mkdir -p $BUILDDIR/opt/vcxsrv
 mkdir vcxsrv
 wget -O vcxsrvinstaller.exe "${VCXSRVINSTALLER}"
-/usr/libexec/p7zip/7za x vcxsrvinstaller.exe -ovcxsrv
+7z x vcxsrvinstaller.exe -ovcxsrv
 cd vcxsrv
 zip -9 -r vcxsrv.zip *
 cp vcxsrv.zip $BUILDDIR/opt/vcxsrv
