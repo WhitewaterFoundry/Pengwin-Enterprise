@@ -48,7 +48,7 @@ sudo rm -f /etc/profile.d/pageant.sh
 echo "Removing pageant.exe startup registry key"
 cat << EOF >> "${TMPDIR}/Uninstall.reg"
 Windows Registry Editor Version 5.00
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\Pageant]
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
 "Pageant"=-
 EOF
 cp "${TMPDIR}/Uninstall.reg" "$HomeDrive$(cmd.exe /C 'echo %TEMP%' 2>&1 | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
