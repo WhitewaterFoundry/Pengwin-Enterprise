@@ -51,7 +51,7 @@ rm -rf "${TMPDIR}"
 # NOTE: putting eval in a string like this is necessary to avoid bash executing it during
 # 	running of firstrun.sh
 echo "Configuring weasel-pageant WSL integration"
-string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r --helper \"${Home}/.pageant\")"
+string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r)"
 sudo bash -c 'cat > /etc/profile.d/pageant.sh' << EOF
 #!/bin/bash
 $string
