@@ -29,6 +29,7 @@ if [[ ! -d "${Home}/.pageant"  ]] ; then
 	mkdir "${Home}/.pageant"
 	cp /opt/pageant/* "${Home}/.pageant"
 	chmod +x "${Home}/.pageant/weasel-pageant"
+	chmod +x "${Home}/.pageant/helper.exe"
 else
         echo "${Home}/.pageant already exists, leaving in place."
         echo "To reinstall pageant and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
