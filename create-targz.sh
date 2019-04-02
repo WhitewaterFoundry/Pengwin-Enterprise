@@ -50,7 +50,7 @@ sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/
 
 #set some environmental variables in our build directory
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
-sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsh.sh"
+sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
 sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
 
 #re-build our tar image
