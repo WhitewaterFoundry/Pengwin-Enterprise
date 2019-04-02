@@ -10,7 +10,7 @@ BUILDDIR=$(mktemp -d)
 BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
-PAGEANTEXE="https://the.earth.li/~sgtatham/putty/latest/w64/pageant.exe"
+PAGEANTEXE="https://github.com/NoMoreFood/putty-cac/raw/0.71/binaries/x64/pageant.exe"
 WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.3/weasel-pageant-1.3.zip"
 VCXSRVINSTALLER="https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.1.4/vcxsrv-64.1.20.1.4.installer.exe/download"
 
