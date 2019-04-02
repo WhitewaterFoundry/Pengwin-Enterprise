@@ -29,6 +29,7 @@ if [[ ! -d "${Home}/.pageant"  ]] ; then
 	mkdir "${Home}/.pageant"
 	cp /opt/pageant/* "${Home}/.pageant"
 	chmod +x "${Home}/.pageant/weasel-pageant"
+	chmod +x "${Home}/.pageant/helper.exe"
 else
         echo "${Home}/.pageant already exists, leaving in place."
         echo "To reinstall pageant and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
@@ -50,7 +51,7 @@ rm -rf "${TMPDIR}"
 # NOTE: putting eval in a string like this is necessary to avoid bash executing it during
 # 	running of firstrun.sh
 echo "Configuring weasel-pageant WSL integration"
-string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r --helper \"${Home}/.pageant\")"
+string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r)"
 sudo bash -c 'cat > /etc/profile.d/pageant.sh' << EOF
 #!/bin/bash
 $string

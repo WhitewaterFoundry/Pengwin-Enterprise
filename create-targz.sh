@@ -87,7 +87,6 @@ tar --ignore-failed-read -czvf $ORIGINDIR/install.tar.gz *
 cd $ORIGINDIR
 
 #clean up
-sudo umount $BUILDDIR/dev
 sudo rm -r $BUILDDIR
 sudo rm -r $TMPDIR
 sudo rm /tmp/install.iso
