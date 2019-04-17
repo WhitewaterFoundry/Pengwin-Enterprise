@@ -70,6 +70,7 @@ cd ../
 sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
 sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
 sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
+sudo bash -c "echo 'export TERM=st-256color' >> $BUILDDIR/etc/profile.d/wsl.sh"
 
 # Copy over our own files
 sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
