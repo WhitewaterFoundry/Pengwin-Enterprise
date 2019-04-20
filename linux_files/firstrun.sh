@@ -1,12 +1,17 @@
 #!/bin/bash
 
+function cmd_exe()
+{
+	cmd.exe /C "$@" 2> /dev/null
+}
+
 echo "Executing firstrun.sh script"
 
 echo "Getting required application paths"
 TMPDIR=$(mktemp -d)
-wHomeDrive="$(cmd.exe /C 'echo %HOMEDRIVE%' | tr -d '\r')"
+wHomeDrive="$(cmd_exe 'echo %HOMEDRIVE%' | tr -d '\r')"
 HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
-wHomePath="$(cmd.exe /C 'echo %HOMEPATH%' | tr -d '\r')"
+wHomePath="$(cmd_exe 'echo %HOMEPATH%' | tr -d '\r')"
 HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
 wHome="$wHomeDrive$wHomePath"
 Home="$HomeDrive$HomePath"
@@ -43,8 +48,8 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
 "Pageant"="${wHomeRegEntry}\\\\.pageant\\\\pageant.exe"
 EOF
-cp "${TMPDIR}/Install.reg" "$HomeDrive$(cmd.exe /C 'echo %TEMP%' 2>&1 | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
-cmd.exe /C "Reg import %TEMP%\Install.reg"
+cp "${TMPDIR}/Install.reg" "$HomeDrive$(cmd_exe 'echo %TEMP%' | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
+cmd_exe "Reg import %TEMP%\Install.reg"
 rm -rf "${TMPDIR}"
 
 # Add profile.d start script for weasel-pageant

@@ -1,11 +1,16 @@
 #!/bin/bash
 
+function cmd_exe()
+{
+	cmd.exe /C "$@" 2> /dev/null
+}
+
 function uninstall_vcxsrv()
 {
 # Stop vcxsrv if running
-if cmd.exe /C tasklist | grep -Fq 'vcxsrv.exe' ; then
+if cmd_exe tasklist | grep -Fq 'vcxsrv.exe' ; then
 	echo "vcxsrv.exe running. Killing process..."
-	cmd.exe /C taskkill /IM 'vcxsrv.exe' /F
+	cmd_exe taskkill /IM 'vcxsrv.exe' /F
 fi
 
 # Remove .vcxsrv
@@ -20,10 +25,9 @@ sudo rm -f /etc/profile.d/vcxsrv.sh
 function uninstall_pageant()
 {
 # Stop weasel-pageant, helper and pageant if running
-helper_running=$(cmd.exe /C tasklist | grep -Fq 'helper.exe')
-if cmd.exe /C tasklist | grep -Fq 'helper.exe' ; then
+if cmd_exe tasklist | grep -Fq 'helper.exe' ; then
 	echo "Weasel-pageant helper.exe running. Killing process..."
-	cmd.exe /C taskkill /IM 'helper.exe' /F
+	cmd_exe taskkill /IM 'helper.exe' /F
 fi
 
 if ps | grep -Fq 'weasel-pageant' ; then
@@ -31,9 +35,9 @@ if ps | grep -Fq 'weasel-pageant' ; then
 	pkill weasel-pageant
 fi
 
-if cmd.exe /C tasklist | grep -Fq 'pageant.exe' ; then
+if cmd_exe tasklist | grep -Fq 'pageant.exe' ; then
 	echo "pageant.exe running. Killing process..."
-	cmd.exe /C taskkill /IM 'pageant.exe' /F
+	cmd_exe taskkill /IM 'pageant.exe' /F
 fi
 
 # Remove .pageant
@@ -51,8 +55,8 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
 "Pageant"=-
 EOF
-cp "${TMPDIR}/Uninstall.reg" "$HomeDrive$(cmd.exe /C 'echo %TEMP%' 2>&1 | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
-cmd.exe /C "Reg import %TEMP%\Uninstall.reg"
+cp "${TMPDIR}/Uninstall.reg" "$HomeDrive$(cmd_exe 'echo %TEMP%' | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
+cmd_exe "Reg import %TEMP%\Uninstall.reg"
 }
 
 function main_uninstall()
@@ -60,9 +64,9 @@ function main_uninstall()
 # Get required paths
 echo "Getting required application paths"
 TMPDIR=$(mktemp -d)
-wHomeDrive="$(cmd.exe /C 'echo %HOMEDRIVE%' | tr -d '\r')"
+wHomeDrive="$(cmd_exe 'echo %HOMEDRIVE%' | tr -d '\r')"
 HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
-wHomePath="$(cmd.exe /C 'echo %HOMEPATH%' | tr -d '\r')"
+wHomePath="$(cmd_exe 'echo %HOMEPATH%' | tr -d '\r')"
 HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
 wHome="$wHomeDrive$wHomePath"
 Home="$HomeDrive$HomePath"
