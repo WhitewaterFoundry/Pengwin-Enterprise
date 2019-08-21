@@ -49,8 +49,8 @@ tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
 mkdir -p $BUILDDIR/opt/pageant
 wget -O weasel-pageant.zip "${WEASELPAGEANT}"
 unzip weasel-pageant.zip
-cp weasel-pageant-1.3/helper.exe $BUILDDIR/opt/pageant/
-cp weasel-pageant-1.3/weasel-pageant $BUILDDIR/opt/pageant/
+cp weasel-pageant-1.4/helper.exe $BUILDDIR/opt/pageant/
+cp weasel-pageant-1.4/weasel-pageant $BUILDDIR/opt/pageant/
 
 # get putty's pageant.exe
 wget -O pageant.exe "${PAGEANTEXE}"
