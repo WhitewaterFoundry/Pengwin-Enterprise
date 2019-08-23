@@ -2,25 +2,13 @@ set -e
 
 #declare variables
 ORIGINDIR=$(pwd)
-TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
 #enterprise boot ISO
-BOOTISO="http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/images/boot.iso"
+BOOTISO="/root/rhel-workstation-7.7-x86_64-dvd.iso"
 
-#enterprise Docker kickstart file
-KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/sl-7.ks"
-
-#upstream enterprise boot ISO
-#BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
-#KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
-
-#ARM64
-#BOOTISO="http://vault.centos.org/altarch/7.3.1611/os/aarch64/images/boot.iso"
-#KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master/docker/centos-7arm64.ks"
-
-#go to our temporary directory
-cd $TMPDIR
+#rhel kickstart file
+KSFILE="/root/Pengwin-Enterprise/rhel-7.ks"
 
 #make sure we are up to date
 sudo yum update
@@ -31,14 +19,8 @@ sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvir
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
 
-#download enterprise boot ISO
-sudo curl $BOOTISO -o /tmp/install.iso
-
-#download enterprise Docker kickstart file
-curl $KSFILE -o install.ks
-
 #build intermediary rootfs tar
-sudo livemedia-creator --make-tar --iso=/tmp/install.iso --image-name=install.tar.xz --ks=install.ks --releasever "7"
+sudo livemedia-creator --make-tar --iso=$BOOTISO --image-name=install.tar.xz --ks=$KSFILE --releasever "7"
 
 #open up the tar into our build directory
 tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
@@ -59,10 +41,7 @@ cd $BUILDDIR
 tar --ignore-failed-read -czvf $ORIGINDIR/install.tar.gz *
 
 #go home
-cd $ORIGINDIR
+#cd $ORIGINDIR
 
 #clean up
 sudo rm -r $BUILDDIR
-sudo rm -r $TMPDIR
-sudo rm /tmp/install.iso
-sudo rm /var/tmp/install.tar.xz
