@@ -12,7 +12,7 @@ KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-b
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 PAGEANTEXE="https://github.com/NoMoreFood/putty-cac/raw/0.72/binaries/x64/pageant.exe"
 WEASELPAGEANT="https://github.com/vuori/weasel-pageant/releases/download/v1.4/weasel-pageant-1.4.zip"
-VCXSRVINSTALLER="https://cfhcable.dl.sourceforge.net/project/vcxsrv/vcxsrv/1.20.5.1/vcxsrv-64.1.20.5.1.installer.exe/download"
+VCXSRVINSTALLER="https://sourceforge.net/projects/vcxsrv/files/vcxsrv/1.20.5.1/vcxsrv-64.1.20.5.1.installer.exe/download"
 
 #go to our temporary directory
 cd $TMPDIR
