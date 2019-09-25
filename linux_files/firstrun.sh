@@ -76,7 +76,7 @@ fi
 echo "Configuring vcxsrv integration"
 sudo bash -c 'cat > /etc/profile.d/vcxsrv.sh' << EOF
 #!/bin/bash
-cmd.exe /C '$wHome\.vcxsrv\vcxsrv.exe' :0 -silent-dup-error -multiwindow &> /dev/null &
+cmd.exe /C '$wHome\.vcxsrv\vcxsrv.exe' localhost:0 -silent-dup-error -multiwindow &> /dev/null &
 disown
 EOF
 
