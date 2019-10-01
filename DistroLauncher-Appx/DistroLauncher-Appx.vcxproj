@@ -81,7 +81,7 @@
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
-    <AppxPackageDir>C:\Users\Hayden\OneDrive\Archived Builds\pengwin-enterprise\nnl-build\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\Hayden\Downloads\</AppxPackageDir>
     <PackageCertificateKeyFile>Comodo.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <ItemDefinitionGroup>

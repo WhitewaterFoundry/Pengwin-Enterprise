@@ -16,6 +16,7 @@ TMPDIR=$(mktemp -d)
 #wHome="$wHomeDrive$wHomePath"
 #Home="$HomeDrive$HomePath"
 
+sudo mount -t drvfs K: /mnt/k
 wHomeDrive="K:"
 HomeDrive="/mnt/k"
 wHomePath='\'
@@ -67,6 +68,19 @@ string="eval \$(\""${Home}/.pageant/weasel-pageant"\" -r)"
 sudo bash -c 'cat > /etc/profile.d/pageant.sh' << EOF
 #!/bin/bash
 $string
+EOF
+
+# Add profile.d to mount K
+echo "Configuring K drive automount"
+sudo bash -c 'cat > /etc/profile.d/mountk.sh' << "EOF"
+while true; do
+    read -p "Would you like to mount your K drive (sudo required)? [y/n] " yn
+    case $yn in
+        [Yy]* ) sudo mount -t drvfs K: /mnt/k; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
 EOF
 
 # Unzip vcxsrv to user's directory
