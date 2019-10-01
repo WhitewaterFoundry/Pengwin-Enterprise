@@ -76,7 +76,7 @@ sudo bash -c 'cat > /etc/profile.d/mountk.sh' << "EOF"
 while true; do
     read -p "Would you like to mount your K drive (sudo required)? [y/n] " yn
     case $yn in
-        [Yy]* ) sudo mount -t drvfs K: /mnt/k; break;;
+        [Yy]* ) sudo mkdir /mnt/k; sudo mount -t drvfs K: /mnt/k; break;;
         [Nn]* ) echo 'Not mounting K';;
         * ) echo "Please answer Y or N.";;
     esac
