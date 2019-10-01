@@ -7,7 +7,7 @@ ORIGINDIR=$(pwd)
 TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
-BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
+BOOTISO="https://centos.mirror.constant.com/7.7.1908/os/x86_64/images/boot.iso"
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/centos-7-x86_64.ks"
 EPELRPM="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 PAGEANTEXE="https://github.com/NoMoreFood/putty-cac/raw/0.72/binaries/x64/pageant.exe"

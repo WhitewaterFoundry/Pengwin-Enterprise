@@ -9,10 +9,17 @@ echo "Executing firstrun.sh script"
 
 echo "Getting required application paths"
 TMPDIR=$(mktemp -d)
-wHomeDrive="$(cmd_exe 'echo %HOMEDRIVE%' | tr -d '\r')"
-HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
-wHomePath="$(cmd_exe 'echo %HOMEPATH%' | tr -d '\r')"
-HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
+#wHomeDrive="$(cmd_exe 'echo %HOMEDRIVE%' | tr -d '\r')"
+#HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
+#wHomePath="$(cmd_exe 'echo %HOMEPATH%' | tr -d '\r')"
+#HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
+#wHome="$wHomeDrive$wHomePath"
+#Home="$HomeDrive$HomePath"
+
+wHomeDrive="K:"
+HomeDrive="/mnt/k"
+wHomePath='\'
+wHomePath='/'
 wHome="$wHomeDrive$wHomePath"
 Home="$HomeDrive$HomePath"
 
