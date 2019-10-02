@@ -58,7 +58,7 @@ Windows Registry Editor Version 5.00
 "Pageant"="${wHomeRegEntry}\\\\.pageant\\\\pageant.exe"
 EOF
 cp "${TMPDIR}/Install.reg" "${wHome}"
-cmd.exe /C "Reg import $wHome\Install.reg"
+cmd.exe /C "Reg import $wHome\Install.reg" &> /dev/null &
 rm -rf "${TMPDIR}"
 
 # Add profile.d start script for weasel-pageant
