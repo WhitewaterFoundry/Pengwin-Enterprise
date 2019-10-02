@@ -16,6 +16,7 @@ TMPDIR=$(mktemp -d)
 #wHome="$wHomeDrive$wHomePath"
 #Home="$HomeDrive$HomePath"
 
+sudo mkdir /mnt/k
 sudo mount -t drvfs K: /mnt/k
 wHomeDrive="K:"
 HomeDrive="/mnt/k"
