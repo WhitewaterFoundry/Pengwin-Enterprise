@@ -55,8 +55,9 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
 "Pageant"=-
 EOF
-cp "${TMPDIR}/Uninstall.reg" "$HomeDrive$(cmd_exe 'echo %TEMP%' | tr -d '\r' | sed 's|\\|\/|g' | sed 's|.\:||g')"
-cmd_exe "Reg import %TEMP%\Uninstall.reg"
+cp "${TMPDIR}/Unnstall.reg" "${wHome}"
+cmd.exe /C "Reg import $wHome\Uninstall.reg"
+rm -rf "${TMPDIR}"
 }
 
 function main_uninstall()
@@ -64,10 +65,19 @@ function main_uninstall()
 # Get required paths
 echo "Getting required application paths"
 TMPDIR=$(mktemp -d)
-wHomeDrive="$(cmd_exe 'echo %HOMEDRIVE%' | tr -d '\r')"
-HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
-wHomePath="$(cmd_exe 'echo %HOMEPATH%' | tr -d '\r')"
-HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
+#wHomeDrive="$(cmd_exe 'echo %HOMEDRIVE%' | tr -d '\r')"
+#HomeDrive="/mnt/$(echo "${wHomeDrive}" | sed 's|\:||g' | tr '[:upper:]' '[:lower:]')"
+#wHomePath="$(cmd_exe 'echo %HOMEPATH%' | tr -d '\r')"
+#HomePath="$(echo "${wHomePath}" | sed 's|\\|\/|g')"
+#wHome="$wHomeDrive$wHomePath"
+#Home="$HomeDrive$HomePath"
+
+sudo mkdir /mnt/k
+sudo mount -t drvfs K: /mnt/k
+wHomeDrive="K:"
+HomeDrive="/mnt/k"
+wHomePath='\'
+wHomePath='/'
 wHome="$wHomeDrive$wHomePath"
 Home="$HomeDrive$HomePath"
 
