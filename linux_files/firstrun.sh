@@ -40,10 +40,10 @@ Home="$HomeDrive$HomePath"
 # Install Putty's Pageant and weasel-pageant
 if [[ ! -d "${Home}/.pageant"  ]] ; then
 	echo "Installing Pageant (with weasel-pageant WSL integration) to ${Home}/.pageant"
-	mkdir "${Home}/.pageant"
+	sudo mkdir "${Home}/.pageant"
 	cp /opt/pageant/* "${Home}/.pageant"
-	chmod +x "${Home}/.pageant/weasel-pageant"
-	chmod +x "${Home}/.pageant/helper.exe"
+	sudo chmod +x "${Home}/.pageant/weasel-pageant"
+	sudo chmod +x "${Home}/.pageant/helper.exe"
 else
         echo "${Home}/.pageant already exists, leaving in place."
         echo "To reinstall pageant and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
@@ -57,7 +57,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run]
 "Pageant"="${wHomeRegEntry}\\\\.pageant\\\\pageant.exe"
 EOF
-cp "${TMPDIR}/Install.reg" "${wHome}"
+cp "${TMPDIR}/Install.reg" "${Home}"
 cmd.exe /C "Reg import $wHome\Install.reg" &> /dev/null &
 rm -rf "${TMPDIR}"
 
@@ -87,8 +87,8 @@ EOF
 # Unzip vcxsrv to user's directory
 if [[ ! -d "${Home}/.vcxsrv"  ]] ; then
 	echo "Installing vcxsrv to ${Home}/.vcxsrv"
-	mkdir "${Home}/.vcxsrv"
-	unzip -q /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv"
+	sudo mkdir "${Home}/.vcxsrv"
+	sudo unzip -q /opt/vcxsrv/vcxsrv.zip -d "${Home}/.vcxsrv"
 else
 	echo "${Home}/.vcxsrv already exists, leaving in place."
 	echo "To reinstall vcxsrv and other features, run /opt/pengwin/uninstall.sh then move /opt/pengwin/firstrun.sh to /etc/profile.d/"
