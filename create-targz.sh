@@ -11,10 +11,10 @@ BOOTISO="/root/rhel-workstation-7.7-x86_64-dvd.iso"
 KSFILE="/root/Pengwin-Enterprise/rhel-7.ks"
 
 #make sure we are up to date
-sudo yum update
+sudo yum -y update
 
 #get livemedia-creator dependencies
-sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu
+sudo yum -y install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
