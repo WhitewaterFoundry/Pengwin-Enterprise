@@ -23,10 +23,10 @@ KSFILE="https://raw.githubusercontent.com/CentOS/sig-cloud-instance-build/master
 cd $TMPDIR
 
 #make sure we are up to date
-sudo yum update
+sudo yum -y update
 
 #get livemedia-creator dependencies
-sudo yum install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu
+sudo yum -y install libvirt lorax virt-install libvirt-daemon-config-network libvirt-daemon-kvm libvirt-daemon-driver-qemu
 
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
