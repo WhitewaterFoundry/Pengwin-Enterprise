@@ -81,7 +81,7 @@
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
-    <AppxPackageDir>C:\Users\Hayden\OneDrive\Archived Builds\pengwin-enterprise\ng-demo-build\</AppxPackageDir>
+    <AppxPackageDir>..\AppPackages\DistroLauncher-Appx</AppxPackageDir>
     <PackageCertificateKeyFile>WF.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <ItemDefinitionGroup>
