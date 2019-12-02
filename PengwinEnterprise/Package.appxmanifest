@@ -34,7 +34,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Pengwin Enterprise LANL DEMO"
+        DisplayName="Pengwin Enterprise"
         Description="Pengwin Enterprise"
         BackgroundColor="#000000"
         Square150x150Logo="Images\Square150x150Logo.png"
