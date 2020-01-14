@@ -32,10 +32,13 @@ sudo yum -y install libvirt lorax virt-install libvirt-daemon-config-network lib
 sudo systemctl restart libvirtd
 
 #download enterprise boot ISO
-sudo curl $BOOTISO -o /tmp/install.iso
-
+if [[ ! -f /tmp/install.iso ]] ; then
+  sudo curl $BOOTISO -o /tmp/install.iso
+fi
 #download enterprise Docker kickstart file
 curl $KSFILE -o install.ks
+
+rm -f /var/tmp/install.tar.xz
 
 #build intermediary rootfs tar
 sudo livemedia-creator --make-tar --iso=/tmp/install.iso --image-name=install.tar.xz --ks=install.ks --releasever "7"
