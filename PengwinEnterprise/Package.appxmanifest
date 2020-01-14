@@ -10,8 +10,8 @@
 
   <Identity
     Name="WhitewaterFoundryLtd.Co.WLinuxEnterprise"
-    Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, STREET=Suite 745E, L=Columbus, S=GA, PostalCode=31901, C=US"
-    Version="1.0.101.0"
+    Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
+    Version="1.1.2.0"
     ProcessorArchitecture="x64" />
 
   <Properties>
