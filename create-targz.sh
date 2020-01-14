@@ -9,7 +9,7 @@ BUILDDIR=$(mktemp -d)
 BOOTISO="http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/images/boot.iso"
 
 #enterprise Docker kickstart file
-KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/crramirez/ftr/base_packages/docker/sl-7.ks"
+KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/sl-7.ks"
 
 #upstream enterprise boot ISO
 #BOOTISO="https://centos.mirror.constant.com/7.6.1810/os/x86_64/images/boot.iso"
@@ -67,5 +67,5 @@ cd $ORIGINDIR
 #clean up
 sudo rm -r $BUILDDIR
 sudo rm -r $TMPDIR
-#sudo rm /tmp/install.iso
+sudo rm /tmp/install.iso
 sudo rm /var/tmp/install.tar.xz
