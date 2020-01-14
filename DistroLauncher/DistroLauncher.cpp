@@ -4,7 +4,6 @@
 //
 
 #include "stdafx.h"
-#include "messages.h"
 
 // Commandline arguments: 
 #define ARG_CONFIG              L"config"
