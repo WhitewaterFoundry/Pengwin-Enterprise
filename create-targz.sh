@@ -11,7 +11,7 @@ BOOTISO="/root/rhel-workstation-7.7-x86_64-dvd.iso"
 #enterprise Docker kickstart file
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/rhel-7.ks"
 
-cd $TMPDIR
+cd "$TMPDIR"
 
 #make sure we are up to date
 sudo yum -y update
@@ -22,41 +22,31 @@ sudo yum -y install libvirt lorax virt-install libvirt-daemon-config-network lib
 #restart libvirtd for good measure
 sudo systemctl restart libvirtd
 
-#download enterprise boot ISO
-if [[ ! -f /tmp/install.iso ]] ; then
-  sudo cp "${BOOTISO}" -o /tmp/install.iso
-fi
 #download enterprise Docker kickstart file
 curl $KSFILE -o install.ks
 
 rm -f /var/tmp/install.tar.xz
 
 #build intermediary rootfs tar
-sudo livemedia-creator --make-tar --iso=/tmp/install.iso --image-name=install.tar.xz --ks=install.ks --releasever "7"
+sudo livemedia-creator --make-tar --iso=${BOOTISO} --image-name=install.tar.xz --ks=install.ks --releasever "7"
 
 #open up the tar into our build directory
-tar -xvf /var/tmp/install.tar.xz -C $BUILDDIR
+tar -xvf /var/tmp/install.tar.xz -C "${BUILDDIR}"
 
 #copy some custom files into our build directory 
-sudo cp $ORIGINDIR/linux_files/wsl.conf $BUILDDIR/etc/wsl.conf
-sudo cp $ORIGINDIR/linux_files/local.conf $BUILDDIR/etc/local.conf
-sudo cp $ORIGINDIR/linux_files/DB_CONFIG $BUILDDIR/var/lib/rpm/
-
-#set some environmental variables in our build directory
-sudo bash -c "echo 'export DISPLAY=:0' >> $BUILDDIR/etc/profile.d/wsl.sh"
-sudo bash -c "echo 'export LIBGL_ALWAYS_INDIRECT=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
-sudo bash -c "echo 'export NO_AT_BRIDGE=1' >> $BUILDDIR/etc/profile.d/wsl.sh"
-sudo bash -c "echo 'export TERM=st-256color' >> $BUILDDIR/etc/profile.d/wsl.sh"
+sudo cp "${ORIGINDIR}"/linux_files/wsl.conf "${BUILDDIR}"/etc/wsl.conf
+sudo cp "${ORIGINDIR}"/linux_files/local.conf "${BUILDDIR}"/etc/local.conf
+sudo cp "${ORIGINDIR}"/linux_files/DB_CONFIG "${BUILDDIR}"/var/lib/rpm/
+sudo cp "${ORIGINDIR}"/linux_files/00-wle.sh "${BUILDDIR}"/etc/profile.d/
 
 #re-build our tar image
-cd $BUILDDIR
-tar --ignore-failed-read -czvf $ORIGINDIR/install.tar.gz *
+cd "${BUILDDIR}"
+tar --ignore-failed-read -czvf "${ORIGINDIR}"/x64/install.tar.gz *
 
 #go home
-cd $ORIGINDIR
+cd "${ORIGINDIR}"
 
 #clean up
-sudo rm -r $BUILDDIR
-sudo rm -r $TMPDIR
-sudo rm /tmp/install.iso
+sudo rm -r "${BUILDDIR}"
+sudo rm -r "$TMPDIR"
 sudo rm /var/tmp/install.tar.xz
