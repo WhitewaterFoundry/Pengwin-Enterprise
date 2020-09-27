@@ -35,9 +35,10 @@ tar -xvf /var/tmp/install.tar.xz -C "${BUILDDIR}"
 
 #copy some custom files into our build directory 
 sudo cp "${ORIGINDIR}"/linux_files/wsl.conf "${BUILDDIR}"/etc/wsl.conf
-sudo cp "${ORIGINDIR}"/linux_files/local.conf "${BUILDDIR}"/etc/local.conf
+sudo cp "${ORIGINDIR}"/linux_files/local.conf "${BUILDDIR}"/etc/fonts/local.conf
 sudo cp "${ORIGINDIR}"/linux_files/DB_CONFIG "${BUILDDIR}"/var/lib/rpm/
 sudo cp "${ORIGINDIR}"/linux_files/00-wle.sh "${BUILDDIR}"/etc/profile.d/
+sudo cp "${ORIGINDIR}"/linux_files/upgrade.sh "${BUILDDIR}"/usr/local/bin/upgrade.sh
 
 #re-build our tar image
 cd "${BUILDDIR}"

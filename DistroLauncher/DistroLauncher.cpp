@@ -31,7 +31,7 @@ HRESULT InstallDistribution(bool createUser)
 
     // Delete /etc/resolv.conf to allow WSL to generate a version based on Windows networking information.
     DWORD exitCode;
-    hr = g_wslApi.WslLaunchInteractive(L"/bin/rm /etc/resolv.conf", true, &exitCode);
+	hr = g_wslApi.WslLaunchInteractive(L"/bin/rm /etc/resolv.conf", true, &exitCode);
     if (FAILED(hr)) {
         return hr;
     }
@@ -152,6 +152,12 @@ int wmain(int argc, wchar_t const *argv[])
     if ((SUCCEEDED(hr)) && (!installOnly)) {
         if (arguments.empty()) {
             hr = g_wslApi.WslLaunchInteractive(L"", false, &exitCode);
+
+            // Check exitCode to see if wsl.exe returned that it could not start the Linux process
+            // then prompt users for input so they can view the error message.
+            if (SUCCEEDED(hr) && exitCode == UINT_MAX) {
+                Helpers::PromptForInput();
+            }
 
         } else if ((arguments[0] == ARG_RUN) ||
                    (arguments[0] == ARG_RUN_C)) {
