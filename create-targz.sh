@@ -6,7 +6,7 @@ TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
 #enterprise boot ISO
-BOOTISO="/root/rhel-workstation-7.7-x86_64-dvd.iso"
+BOOTISO="/root/rhel-workstation-7-x86_64-dvd.iso"
 
 #enterprise Docker kickstart file
 KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/rhel-7.ks"
