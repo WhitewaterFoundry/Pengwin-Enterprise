@@ -21,7 +21,6 @@ sudo yum -y update
 
 # Update the release and main startup script files
 sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/00-wle.sh -o /etc/profile.d/00-wle.sh
-sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/os-release -o /etc/os-release
 
 # Add local.conf to fonts
 sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/local.conf -o /etc/fonts/local.conf
