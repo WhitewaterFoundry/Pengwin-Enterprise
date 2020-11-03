@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Only the default WSL user should run this script
 if ! (id -Gn | grep -c "adm.*wheel\|wheel.*adm" >/dev/null); then
@@ -12,7 +12,7 @@ if [ -n "${WSL_INTEROP}" ]; then
   # enable external x display for WSL 2
 
   ipconfig_exec=$(wslpath "C:\\Windows\\System32\\ipconfig.exe")
-  if (command -v ipconfig.exe &>/dev/null); then
+  if (command -v ipconfig.exe >/dev/null 2>&1); then
     ipconfig_exec=$(command -v ipconfig.exe)
   fi
 
@@ -68,6 +68,10 @@ if (command -v cmd.exe >/dev/null 2>&1); then
   # Here have a issue: %HOMEDRIVE% might be using a custom set location
   # moving cmd to where Windows is installed might help: %SYSTEMDRIVE%
   wHomeWinPath=$(cmd.exe /c 'cd %SYSTEMDRIVE%\ && echo %HOMEDRIVE%%HOMEPATH%' 2>/dev/null | tr -d '\r')
+
+  if [ ${#wHomeWinPath} -le 3 ]; then #wHomeWinPath contains something like H:\
+    wHomeWinPath=$(cmd.exe /c 'cd %SYSTEMDRIVE%\ && echo %USERPROFILE%' 2>/dev/null | tr -d '\r')
+  fi
 
   # shellcheck disable=SC2155
   export WIN_HOME=$(wslpath -u "${wHomeWinPath}")
