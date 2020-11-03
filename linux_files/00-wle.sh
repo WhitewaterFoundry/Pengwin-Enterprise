@@ -52,7 +52,7 @@ fi
 # speed up some GUI apps like gedit
 export NO_AT_BRIDGE=1
 
-export TERM=st-256color
+export TERM=xterm-256color
 
 # Fix 'clear' scrolling issues
 alias clear='clear -x'
