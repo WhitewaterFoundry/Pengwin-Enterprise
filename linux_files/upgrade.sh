@@ -23,4 +23,5 @@ sudo yum -y update
 sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/00-wle.sh -o /etc/profile.d/00-wle.sh
 
 # Add local.conf to fonts
+sudo mkdir -p /etc/fonts
 sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/local.conf -o /etc/fonts/local.conf
