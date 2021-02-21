@@ -6,11 +6,12 @@ TMPDIR=$(mktemp -d)
 BUILDDIR=$(mktemp -d)
 
 #enterprise boot ISO
-BOOTISO="/root/install.iso"
+BOOTISO="http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/images/boot.iso"
 
 #enterprise Docker kickstart file
-KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/rhel-7.ks"
+KSFILE="https://raw.githubusercontent.com/WhitewaterFoundry/sig-cloud-instance-build/master/docker/sl-7.ks"
 
+#go to our temporary directory
 cd "$TMPDIR"
 
 #make sure we are up to date
@@ -24,7 +25,7 @@ sudo systemctl restart libvirtd
 
 #download enterprise boot ISO
 if [[ ! -f /tmp/install.iso ]] ; then
-  cp "${BOOTISO}" /tmp/install.iso
+  sudo curl $BOOTISO -o /tmp/install.iso
 fi
 #download enterprise Docker kickstart file
 curl $KSFILE -o install.ks
