@@ -19,8 +19,8 @@ steps:
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'specific'
-    project: '9cf82fa7-aab4-4f01-96a7-60ea713196c6'
-    pipeline: '4'
+    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+    pipeline: '7'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'latest'
     downloadType: 'single'
