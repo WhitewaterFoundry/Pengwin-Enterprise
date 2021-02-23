@@ -10,13 +10,13 @@
 
   <Identity
     Name="WhitewaterFoundryLtd.Co.WLinuxEnterprise"
-    Publisher="CN=9879127B-9E92-4DE5-9C32-0B1F09F95DCF"
+    Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
     Version="7.9.1.0"
     ProcessorArchitecture="x64" />
 
   <Properties>
     <DisplayName>Pengwin Enterprise</DisplayName>
-    <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
+    <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
