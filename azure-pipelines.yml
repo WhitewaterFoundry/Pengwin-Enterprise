@@ -3,9 +3,6 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
-
 pool:
   vmImage: 'windows-latest'
 
@@ -38,36 +35,18 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 - task: DownloadSecureFile@1
-  name: signingCert
+  name: signingCert2
   inputs:
-    secureFile: 'store.pfx'
+    secureFile: 'appsign.pfx'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:Launcher;PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
+    msbuildArgs: '/t:Launcher;PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: 'x64'
 
-- task: DownloadSecureFile@1
-  name: signingCert2
-  inputs:
-    secureFile: 'appsign.pfx'
-#- task: VSBuild@1
-#  inputs:
-#    solution: '$(solution)'
-#    msbuildArgs: '/t:Launcher;Fedora-Remix-for-WSL-SL /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
-#    platform: 'x64'
-#    configuration: '$(buildConfiguration)'
-#    maximumCpuCount: true
-#    msbuildArchitecture: 'x64'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\*bundle.appxupload'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
@@ -78,29 +57,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-- task: store-publish@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9N8LP0X93VCP'
-    metadataUpdateMethod: 'TextMetadata'
-    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
-    updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.appxupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '0'
-- task: store-flight@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9N8LP0X93VCP'
-    flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.appxupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '0'
