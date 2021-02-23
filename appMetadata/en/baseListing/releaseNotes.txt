@@ -1,6 +1,6 @@
 Existing users can update immediately by running $ upgrade.sh
 
-7.9.0
+7.9.2
 * Upgraded to SL 7.9
 * A problem was fixed when the windows home is a shared network drive
 * A new upgrade.sh is included to ease the upgrade process
