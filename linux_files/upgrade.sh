@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+BASE_URL="https://raw.githubusercontent.com/WhitewaterFoundry/pengwin-enterprise-rootfs-builds/master"
 sha256sum /usr/local/bin/upgrade.sh >/tmp/sum.txt
-sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/upgrade.sh -o /usr/local/bin/upgrade.sh
+sudo curl -f "${BASE_URL}/linux_files/upgrade.sh" -o /usr/local/bin/upgrade.sh
 sudo chmod +x /usr/local/bin/upgrade.sh
 sha256sum -c /tmp/sum.txt
 
@@ -20,8 +21,8 @@ sudo yum-config-manager --add-repo https://download.opensuse.org/repositories/ho
 sudo yum -y update
 
 # Update the release and main startup script files
-sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/00-wle.sh -o /etc/profile.d/00-wle.sh
+sudo curl -f "${BASE_URL}/linux_files/00-wle.sh" -o /etc/profile.d/00-wle.sh
 
 # Add local.conf to fonts
 sudo mkdir -p /etc/fonts
-sudo curl -f https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/master/linux_files/local.conf -o /etc/fonts/local.conf
+sudo curl -f "${BASE_URL}/linux_files/local.conf" -o /etc/fonts/local.conf
