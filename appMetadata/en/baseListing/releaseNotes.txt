@@ -1,0 +1,34 @@
+Existing users can update immediately by running $ upgrade.sh
+
+7.9.0
+* Upgraded to SL 7.9
+* A problem was fixed when the windows home is a shared network drive
+* A new upgrade.sh is included to ease the upgrade process
+
+7.8.3
+* Removed wslu for now for problems with sudo. You can always install wslu with: sudo yum install wslu
+
+7.8.2
+* Includes wslu 3.1 preinstalled
+* Includes deltarpm for faster updates
+* Includes dos2unix for easier interoperability with Windows
+
+7.8.0
+
+* Now, the image is based on SL 7.8
+* Corrected an error related ssh port forwarding.
+
+1.2.2
+
+Support kernel upgrade in WSL2
+
+1.2.1
+
+Made it compatible with WSL 2 now DISPLAY variable have the right value for WSL2
+A symbolic link called winhome is automatically created, pointing to the user's home folder.
+
+1.1.1
+Added Man Pages
+Fixed issue with ping
+Install by default bash-completion, vim, which and wget
+Set defaults in vim for dark background terminal, syntax highlight, and no bells!
