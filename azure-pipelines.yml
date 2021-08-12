@@ -3,6 +3,9 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
+target:
+  branch: rhel
+
 pool:
   vmImage: 'windows-latest'
 
@@ -17,7 +20,7 @@ steps:
   inputs:
     buildType: 'specific'
     project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-    pipeline: '7'
+    pipeline: '11'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'latest'
     downloadType: 'single'
@@ -27,7 +30,7 @@ steps:
   inputs:
     script: |
       mkdir x64
-      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install.tar.gz
+      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install8.tar.gz
 
 - task: NuGetToolInstaller@1
 
@@ -41,7 +44,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:Launcher;PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
+    msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
@@ -52,6 +55,7 @@ steps:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\*.appxbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'

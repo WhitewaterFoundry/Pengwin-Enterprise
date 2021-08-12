@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '15.0'">
     <VisualStudioVersion>15.0</VisualStudioVersion>
@@ -50,9 +50,9 @@
   </PropertyGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
-    <ProjectGuid>4cb6bf5b-fb61-4b62-b298-b6def243dc0b</ProjectGuid>
+    <ProjectGuid>2bd1f71d-ea65-46df-b3e4-da754e9f6705</ProjectGuid>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
@@ -63,7 +63,7 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <EntryPointProjectUniqueName>..\DistroLauncher\DistroLauncher.vcxproj</EntryPointProjectUniqueName>
+    <EntryPointProjectUniqueName>..\Launcher8\Launcher8.vcxproj</EntryPointProjectUniqueName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <AppxBundle>Auto</AppxBundle>
@@ -154,34 +154,34 @@
     <Content Include="Images\Wide310x150Logo.scale-400.png" />
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='x64'">
-    <Content Include="..\x64\install.tar.gz">
+    <Content Include="..\x64\install8.tar.gz">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
       <Link>install.tar.gz</Link>
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='ARM64'">
-    <Content Include="..\ARM64\install.tar.gz">
+    <Content Include="..\ARM64\install8.tar.gz">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
       <Link>install.tar.gz</Link>
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='x64'">
-    <Content Include="..\x64\$(Configuration)\wle.exe">
+    <Content Include="..\x64\$(Configuration)\PengwinEnterprise8.exe">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
-      <Link>wle.exe</Link>
+      <Link>PengwinEnterprise8.exe</Link>
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='ARM64'">
-    <Content Include="..\ARM64\$(Configuration)\wle.exe">
+    <Content Include="..\ARM64\$(Configuration)\PengwinEnterprise8.exe">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
-      <Link>wle.exe</Link>
+      <Link>PengwinEnterprise8.exe</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DistroLauncher\DistroLauncher.vcxproj" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.20348.19" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.20348.19" />
+    <ProjectReference Include="..\Launcher8\Launcher8.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>
