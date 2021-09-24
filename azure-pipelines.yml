@@ -20,6 +20,22 @@ steps:
   inputs:
     buildType: 'specific'
     project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+    pipeline: '11'
+    specificBuildWithTriggering: true
+    buildVersionToDownload: 'latest'
+    downloadType: 'single'
+    artifactName: 'drop'
+    downloadPath: '$(System.ArtifactsDirectory)'
+- task: CmdLine@2
+  inputs:
+    script: |
+      mkdir x64
+      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install8.tar.gz
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
     pipeline: '7'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'latest'
@@ -44,34 +60,21 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:Launcher;PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
+    msbuildArgs: '/t:PengwinEnterprise8,PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: 'x64'
 
-- task: DownloadSecureFile@1
-  name: signingCert2
-  inputs:
-    secureFile: 'appsign.pfx'
-#- task: VSBuild@1
-#  inputs:
-#    solution: '$(solution)'
-#    msbuildArgs: '/t:Launcher;Fedora-Remix-for-WSL-SL /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
-#    platform: 'x64'
-#    configuration: '$(buildConfiguration)'
-#    maximumCpuCount: true
-#    msbuildArchitecture: 'x64'
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: '**\*bundle.appxupload'
+    Contents: '**\*bundle.*xupload'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: '**\*.appxbundle'
+    Contents: '**\*.*xbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
@@ -87,7 +90,7 @@ steps:
     metadataUpdateMethod: 'TextMetadata'
     metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
     updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.appxupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
@@ -99,7 +102,7 @@ steps:
     serviceEndpoint: 'Whitewater Foundry'
     appId: '9N8LP0X93VCP'
     flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.appxupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
