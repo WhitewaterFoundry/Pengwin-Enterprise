@@ -1,0 +1,4 @@
+Existing users can update immediately by running $ upgrade.sh
+
+8.4.0
+* First version based on Rocky Linux 8

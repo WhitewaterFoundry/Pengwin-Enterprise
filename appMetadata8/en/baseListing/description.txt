@@ -1,0 +1,15 @@
+Pengwin Enterprise is designed for custom deployments in consultation with Whitewater Foundry's international team of WSL experts.
+
+Pengwin Enterprise is a Windows Subsystem for Linux (WSL) solution compatible with Oracle Linux and Red Hat Enterprise Linux.
+
+This build provided on the Microsoft Store is built from Rocky Linux, for demonstration purposes and personal use only.
+
+Businesses and institutions who wish to license Pengwin Enterprise, use Pengwin Enterprise with Red Hat Enterprise Linux (Red Hat Enterprise Linux subscription required), and obtain a support contract for Pengwin Enterprise should e-mail enterprise@whitewaterfoundry.com or visit https://www.whitewaterfoundry.com/pengwin-enterprise for details.
+
+Individual end-users are very strongly encouraged to obtain Pengwin or Fedora Remix for WSL instead. Pengwin includes end-user support and several usability modifications and tools, such as pengwin-setup, to improve the overall WSL experience for end-users.
+
+The Pengwin Enterprise build provided on the Microsoft Store does NOT include Red Hat Enterprise Linux packages, end-user support, pengwin-setup, or the WSL usability features that accompany Pengwin or built into Pengwin Enterprise in a custom deployment.
+
+Whitewater Foundry is a Microsoft Partner, Red Hat Business Partner, and licensee in the Open Innovation Network.
+
+Pengwin Enterprise is not endorsed by or affiliated with the CentOS Project, Scientific Linux, Rocky Linux or Fermi National Accelerator Laboratory.

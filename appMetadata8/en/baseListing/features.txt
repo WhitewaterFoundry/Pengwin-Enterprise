@@ -1,0 +1,4 @@
+Compatible with Red Hat Enterprise Linux.
+Use yum and dnf.
+Support for many Linux graphical applications with no need to configure display or libGL. Requires a Windows-based X client, such as X410 or VcXsrv.
+A stable enterprise-grade distribution. It is focused on stability and security over new features.
