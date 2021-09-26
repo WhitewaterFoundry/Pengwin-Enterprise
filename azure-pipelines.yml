@@ -57,10 +57,22 @@ steps:
   name: signingCert
   inputs:
     secureFile: 'store.pfx'
+- task: DownloadSecureFile@1
+  name: signingCertDD0
+  inputs:
+    secureFile: 'store-DD0.pfx'    
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise8,PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
+    msbuildArgs: '/t:PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
+    platform: 'x64'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+    msbuildArchitecture: 'x64'
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
@@ -90,7 +102,7 @@ steps:
 #    metadataUpdateMethod: 'TextMetadata'
 #    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
 #    updateImages: false
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.*xupload'
+#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
 #    force: true
 #    skipPolling: false
 #    deletePackages: true
@@ -102,7 +114,7 @@ steps:
 #    serviceEndpoint: 'Whitewater Foundry'
 #    appId: '9N8LP0X93VCP'
 #    flightName: 'Azure Pipelines'
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.*xupload'
+#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
 #    force: true
 #    skipPolling: false
 #    deletePackages: true
@@ -116,7 +128,7 @@ steps:
 #    metadataUpdateMethod: 'TextMetadata'
 #    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata8'
 #    updateImages: false
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.*xupload'
+#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
 #    force: true
 #    skipPolling: false
 #    deletePackages: true
@@ -128,7 +140,7 @@ steps:
 #    serviceEndpoint: 'Whitewater Foundry'
 #    appId: '9N2XZFWMRRQW'
 #    flightName: 'Azure Pipelines'
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\*bundle.*xupload'
+#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
 #    force: true
 #    skipPolling: false
 #    deletePackages: true
