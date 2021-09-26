@@ -1,0 +1,13 @@
+{
+  "profiles": [
+    {
+      "updates": "{32101ab0-27ea-518c-9551-3231daf3fd14}",
+      "commandline": "PengwinEnterprise8.exe",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
+      "name": "Pengwin Enterprise 8",
+      "bellStyle": "none",
+      "cursorShape": "filledBox",
+      "fontFace": "Cascadia Code"
+    }
+  ]
+}
