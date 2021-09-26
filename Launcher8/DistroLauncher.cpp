@@ -5,24 +5,23 @@
 
 #include "stdafx.h"
 
-// Commandline arguments: 
-#define ARG_CONFIG              L"config"
-#define ARG_CONFIG_DEFAULT_USER L"--default-user"
-#define ARG_INSTALL             L"install"
-#define ARG_INSTALL_ROOT        L"--root"
-#define ARG_RUN                 L"run"
-#define ARG_RUN_C               L"-c"
+// Commandline arguments:
+constexpr auto ARG_CONFIG = L"config";
+constexpr auto ARG_CONFIG_DEFAULT_USER = L"--default-user";
+constexpr auto ARG_INSTALL = L"install";
+constexpr auto ARG_INSTALL_ROOT = L"--root";
+constexpr auto ARG_RUN = L"run";
+constexpr auto ARG_RUN_C = L"-c";
 
-#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.h> //do not remove
 #include <winrt/Windows.System.h>
 #include <winrt/Windows.Storage.h>
 
-
 using namespace winrt;
-using namespace Windows::UI::ViewManagement;
 using namespace Windows::Foundation;
 using namespace Windows::System;
 using namespace Windows::Storage;
+
 
 // Helper class for calling WSL Functions:
 // https://msdn.microsoft.com/en-us/library/windows/desktop/mt826874(v=vs.85).aspx
@@ -181,7 +180,7 @@ fire_and_forget SyncBackground()
 {
     const int value = RetrieveCurrentTheme();
     const hstring nameSuffix = L"";
-    const hstring backgroundName = L"Fedora_remix_purple_darkbackground_370";
+    const hstring backgroundName = L"background";
 
     const hstring extension = L".png";
     const hstring composedPath = backgroundName + nameSuffix + extension;

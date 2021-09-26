@@ -102,6 +102,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\background.png" />
     <Content Include="Assets\pengwinenterprise.png" />
     <Content Include="Assets\pengwinenterprise.theme-dark.png" />
     <Content Include="Images\LargeTile.scale-100.png" />
@@ -182,9 +183,6 @@
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
       <Link>PengwinEnterprise8.exe</Link>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.20348.19" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Launcher8\Launcher8.vcxproj" />
