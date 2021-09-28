@@ -60,7 +60,7 @@ steps:
 - task: DownloadSecureFile@1
   name: signingCertDD0
   inputs:
-    secureFile: 'store-DD0.pfx'    
+    secureFile: 'store-DD0.pfx'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -93,55 +93,55 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-#- task: store-publish@0
-#  continueOnError: true
-#  timeoutInMinutes: 10
-#  inputs:
-#    serviceEndpoint: 'Whitewater Foundry'
-#    appId: '9N8LP0X93VCP'
-#    metadataUpdateMethod: 'TextMetadata'
-#    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
-#    updateImages: false
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
-#    force: true
-#    skipPolling: false
-#    deletePackages: true
-#    numberOfPackagesToKeep: '0'
-#- task: store-flight@0
-#  continueOnError: true
-#  timeoutInMinutes: 10
-#  inputs:
-#    serviceEndpoint: 'Whitewater Foundry'
-#    appId: '9N8LP0X93VCP'
-#    flightName: 'Azure Pipelines'
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
-#    force: true
-#    skipPolling: false
-#    deletePackages: true
-#    numberOfPackagesToKeep: '0'
-#- task: store-publish@0
-#  continueOnError: true
-#  timeoutInMinutes: 10
-#  inputs:
-#    serviceEndpoint: 'Whitewater Foundry'
-#    appId: '9N2XZFWMRRQW'
-#    metadataUpdateMethod: 'TextMetadata'
-#    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata8'
-#    updateImages: false
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
-#    force: true
-#    skipPolling: false
-#    deletePackages: true
-#    numberOfPackagesToKeep: '0'
-#- task: store-flight@0
-#  continueOnError: true
-#  timeoutInMinutes: 10
-#  inputs:
-#    serviceEndpoint: 'Whitewater Foundry'
-#    appId: '9N2XZFWMRRQW'
-#    flightName: 'Azure Pipelines'
-#    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
-#    force: true
-#    skipPolling: false
-#    deletePackages: true
-#    numberOfPackagesToKeep: '0'
+- task: store-publish@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: '9N8LP0X93VCP'
+    metadataUpdateMethod: 'TextMetadata'
+    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
+    updateImages: false
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
+- task: store-flight@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: '9N8LP0X93VCP'
+    flightName: 'Azure Pipelines'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
+- task: store-publish@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: '9N2XZFWMRRQW'
+    metadataUpdateMethod: 'TextMetadata'
+    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata8'
+    updateImages: false
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
+- task: store-flight@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: '9N2XZFWMRRQW'
+    flightName: 'Azure Pipelines'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
