@@ -102,7 +102,7 @@ steps:
     metadataUpdateMethod: 'TextMetadata'
     metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
     updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
@@ -114,7 +114,7 @@ steps:
     serviceEndpoint: 'Whitewater Foundry'
     appId: '9N8LP0X93VCP'
     flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
@@ -128,7 +128,7 @@ steps:
     metadataUpdateMethod: 'TextMetadata'
     metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata8'
     updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
@@ -140,7 +140,7 @@ steps:
     serviceEndpoint: 'Whitewater Foundry'
     appId: '9N2XZFWMRRQW'
     flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
