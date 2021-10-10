@@ -106,7 +106,7 @@
 //
 // MessageText:
 //
-// Unpacking Linux filesystem image, this may take a few minutes...
+// Unpacking Pengwin Enterprise, this may take a few minutes...
 //
 #define MSG_STATUS_INSTALLING            0x000003EEL
 

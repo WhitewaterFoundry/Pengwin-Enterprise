@@ -1,0 +1,44 @@
+{
+  "profiles": [
+    {
+      "updates": "{0cd3ffa6-df28-5801-92e3-7778802cafe8}",
+      "commandline": "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\wle.exe",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\pengwinenterprise.png",
+      "name": "Pengwin Enterprise 7",
+      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\background.png",
+      "backgroundImageAlignment": "bottomRight",
+      "backgroundImageOpacity": 0.15,
+      "backgroundImageStretchMode": "none",
+      "bellStyle": "none",
+      "colorScheme": "Pengwin Enterprise 7",
+      "cursorShape": "filledBox",
+      "fontFace": "Cascadia Code"
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Pengwin Enterprise 7",
+
+      "background": "#1E1E1E",
+      "black": "#171421",
+      "blue": "#12488B",
+      "brightBlack": "#5E5C64",
+      "brightBlue": "#2A7BDE",
+      "brightCyan": "#33C7DE",
+      "brightGreen": "#33DA7A",
+      "brightPurple": "#C061CB",
+      "brightRed": "#F66151",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#E9AD0C",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#2AA1B3",
+      "foreground": "#E8E8E8",
+      "green": "#26A269",
+      "purple": "#A347BA",
+      "red": "#C01C28",
+      "selectionBackground": "#FFFFFF",
+      "white": "#D0CFCC",
+      "yellow": "#A2734C"
+    }
+  ]
+}

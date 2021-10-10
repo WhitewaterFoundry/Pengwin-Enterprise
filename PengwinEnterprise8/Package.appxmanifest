@@ -11,7 +11,7 @@
   <Identity
     Name="WhitewaterFoundryLtd.Co.PengwinEnterprise8"
     Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
-    Version="8.4.0.0" />
+    Version="8.4.9.0" />
 
   <Properties>
     <DisplayName>Pengwin Enterprise 8</DisplayName>
@@ -36,16 +36,12 @@
       <uap:VisualElements
         DisplayName="Pengwin Enterprise 8"
         Description="Pengwin Enterprise 8"
-        BackgroundColor="#000000"
+        BackgroundColor="white"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise 8" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png">
-        <uap:ShowNameOnTiles>
-          <uap:ShowOn Tile="wide310x150Logo"/>
-          <uap:ShowOn Tile="square310x310Logo"/>
-        </uap:ShowNameOnTiles>
       </uap:DefaultTile >
-      <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="#000000"/>
+      <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
       </uap:VisualElements>
       <Extensions>
         <uap3:Extension Category="windows.appExecutionAlias" Executable="Launcher8\pengwinenterprise8.exe" EntryPoint="Windows.FullTrustApplication">
@@ -53,6 +49,26 @@
             <desktop:ExecutionAlias Alias="pengwinenterprise8.exe" />
           </uap3:AppExecutionAlias>
         </uap3:Extension>
+        <uap3:Extension Category="windows.appExtension">
+          <uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
+                             Id="pengwinenterprise8"
+                             PublicFolder="Public"
+                             DisplayName="Pengwin Enterprise 8">
+          </uap3:AppExtension>
+        </uap3:Extension>
+        <desktop:Extension
+          Category="windows.startupTask"
+          Executable="Launcher8\PengwinEnterprise8.exe"
+          EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask
+            TaskId="pengwinenterprise8"
+            Enabled="false"
+            DisplayName="Pengwin Enterprise 8"/>
+        </desktop:Extension>
+        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
+          <uap:Protocol Name="pengwinenterprise8ui"/>
+        </uap:Extension>
+
       </Extensions>
     </Application>
   </Applications>
