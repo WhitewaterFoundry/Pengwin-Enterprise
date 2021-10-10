@@ -96,5 +96,5 @@ Please create a root account password. This is the account used to perform admin
 
 MessageId=1015 SymbolicName=MSG_WELCOME_MSG_PROMPT
 Language=English
-Welcome to Pengwin Enterprise.
+Welcome to Pengwin Enterprise 7.
 .

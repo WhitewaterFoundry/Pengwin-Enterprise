@@ -1,23 +1,23 @@
 {
   "profiles": [
     {
-      "updates": "{32101ab0-27ea-518c-9551-3231daf3fd14}",
-      "commandline": "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\PengwinEnterprise8.exe",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_r1wwvvmhjq692\\LocalState\\pengwinenterprise.png",
-      "name": "Pengwin Enterprise 8",
-      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_r1wwvvmhjq692\\LocalState\\background.png",
+      "updates": "{0cd3ffa6-df28-5801-92e3-7778802cafe8}",
+      "commandline": "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\wle.exe",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\pengwinenterprise.png",
+      "name": "Pengwin Enterprise 7",
+      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
       "backgroundImageStretchMode": "none",
       "bellStyle": "none",
-      "colorScheme": "Pengwin Enterprise 8",
+      "colorScheme": "Pengwin Enterprise 7",
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code"
     }
   ],
   "schemes": [
     {
-      "name": "Pengwin Enterprise 8",
+      "name": "Pengwin Enterprise 7",
 
       "background": "#1E1E1E",
       "black": "#171421",

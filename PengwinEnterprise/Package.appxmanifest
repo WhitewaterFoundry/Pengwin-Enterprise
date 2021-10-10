@@ -15,7 +15,7 @@
     ProcessorArchitecture="x64" />
 
   <Properties>
-    <DisplayName>Pengwin Enterprise</DisplayName>
+    <DisplayName>Pengwin Enterprise 7</DisplayName>
     <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -34,18 +34,14 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Pengwin Enterprise"
-        Description="Pengwin Enterprise"
-        BackgroundColor="#000000"
+        DisplayName="Pengwin Enterprise 7"
+        Description="Pengwin Enterprise 7"
+        BackgroundColor="black"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Pengwin Enterprise" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png">
-          <uap:ShowNameOnTiles>
-            <uap:ShowOn Tile="wide310x150Logo"/>
-            <uap:ShowOn Tile="square310x310Logo"/>
-          </uap:ShowNameOnTiles>
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Pengwin Enterprise 7" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png">
         </uap:DefaultTile >
-        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="#000000"/>
+        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="black"/>
       </uap:VisualElements>
       <Extensions>
         <uap3:Extension Category="windows.appExecutionAlias" Executable="DistroLauncher\wle.exe" EntryPoint="Windows.FullTrustApplication">

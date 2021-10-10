@@ -16,10 +16,10 @@ namespace DistributionInfo
     const std::wstring Name = L"WLE";
 
     // The title bar for the console window while the distribution is installing.
-    const std::wstring WindowTitle = L"Pengwin Enterprise";
+    const std::wstring WindowTitle = L"Pengwin Enterprise 7";
 
-	// Set root user password
-	bool SetRootPassword();
+    // Set root user password
+    bool SetRootPassword();
 
     // Create and configure a user account.
     bool CreateUser(std::wstring_view userName);
