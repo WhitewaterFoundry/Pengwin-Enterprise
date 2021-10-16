@@ -60,7 +60,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise8,PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
+    msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert2.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true

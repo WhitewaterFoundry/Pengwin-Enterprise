@@ -11,7 +11,7 @@
   <Identity
     Name="WhitewaterFoundryLtd.Co.PengwinEnterprise8"
     Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
-    Version="8.4.9.0" />
+    Version="8.4.10.0" />
 
   <Properties>
     <DisplayName>Pengwin Enterprise 8</DisplayName>
