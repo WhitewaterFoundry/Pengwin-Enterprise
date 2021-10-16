@@ -1,5 +1,7 @@
 Existing users can update immediately by running $ update.sh
 
+8.4.7
+* Improved the update.sh script
 8.4.6
 * First version based on Rocky Linux 8
 
