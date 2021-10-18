@@ -11,7 +11,7 @@
   <Identity
     Name="WhitewaterFoundryLtd.Co.WLinuxEnterprise"
     Publisher="CN=9879127B-9E92-4DE5-9C32-0B1F09F95DCF"
-    Version="7.9.4.0"
+    Version="7.9.5.0"
     ProcessorArchitecture="x64" />
 
   <Properties>
@@ -21,7 +21,8 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17134.0" MaxVersionTested="10.0.18362.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
     <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
   </Dependencies>
 
@@ -39,7 +40,7 @@
         BackgroundColor="black"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Pengwin Enterprise 7" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise 7" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png">
         </uap:DefaultTile >
         <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="black"/>
       </uap:VisualElements>
@@ -49,6 +50,26 @@
             <desktop:ExecutionAlias Alias="wle.exe" />
           </uap3:AppExecutionAlias>
         </uap3:Extension>
+        <uap3:Extension Category="windows.appExtension">
+          <uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
+                             Id="pengwinenterprise7"
+                             PublicFolder="Public"
+                             DisplayName="Pengwin Enterprise 7">
+          </uap3:AppExtension>
+        </uap3:Extension>
+        <desktop:Extension
+          Category="windows.startupTask"
+          Executable="DistroLauncher\wle.exe"
+          EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask
+            TaskId="pengwinenterprise7"
+            Enabled="false"
+            DisplayName="Pengwin Enterprise 7"/>
+        </desktop:Extension>
+        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
+          <uap:Protocol Name="pengwinenterprise7ui"/>
+        </uap:Extension>
+
       </Extensions>
     </Application>
   </Applications>

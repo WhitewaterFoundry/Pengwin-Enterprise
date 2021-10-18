@@ -75,7 +75,7 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
         return false;
     }
 
-    // Set the password for the user 
+    // Set the password for the user
     commandLine = L"/usr/bin/passwd ";
     commandLine += userName;
     hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
