@@ -11,7 +11,7 @@
   <Identity
     Name="WhitewaterFoundryLtd.Co.WLinuxEnterprise"
     Publisher="CN=9879127B-9E92-4DE5-9C32-0B1F09F95DCF"
-    Version="7.9.5.0"
+    Version="7.9.6.0"
     ProcessorArchitecture="x64" />
 
   <Properties>

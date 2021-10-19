@@ -1,5 +1,8 @@
 Existing users can update immediately by running $ upgrade.sh
 
+7.9.6
+* Corrected some wrong file permissions
+
 7.9.5
 * When the distro is initialized now the user name is save in /etc/wsl.conf for easier export and import
 * It now includes a Windows Terminal profile with menu logo, background and color theme

@@ -48,6 +48,7 @@ HRESULT InstallDistribution(bool createUser)
         return hr;
     }
 
+    /*
     // Create /etc/shadow and /etc/gshadow
     hr = g_wslApi.WslLaunchInteractive(L"/usr/sbin/pwconv ; /usr/sbin/grpconv", true, &exitCode);
     if (FAILED(hr))
@@ -69,6 +70,7 @@ HRESULT InstallDistribution(bool createUser)
     {
         return hr;
     }
+    */
 
     // Configure dbus
     hr = g_wslApi.WslLaunchInteractive(L"dbus-uuidgen --ensure", true, &exitCode);
