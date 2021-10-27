@@ -1,5 +1,8 @@
 Existing users can update immediately by running $ update.sh
 
+8.4.11
+* Fixed an error in some configurations that the executable cannot be launched from Windows Terminal
+* For Windows Terminal 1.12 and Windows 11 when Windows Terminal is the default console, the profile will be correctly matched.
 8.4.10
 * Corrected some wrong file permissions
 8.4.9
