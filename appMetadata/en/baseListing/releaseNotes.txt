@@ -1,6 +1,6 @@
 Existing users can update immediately by running $ upgrade.sh
 
-7.9.8
+7.9.9
 * If Windows Terminal is the default console, now it correctly shows the profile when you double-click Pengwin Enterprise 7 in start menu
 * Corrected the logo look in Windows 11 light theme
 
