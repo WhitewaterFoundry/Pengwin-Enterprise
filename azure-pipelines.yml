@@ -124,7 +124,7 @@ steps:
     force: true
     skipPolling: false
     deletePackages: true
-    numberOfPackagesToKeep: '0'
+    numberOfPackagesToKeep: '3'
 - task: store-flight@0
   continueOnError: true
   timeoutInMinutes: 10
@@ -150,4 +150,4 @@ steps:
     force: true
     skipPolling: false
     deletePackages: true
-    numberOfPackagesToKeep: '0'
+    numberOfPackagesToKeep: '3'
