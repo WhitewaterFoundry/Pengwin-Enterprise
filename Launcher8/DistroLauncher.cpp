@@ -270,7 +270,7 @@ int wmain(int argc, const wchar_t* argv[])
     {
         SyncIcons();
         SyncBackground();
-        ShowPengwinEnterpriseUi();
+        //ShowPengwinEnterpriseUi();
 
         if (arguments.empty())
         {

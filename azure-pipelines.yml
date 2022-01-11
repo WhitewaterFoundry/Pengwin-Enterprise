@@ -57,6 +57,12 @@ steps:
   name: signingCert2
   inputs:
     secureFile: 'appsign.pfx'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise8/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*PengwinEnterprise8_)([0-9\.]+)(_.*$)/\1${version}\3/" PengwinEnterprise8/Public/Fragments/PengwinEnterprise8.json
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'

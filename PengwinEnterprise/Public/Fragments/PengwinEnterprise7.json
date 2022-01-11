@@ -2,7 +2,7 @@
   "profiles": [
     {
       "updates": "{0cd3ffa6-df28-5801-92e3-7778802cafe8}",
-      "commandline": "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\wle.exe",
+      "commandline": "%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_7.9.9.0_x64__zxdhfybd17krt\\DistroLauncher\\wle.exe",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 7",
       "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\background.png",
