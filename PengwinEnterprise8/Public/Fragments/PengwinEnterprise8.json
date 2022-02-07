@@ -12,7 +12,8 @@
       "bellStyle": "none",
       "colorScheme": "Pengwin Enterprise 8",
       "cursorShape": "filledBox",
-      "fontFace": "Cascadia Code"
+      "fontFace": "Cascadia Code",
+      "startingDirectory": null
     }
   ],
   "schemes": [

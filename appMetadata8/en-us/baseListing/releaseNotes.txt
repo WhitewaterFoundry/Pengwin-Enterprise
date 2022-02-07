@@ -1,5 +1,8 @@
 Existing users can update immediately by running $ update.sh
 
+8.5.1
+* Fix a launch error with Windows Terminal 1.12
+
 8.5.0
 * Upgraded to Rocky Linux 8.5
 * NEW: If you are in Windows 11 and x64 you'll have GPU Acceleration. Type glxinfo -B to try it.
