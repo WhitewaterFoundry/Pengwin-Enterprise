@@ -60,7 +60,7 @@ steps:
 - task: DownloadSecureFile@1
   name: signingCertDD0
   inputs:
-    secureFile: 'store-DD0.pfx'
+    secureFile: 'store.pfx'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
