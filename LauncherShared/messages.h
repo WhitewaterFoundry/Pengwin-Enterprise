@@ -77,8 +77,8 @@
 //
 // Launches or configures a Linux distribution.
 // 
-// Usage: 
-//     <no args> 
+// Usage:
+//     <no args>
 //         Launches the user's default shell in the user's home directory.
 // 
 //     --systemd, -s
@@ -89,17 +89,17 @@
 //           --root
 //               Do not create a user account and leave the default user set to root.
 // 
-//     run, -c <command line> 
+//     run, -c <command line>
 //         Run the provided command line in the current working directory. If no
 //         command line is provided, the default shell is launched.
 // 
-//     config [setting [value]] 
+//     config [setting [value]]
 //         Configure settings for this distribution.
 //         Settings:
 //           --default-user <username>
 //               Sets the default user to <username>. This must be an existing user.
 // 
-//     help 
+//     help
 //         Print usage information.
 //
 #define MSG_USAGE                        0x000003EDL
@@ -193,7 +193,7 @@
 //
 // MessageText:
 //
-// Welcome to Pengwin Enterprise.
+// Welcome to Pengwin Enterprise 7.
 //
 #define MSG_WELCOME_MSG_PROMPT           0x000003F7L
 

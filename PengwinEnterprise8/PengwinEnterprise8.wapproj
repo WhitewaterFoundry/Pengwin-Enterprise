@@ -182,7 +182,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Launcher8\Launcher8.vcxproj" />
-    <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

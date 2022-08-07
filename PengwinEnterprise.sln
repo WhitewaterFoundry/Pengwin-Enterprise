@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "PengwinEnterprise", "PengwinEnterprise\PengwinEnterprise.wapproj", "{4CB6BF5B-FB61-4B62-B298-B6DEF243DC0B}"
 EndProject
@@ -12,6 +12,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher", "DistroLauncher\DistroLauncher.vcxproj", "{6E112A2E-4274-4022-8BDF-41E90BC00FB6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PengwinEnterpriseUI", "PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj", "{41FBACFE-2FD1-4F20-8F07-882DA571BA49}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LauncherShared", "LauncherShared\LauncherShared.vcxitems", "{87F82700-D870-401F-8BF1-4D11A12AC8D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Version7", "Version7", "{84194E14-C782-4A0D-A081-BE83BE29D786}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Version8", "Version8", "{A9CB22B3-D4A6-48DF-AF8C-373509BC4F4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Version9", "Version9", "{1CF1791A-8D5D-4BB1-BF02-EE49537C854E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,7 +104,18 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CB6BF5B-FB61-4B62-B298-B6DEF243DC0B} = {84194E14-C782-4A0D-A081-BE83BE29D786}
+		{2BD1F71D-EA65-46DF-B3E4-DA754E9F6705} = {A9CB22B3-D4A6-48DF-AF8C-373509BC4F4B}
+		{BA627106-E5F7-46EE-B8D7-2D5A760F2FB2} = {A9CB22B3-D4A6-48DF-AF8C-373509BC4F4B}
+		{6E112A2E-4274-4022-8BDF-41E90BC00FB6} = {84194E14-C782-4A0D-A081-BE83BE29D786}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CBEEAE2-D963-465A-A538-A30F8D615037}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		LauncherShared\LauncherShared.vcxitems*{6e112a2e-4274-4022-8bdf-41e90bc00fb6}*SharedItemsImports = 4
+		LauncherShared\LauncherShared.vcxitems*{87f82700-d870-401f-8bf1-4d11a12ac8d7}*SharedItemsImports = 9
+		LauncherShared\LauncherShared.vcxitems*{ba627106-e5f7-46ee-b8d7-2d5a760f2fb2}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

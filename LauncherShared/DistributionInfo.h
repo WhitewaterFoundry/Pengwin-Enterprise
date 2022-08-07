@@ -13,10 +13,14 @@ namespace DistributionInfo
     //
     // WARNING: This value must not change between versions of your app,
     // otherwise users upgrading from older versions will see launch failures.
+#ifdef VERSION7
+    const std::wstring Name = L"WLE";
+#elif VERSION8
     const std::wstring Name = L"PengwinEnterprise8";
+#endif
 
     // The title bar for the console window while the distribution is installing.
-    const std::wstring WindowTitle = L"Pengwin Enterprise 8";
+    const std::wstring WindowTitle = L"Pengwin Enterprise";
 
     // Set root user password
     bool SetRootPassword();

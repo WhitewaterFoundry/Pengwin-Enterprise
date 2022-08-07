@@ -3,9 +3,9 @@
     {
       "updates": "{0cd3ffa6-df28-5801-92e3-7778802cafe8}",
       "commandline": "%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_7.9.9.0_x64__zxdhfybd17krt\\DistroLauncher\\wle.exe",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\pengwinenterprise.png",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 7",
-      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\background.png",
+      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_zxdhfybd17krt\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
       "backgroundImageStretchMode": "none",
@@ -17,9 +17,9 @@
     },
     {
       "commandline": "%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_7.9.9.0_x64__zxdhfybd17krt\\DistroLauncher\\wle.exe -s",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\pengwinenterprise.png",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 7 (SystemD)",
-      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\background.png",
+      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_zxdhfybd17krt\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
       "backgroundImageStretchMode": "none",
