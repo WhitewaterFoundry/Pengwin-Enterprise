@@ -66,10 +66,6 @@
             Enabled="false"
             DisplayName="Pengwin Enterprise 7"/>
         </desktop:Extension>
-        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
-          <uap:Protocol Name="pengwinenterprise7ui"/>
-        </uap:Extension>
-
       </Extensions>
     </Application>
   </Applications>
