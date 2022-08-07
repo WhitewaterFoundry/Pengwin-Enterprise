@@ -12,7 +12,22 @@
       "bellStyle": "none",
       "colorScheme": "Pengwin Enterprise 7",
       "cursorShape": "filledBox",
-      "fontFace": "Cascadia Code"
+      "fontFace": "Cascadia Code",
+      "startingDirectory": null
+    },
+    {
+      "commandline": "%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_7.9.9.0_x64__zxdhfybd17krt\\DistroLauncher\\wle.exe -s",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\pengwinenterprise.png",
+      "name": "Pengwin Enterprise 7 (SystemD)",
+      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_kd1vv0z0vy70w\\LocalState\\background.png",
+      "backgroundImageAlignment": "bottomRight",
+      "backgroundImageOpacity": 0.15,
+      "backgroundImageStretchMode": "none",
+      "bellStyle": "none",
+      "colorScheme": "Pengwin Enterprise 7",
+      "cursorShape": "filledBox",
+      "fontFace": "Cascadia Code",
+      "startingDirectory": null
     }
   ],
   "schemes": [

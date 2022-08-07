@@ -81,12 +81,15 @@
 //     <no args> 
 //         Launches the user's default shell in the user's home directory.
 // 
+//     --systemd, -s
+//         Launches the user's default shell in the user's home directory via SystemD.
+// 
 //     install [--root]
 //         Install the distribuiton and do not launch the shell when complete.
 //           --root
 //               Do not create a user account and leave the default user set to root.
 // 
-//     run <command line> 
+//     run, -c <command line> 
 //         Run the provided command line in the current working directory. If no
 //         command line is provided, the default shell is launched.
 // 
@@ -143,6 +146,7 @@
 // MessageText:
 //
 // Please create a default Linux user account. The username does not need to match your Windows username.
+// For more information visit: https://aka.ms/wslusers
 //
 #define MSG_CREATE_USER_PROMPT           0x000003F2L
 
@@ -192,4 +196,14 @@
 // Welcome to Pengwin Enterprise.
 //
 #define MSG_WELCOME_MSG_PROMPT           0x000003F7L
+
+//
+// MessageId: MSG_ENABLE_VIRTUALIZATION
+//
+// MessageText:
+//
+// Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
+// For information please visit https://aka.ms/enablevirtualization
+//
+#define MSG_ENABLE_VIRTUALIZATION        0x000003F8L
 
