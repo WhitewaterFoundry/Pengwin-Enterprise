@@ -61,22 +61,37 @@
 			</Extensions>
 		</Application>
 		<Application Id="App2"
-          Executable="Launcher8\PengwinEnterprise8.exe"
-          EntryPoint="Windows.FullTrustApplication"
-          uap10:Parameters="-s">
+		             Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
+		             EntryPoint="Windows.FullTrustApplication">
 			<uap:VisualElements
-              DisplayName="Pengwin Enterprise 8 (SystemD)"
-              Description="Pengwin Enterprise 8"
-              BackgroundColor="white"
-              Square150x150Logo="Images\Square150x150Logo.png"
-              Square44x44Logo="Images\Square44x44Logo.png">
-				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"></uap:DefaultTile >
+				DisplayName="Pengwin Enterprise 8 (SystemD)"
+				Description="Pengwin Enterprise 8"
+				BackgroundColor="white"
+				Square150x150Logo="Images\Square150x150Logo.png"
+				Square44x44Logo="Images\Square44x44Logo.png">
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
 				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExecutionAlias" Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe" EntryPoint="Windows.FullTrustApplication">
+					<uap3:AppExecutionAlias>
+						<desktop:ExecutionAlias Alias="PengwinEnterprise8S.exe" />
+					</uap3:AppExecutionAlias>
+				</uap3:Extension>
+				<desktop:Extension
+					Category="windows.startupTask"
+					Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
+					EntryPoint="Windows.FullTrustApplication">
+					<desktop:StartupTask
+						TaskId="pengwinenterprise8-systemd"
+						Enabled="false"
+						DisplayName="Pengwin Enterprise 8 (SystemD)"/>
+				</desktop:Extension>
+			</Extensions>
 		</Application>
 		<Application Id="App3"
-          Executable="PengwinEnterprise8W\PengwinEnterprise8W.exe"
-          EntryPoint="Windows.FullTrustApplication">
+		             Executable="PengwinEnterprise8W\PengwinEnterprise8W.exe"
+		             EntryPoint="Windows.FullTrustApplication">
 			<uap:VisualElements
               AppListEntry="none"
               DisplayName="Pengwin Enterprise 8 (W)"
@@ -123,30 +138,6 @@
                       TaskId="pengwinenterprise8w-systemd"
                       Enabled="false"
                       DisplayName="Pengwin Enterprise 8 (SystemD) - No Window"/>
-				</desktop:Extension>
-			</Extensions>
-		</Application>
-		<Application Id="App5"
-		             Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
-		             EntryPoint="Windows.FullTrustApplication">
-			<uap:VisualElements AppListEntry="none"
-			                    DisplayName="Pengwin Enterprise 8 (SystemD)"
-			                    Description="Pengwin Enterprise 8"
-			                    BackgroundColor="white"
-			                    Square150x150Logo="Images\Square150x150Logo.png"
-			                    Square44x44Logo="Images\Square44x44Logo.png">
-				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
-				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
-			</uap:VisualElements>
-			<Extensions>
-				<desktop:Extension
-                  Category="windows.startupTask"
-                  Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
-                  EntryPoint="Windows.FullTrustApplication">
-					<desktop:StartupTask
-                      TaskId="pengwinenterprise8-systemd"
-                      Enabled="false"
-                      DisplayName="Pengwin Enterprise 8 (SystemD)"/>
 				</desktop:Extension>
 			</Extensions>
 		</Application>

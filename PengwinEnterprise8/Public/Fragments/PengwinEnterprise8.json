@@ -16,7 +16,7 @@
       "startingDirectory": null
     },
     {
-      "commandline": "%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.PengwinEnterprise8_8.6.0.0_x64__zxdhfybd17krt\\Launcher8\\PengwinEnterprise8.exe -s",
+      "commandline": "%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.PengwinEnterprise8_8.6.0.0_x64__zxdhfybd17krt\\PengwinEnterprise8S\\PengwinEnterprise8S.exe",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.PengwinEnterprise8_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 8 (SystemD)",
       "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.PengwinEnterprise8_zxdhfybd17krt\\LocalState\\background.png",
