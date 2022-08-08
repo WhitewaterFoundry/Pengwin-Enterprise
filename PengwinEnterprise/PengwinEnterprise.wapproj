@@ -183,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DistroLauncher\DistroLauncher.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterprise7SW\PengwinEnterprise7SW.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterprise7S\PengwinEnterprise7S.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterprise7W\PengwinEnterprise7W.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>
