@@ -141,7 +141,7 @@
 			<Extensions>
 				<desktop:Extension
                   Category="windows.startupTask"
-                  Executable="PengwinEnterprise8SW\PengwinEnterprise8S.exe"
+                  Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
                   EntryPoint="Windows.FullTrustApplication">
 					<desktop:StartupTask
                       TaskId="pengwinenterprise8-systemd"
