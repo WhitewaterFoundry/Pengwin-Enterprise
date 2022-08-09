@@ -88,7 +88,7 @@
 			    </uap3:Extension>
 			    <desktop:Extension
 				    Category="windows.startupTask"
-				    Executable="PengwinEnterprise8S\PengwinEnterprise7S.exe"
+				    Executable="PengwinEnterprise7S\PengwinEnterprise7S.exe"
 				    EntryPoint="Windows.FullTrustApplication">
 				    <desktop:StartupTask
 					    TaskId="pengwinenterprise7-systemd"
@@ -131,8 +131,8 @@
 			    <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 		    </uap:VisualElements>
 		    <Extensions>
-			    <uap3:Extension Category="windows.appExecutionAlias" 
-			                    Executable="PengwinEnterprise7SW\PengwinEnterprise7SW.exe" 
+			    <uap3:Extension Category="windows.appExecutionAlias"
+			                    Executable="PengwinEnterprise7SW\PengwinEnterprise7SW.exe"
 			                    EntryPoint="Windows.FullTrustApplication">
 				    <uap3:AppExecutionAlias>
 					    <desktop:ExecutionAlias Alias="PengwinEnterprise7SW.exe" />
