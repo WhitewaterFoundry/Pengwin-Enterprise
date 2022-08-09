@@ -260,6 +260,7 @@ int wmain(int argc, const wchar_t* argv[])
         SyncIcons();
         SyncBackground();
 
+#ifndef SYSTEMD
         if (arguments.empty())
         {
             hr = g_wslApi.WslLaunchInteractive(L"", false, &exitCode);
@@ -286,9 +287,11 @@ int wmain(int argc, const wchar_t* argv[])
         else if (arguments[0] == ARG_SYSTEMD ||
             arguments[0] == ARG_SYSTEMD_D)
         {
+#endif
             const std::wstring command =
                 L"[ -f /usr/local/bin/start-systemd ] && (sudo /usr/local/bin/start-systemd || echo '') || (echo 'Installing SystemD support' && upgrade.sh && upgrade.sh && sudo /usr/local/bin/start-systemd)";
             hr = g_wslApi.WslLaunchInteractive(command.c_str(), true, &exitCode);
+#ifndef SYSTEMD
         }
         else if (arguments[0] == ARG_CONFIG)
         {
@@ -311,8 +314,8 @@ int wmain(int argc, const wchar_t* argv[])
             Helpers::PrintMessage(MSG_USAGE);
             return exitCode;
         }
+#endif
     }
-
     // Run custom commands on each launch.
     // hr = g_wslApi.WslLaunchInteractive(L"sudo yum update", true, &exitCode);
     // if (FAILED(hr)) {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "PengwinEnterprise", "PengwinEnterprise\PengwinEnterprise.wapproj", "{4CB6BF5B-FB61-4B62-B298-B6DEF243DC0B}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "PengwinEnterprise7", "PengwinEnterprise\PengwinEnterprise7.wapproj", "{4CB6BF5B-FB61-4B62-B298-B6DEF243DC0B}"
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "PengwinEnterprise8", "PengwinEnterprise8\PengwinEnterprise8.wapproj", "{2BD1F71D-EA65-46DF-B3E4-DA754E9F6705}"
 EndProject
