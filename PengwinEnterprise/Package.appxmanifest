@@ -11,13 +11,13 @@
 
     <Identity
       Name="WhitewaterFoundryLtd.Co.WLinuxEnterprise"
-      Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
+      Publisher="CN=9879127B-9E92-4DE5-9C32-0B1F09F95DCF"
       Version="7.9.11.0"
       ProcessorArchitecture="x64" />
 
     <Properties>
         <DisplayName>Pengwin Enterprise 7</DisplayName>
-        <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
+        <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
         <Logo>Images\StoreLogo.png</Logo>
     </Properties>
 
@@ -66,6 +66,9 @@
                       Enabled="false"
                       DisplayName="Pengwin Enterprise 7"/>
                 </desktop:Extension>
+				<uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
+					<uap:Protocol Name="pengwinenterprise7ui"/>
+				</uap:Extension>
             </Extensions>
         </Application>
 	    <Application Id="WLE2"

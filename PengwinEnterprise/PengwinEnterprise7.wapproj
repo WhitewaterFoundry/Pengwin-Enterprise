@@ -64,6 +64,7 @@
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <EntryPointProjectUniqueName>..\DistroLauncher\DistroLauncher.vcxproj</EntryPointProjectUniqueName>
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <AppxBundle>Auto</AppxBundle>
@@ -155,6 +156,7 @@
     <Content Include="Images\Wide310x150Logo.scale-150.png" />
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
     <Content Include="Images\Wide310x150Logo.scale-400.png" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Public\Fragments\PengwinEnterprise7.json" />
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='x64'">
@@ -186,6 +188,7 @@
     <ProjectReference Include="..\PengwinEnterprise7SW\PengwinEnterprise7SW.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise7S\PengwinEnterprise7S.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise7W\PengwinEnterprise7W.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

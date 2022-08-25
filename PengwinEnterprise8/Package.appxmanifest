@@ -8,12 +8,12 @@
     xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
   IgnorableNamespaces="uap rescap">
 	<Identity
-      Name="WhitewaterFoundryLtd.Co.PengwinEnterprise8"
-      Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
+      Name="WhitewaterFoundry.PengwinEnterprise8"
+      Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
       Version="8.6.1.0" />
 	<Properties>
 		<DisplayName>Pengwin Enterprise 8</DisplayName>
-		<PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
+		<PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
 		<Logo>Images\StoreLogo.png</Logo>
 	</Properties>
 	<Dependencies>
@@ -58,6 +58,9 @@
                       Enabled="false"
                       DisplayName="Pengwin Enterprise 8"/>
 				</desktop:Extension>
+				<uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
+					<uap:Protocol Name="pengwinenterprise8ui"/>
+				</uap:Extension>
 			</Extensions>
 		</Application>
 		<Application Id="App2"
@@ -123,8 +126,8 @@
 				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 			</uap:VisualElements>
 			<Extensions>
-				<uap3:Extension Category="windows.appExecutionAlias" 
-				                Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe" 
+				<uap3:Extension Category="windows.appExecutionAlias"
+				                Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe"
 				                EntryPoint="Windows.FullTrustApplication">
 					<uap3:AppExecutionAlias>
 						<desktop:ExecutionAlias Alias="PengwinEnterprise8SW.exe" />

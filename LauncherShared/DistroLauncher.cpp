@@ -206,6 +206,28 @@ fire_and_forget SyncBackground()
     }
 }
 
+fire_and_forget ShowPengwinEnterpriseUi()
+{
+    // ReSharper disable once CppTooWideScope
+    const auto file =
+        co_await ApplicationData::Current().LocalFolder().TryGetItemAsync(L"MicrosoftStoreEngagementSDKId.txt");
+
+    if (! file)
+    {
+#ifdef VERSION7
+        // ReSharper disable once StringLiteralTypo
+        const hstring str = L"pengwinenterprise7ui://";
+#elif VERSION8
+        // ReSharper disable once StringLiteralTypo
+        const hstring str = L"pengwinenterprise8ui://";
+#endif
+
+        const auto uri = Uri(str);
+
+        co_await Launcher::LaunchUriAsync(uri);
+    }
+}
+
 int wmain(int argc, const wchar_t* argv[])
 {
     // Update the title bar of the console window.
@@ -259,6 +281,10 @@ int wmain(int argc, const wchar_t* argv[])
     {
         SyncIcons();
         SyncBackground();
+
+#ifndef STANDALONE
+        ShowPengwinEnterpriseUi();
+#endif
 
 #ifndef SYSTEMD
         if (arguments.empty())
