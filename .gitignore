@@ -296,3 +296,4 @@ DistroLauncher/messages.h
 *.exe
 *.tar.gz
 *.iso
+/PengwinEnterpriseUI/Generated Files/

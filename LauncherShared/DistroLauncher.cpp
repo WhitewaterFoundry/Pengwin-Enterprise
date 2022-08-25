@@ -12,12 +12,18 @@ constexpr auto ARG_INSTALL = L"install";
 constexpr auto ARG_INSTALL_ROOT = L"--root";
 constexpr auto ARG_RUN = L"run";
 constexpr auto ARG_RUN_C = L"-c";
+// ReSharper disable once IdentifierTypo
+// ReSharper disable once StringLiteralTypo
+constexpr auto ARG_SYSTEMD = L"--systemd";
+// ReSharper disable once IdentifierTypo
+constexpr auto ARG_SYSTEMD_D = L"-s";
 
 #include <winrt/Windows.Foundation.h> //do not remove
 #include <winrt/Windows.System.h>
 #include <winrt/Windows.Storage.h>
 
 using namespace winrt;
+using namespace Windows::UI::ViewManagement;
 using namespace Windows::Foundation;
 using namespace Windows::System;
 using namespace Windows::Storage;
@@ -34,7 +40,7 @@ HRESULT InstallDistribution(bool createUser)
 {
     // Register the distribution.
     Helpers::PrintMessage(MSG_STATUS_INSTALLING);
-    HRESULT hr = g_wslApi.WslRegisterDistribution();
+    auto hr = g_wslApi.WslRegisterDistribution();
     if (FAILED(hr))
     {
         return hr;
@@ -116,13 +122,13 @@ HRESULT SetDefaultUser(std::wstring_view userName)
 {
     // Query the UID of the given user name and configure the distribution
     // to use this UID as the default.
-    const ULONG uid = DistributionInfo::QueryUid(userName);
+    const auto uid = DistributionInfo::QueryUid(userName);
     if (uid == UID_INVALID)
     {
         return E_INVALIDARG;
     }
 
-    const HRESULT hr = g_wslApi.WslConfigureDistribution(uid, WSL_DISTRIBUTION_FLAGS_DEFAULT);
+    const auto hr = g_wslApi.WslConfigureDistribution(uid, WSL_DISTRIBUTION_FLAGS_DEFAULT);
     if (FAILED(hr))
     {
         return hr;
@@ -200,23 +206,6 @@ fire_and_forget SyncBackground()
     }
 }
 
-fire_and_forget ShowPengwinEnterpriseUi()
-{
-    // ReSharper disable once CppTooWideScope
-    const auto file =
-        co_await ApplicationData::Current().LocalFolder().TryGetItemAsync(L"MicrosoftStoreEngagementSDKId.txt");
-
-    if (! file)
-    {
-        // ReSharper disable once StringLiteralTypo
-        const hstring str = L"pengwinenterprise7ui://";
-
-        const auto uri = Uri(str);
-
-        co_await Launcher::LaunchUriAsync(uri);
-    }
-}
-
 int wmain(int argc, const wchar_t* argv[])
 {
     // Update the title bar of the console window.
@@ -224,7 +213,7 @@ int wmain(int argc, const wchar_t* argv[])
 
     // Initialize a vector of arguments.
     std::vector<std::wstring_view> arguments;
-    for (int index = 1; index < argc; index += 1)
+    for (auto index = 1; index < argc; index += 1)
     {
         arguments.push_back(argv[index]);
     }
@@ -243,12 +232,12 @@ int wmain(int argc, const wchar_t* argv[])
     }
 
     // Install the distribution if it is not already.
-    const bool installOnly = arguments.size() > 0 && arguments[0] == ARG_INSTALL;
-    HRESULT hr = S_OK;
+    const auto installOnly = arguments.size() > 0 && arguments[0] == ARG_INSTALL;
+    auto hr = S_OK;
     if (!g_wslApi.WslIsDistributionRegistered())
     {
         // If the "--root" option is specified, do not create a user account.
-        const bool useRoot = installOnly && arguments.size() > 1 && arguments[1] == ARG_INSTALL_ROOT;
+        const auto useRoot = installOnly && arguments.size() > 1 && arguments[1] == ARG_INSTALL_ROOT;
         hr = InstallDistribution(!useRoot);
         if (FAILED(hr))
         {
@@ -270,8 +259,8 @@ int wmain(int argc, const wchar_t* argv[])
     {
         SyncIcons();
         SyncBackground();
-        ShowPengwinEnterpriseUi();
 
+#ifndef SYSTEMD
         if (arguments.empty())
         {
             hr = g_wslApi.WslLaunchInteractive(L"", false, &exitCode);
@@ -295,6 +284,15 @@ int wmain(int argc, const wchar_t* argv[])
 
             hr = g_wslApi.WslLaunchInteractive(command.c_str(), true, &exitCode);
         }
+        else if (arguments[0] == ARG_SYSTEMD ||
+            arguments[0] == ARG_SYSTEMD_D)
+        {
+#endif
+            const std::wstring command =
+                L"[ -f /usr/local/bin/start-systemd ] && (sudo /usr/local/bin/start-systemd || echo '') || (echo 'Installing SystemD support' && upgrade.sh && upgrade.sh && sudo /usr/local/bin/start-systemd)";
+            hr = g_wslApi.WslLaunchInteractive(command.c_str(), true, &exitCode);
+#ifndef SYSTEMD
+        }
         else if (arguments[0] == ARG_CONFIG)
         {
             hr = E_INVALIDARG;
@@ -316,8 +314,8 @@ int wmain(int argc, const wchar_t* argv[])
             Helpers::PrintMessage(MSG_USAGE);
             return exitCode;
         }
+#endif
     }
-
     // Run custom commands on each launch.
     // hr = g_wslApi.WslLaunchInteractive(L"sudo yum update", true, &exitCode);
     // if (FAILED(hr)) {
@@ -330,6 +328,10 @@ int wmain(int argc, const wchar_t* argv[])
         if (hr == HRESULT_FROM_WIN32(ERROR_LINUX_SUBSYSTEM_NOT_PRESENT))
         {
             Helpers::PrintMessage(MSG_MISSING_OPTIONAL_COMPONENT);
+        }
+        else if (hr == HCS_E_HYPERV_NOT_INSTALLED)
+        {
+            Helpers::PrintMessage(MSG_ENABLE_VIRTUALIZATION);
         }
         else
         {
