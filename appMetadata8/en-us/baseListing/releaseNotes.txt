@@ -1,5 +1,10 @@
 Existing users can update immediately by running $ update.sh
 
+8.6.1
+* Added SystemD optional support, creating a new Start Menu icon and a profile in Windows Terminal. Both have (SystemD) in their name.
+* Added a new command wslsystemctl to start services without starting SystemD, as other distros like Ubuntu does with the service command.
+* Added tweaks to be able to run GNOME Desktop using Remote Desktop Connection.
+
 8.6.0
 * Upgraded to Rocky Linux 8.6
 
