@@ -10,7 +10,7 @@
 	<Identity
       Name="WhitewaterFoundryLtd.Co.PengwinEnterprise8"
       Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, STREET=233 12th Street, L=Columbus, S=Georgia, PostalCode=31901, C=US"
-      Version="8.6.1.0" />
+      Version="8.6.3.0" />
 	<Properties>
 		<DisplayName>Pengwin Enterprise 8</DisplayName>
 		<PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
@@ -123,8 +123,8 @@
 				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 			</uap:VisualElements>
 			<Extensions>
-				<uap3:Extension Category="windows.appExecutionAlias" 
-				                Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe" 
+				<uap3:Extension Category="windows.appExecutionAlias"
+				                Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe"
 				                EntryPoint="Windows.FullTrustApplication">
 					<uap3:AppExecutionAlias>
 						<desktop:ExecutionAlias Alias="PengwinEnterprise8SW.exe" />
