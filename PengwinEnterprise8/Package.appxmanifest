@@ -10,7 +10,7 @@
 	<Identity
       Name="WhitewaterFoundry.PengwinEnterprise8"
       Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
-      Version="8.6.2.0" />
+      Version="8.6.3.0" />
 	<Properties>
 		<DisplayName>Pengwin Enterprise 8</DisplayName>
 		<PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
