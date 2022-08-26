@@ -73,7 +73,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDCF.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
+    msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDCF.secureFilePath)" /p:PackageCertificatePassword="1"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
@@ -81,7 +81,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="$(appsign)"'
+    msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
