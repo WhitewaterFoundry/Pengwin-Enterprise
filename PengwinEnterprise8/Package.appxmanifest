@@ -5,12 +5,12 @@
     xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
     xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
     xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
-    xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
-  IgnorableNamespaces="uap rescap">
+    IgnorableNamespaces="uap rescap">
+
 	<Identity
       Name="WhitewaterFoundry.PengwinEnterprise8"
       Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
-      Version="8.7.0.0" />
+      Version="8.7.1.0" />
 	<Properties>
 		<DisplayName>Pengwin Enterprise 8</DisplayName>
 		<PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
@@ -47,7 +47,7 @@
 					<uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
                                        Id="pengwinenterprise8"
                                        PublicFolder="Public"
-                                       DisplayName="Pengwin Enterprise 8"></uap3:AppExtension>
+                                       DisplayName="Pengwin Enterprise 8"/>
 				</uap3:Extension>
 				<desktop:Extension
                   Category="windows.startupTask"
