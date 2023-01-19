@@ -56,7 +56,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <PackageCertificateThumbprint>D5F30735D56A9D26D3C791C9B0CEE15715908F26</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>B5B375E2F0F833B74CF20D5A7334386978E00C98</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampServerUrl>http://timestamp.sectigo.com/</AppxPackageSigningTimestampServerUrl>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
@@ -155,8 +155,8 @@
     <Content Include="Images\Wide310x150Logo.scale-150.png" />
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
     <Content Include="Images\Wide310x150Logo.scale-400.png" />
-    <Content Include="Public\Fragments\PengwinEnterprise8.json" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Public\Fragments\PengwinEnterprise8.json" />
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='x64'">
     <Content Include="..\x64\install8.tar.gz">
@@ -184,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Launcher8\Launcher8.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterprise8SW\PengwinEnterprise8SW.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterprise8S\PengwinEnterprise8S.vcxproj" />
+    <ProjectReference Include="..\PengwinEnterprise8W\PengwinEnterprise8W.vcxproj" />
     <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />

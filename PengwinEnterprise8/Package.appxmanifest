@@ -1,80 +1,152 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
-  IgnorableNamespaces="uap rescap">
+    xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+    xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+    xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+    xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+    IgnorableNamespaces="uap rescap">
 
-  <Identity
-    Name="WhitewaterFoundry.PengwinEnterprise8"
-    Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
-    Version="8.6.0.0" />
-
-  <Properties>
-    <DisplayName>Pengwin Enterprise 8</DisplayName>
-    <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
-    <Logo>Images\StoreLogo.png</Logo>
-  </Properties>
-
-  <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
-    <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
-  </Dependencies>
-
-  <Resources>
-    <Resource Language="x-generate"/>
-  </Resources>
-
-  <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="$targetentrypoint$">
-      <uap:VisualElements
-        DisplayName="Pengwin Enterprise 8"
-        Description="Pengwin Enterprise 8"
-        BackgroundColor="white"
-        Square150x150Logo="Images\Square150x150Logo.png"
-        Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise 8" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png">
-      </uap:DefaultTile >
-      <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
-      </uap:VisualElements>
-      <Extensions>
-        <uap3:Extension Category="windows.appExecutionAlias" Executable="Launcher8\pengwinenterprise8.exe" EntryPoint="Windows.FullTrustApplication">
-          <uap3:AppExecutionAlias>
-            <desktop:ExecutionAlias Alias="pengwinenterprise8.exe" />
-          </uap3:AppExecutionAlias>
-        </uap3:Extension>
-        <uap3:Extension Category="windows.appExtension">
-          <uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
-                             Id="pengwinenterprise8"
-                             PublicFolder="Public"
-                             DisplayName="Pengwin Enterprise 8">
-          </uap3:AppExtension>
-        </uap3:Extension>
-        <desktop:Extension
-          Category="windows.startupTask"
-          Executable="Launcher8\PengwinEnterprise8.exe"
-          EntryPoint="Windows.FullTrustApplication">
-          <desktop:StartupTask
-            TaskId="pengwinenterprise8"
-            Enabled="false"
-            DisplayName="Pengwin Enterprise 8"/>
-        </desktop:Extension>
-        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
-          <uap:Protocol Name="pengwinenterprise8ui"/>
-        </uap:Extension>
-
-      </Extensions>
-    </Application>
-  </Applications>
-
-  <Capabilities>
-    <Capability Name="internetClient" />
-    <rescap:Capability Name="runFullTrust" />
-  </Capabilities>
+	<Identity
+      Name="WhitewaterFoundry.PengwinEnterprise8"
+      Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
+      Version="8.7.1.0" />
+	<Properties>
+		<DisplayName>Pengwin Enterprise 8</DisplayName>
+		<PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
+		<Logo>Images\StoreLogo.png</Logo>
+	</Properties>
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
+		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
+		<PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+	</Dependencies>
+	<Resources>
+		<Resource Language="x-generate"/>
+	</Resources>
+	<Applications>
+		<Application Id="App"
+          Executable="$targetnametoken$.exe"
+          EntryPoint="$targetentrypoint$">
+			<uap:VisualElements
+              DisplayName="Pengwin Enterprise 8"
+              Description="Pengwin Enterprise 8"
+              BackgroundColor="white"
+              Square150x150Logo="Images\Square150x150Logo.png"
+              Square44x44Logo="Images\Square44x44Logo.png">
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise 8" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExecutionAlias" Executable="Launcher8\pengwinenterprise8.exe" EntryPoint="Windows.FullTrustApplication">
+					<uap3:AppExecutionAlias>
+						<desktop:ExecutionAlias Alias="pengwinenterprise8.exe" />
+					</uap3:AppExecutionAlias>
+				</uap3:Extension>
+				<uap3:Extension Category="windows.appExtension">
+					<uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
+                                       Id="pengwinenterprise8"
+                                       PublicFolder="Public"
+                                       DisplayName="Pengwin Enterprise 8"/>
+				</uap3:Extension>
+				<desktop:Extension
+                  Category="windows.startupTask"
+                  Executable="Launcher8\PengwinEnterprise8.exe"
+                  EntryPoint="Windows.FullTrustApplication">
+					<desktop:StartupTask
+                      TaskId="pengwinenterprise8"
+                      Enabled="false"
+                      DisplayName="Pengwin Enterprise 8"/>
+				</desktop:Extension>
+				<uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
+					<uap:Protocol Name="pengwinenterprise8ui"/>
+				</uap:Extension>
+			</Extensions>
+		</Application>
+		<Application Id="App2"
+		             Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
+		             EntryPoint="Windows.FullTrustApplication">
+			<uap:VisualElements
+				DisplayName="Pengwin Enterprise 8 (SystemD)"
+				Description="Pengwin Enterprise 8"
+				BackgroundColor="white"
+				Square150x150Logo="Images\Square150x150Logo.png"
+				Square44x44Logo="Images\Square44x44Logo.png">
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExecutionAlias" Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe" EntryPoint="Windows.FullTrustApplication">
+					<uap3:AppExecutionAlias>
+						<desktop:ExecutionAlias Alias="PengwinEnterprise8S.exe" />
+					</uap3:AppExecutionAlias>
+				</uap3:Extension>
+				<desktop:Extension
+					Category="windows.startupTask"
+					Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
+					EntryPoint="Windows.FullTrustApplication">
+					<desktop:StartupTask
+						TaskId="pengwinenterprise8-systemd"
+						Enabled="false"
+						DisplayName="Pengwin Enterprise 8 (SystemD)"/>
+				</desktop:Extension>
+			</Extensions>
+		</Application>
+		<Application Id="App3"
+		             Executable="PengwinEnterprise8W\PengwinEnterprise8W.exe"
+		             EntryPoint="Windows.FullTrustApplication">
+			<uap:VisualElements
+              AppListEntry="none"
+              DisplayName="Pengwin Enterprise 8 (W)"
+              Description="Pengwin Enterprise 8"
+              BackgroundColor="white"
+              Square150x150Logo="Images\Square150x150Logo.png"
+              Square44x44Logo="Images\Square44x44Logo.png">
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise 8 (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExecutionAlias" Executable="PengwinEnterprise8W\PengwinEnterprise8W.exe" EntryPoint="Windows.FullTrustApplication">
+					<uap3:AppExecutionAlias>
+						<desktop:ExecutionAlias Alias="PengwinEnterprise8W.exe" />
+					</uap3:AppExecutionAlias>
+				</uap3:Extension>
+			</Extensions>
+		</Application>
+		<Application Id="App4"
+		             Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe"
+		             EntryPoint="Windows.FullTrustApplication">
+			<uap:VisualElements AppListEntry="none"
+			                    DisplayName="Pengwin Enterprise 8 (SystemD) (W)"
+			                    Description="Pengwin Enterprise 8"
+			                    BackgroundColor="white"
+			                    Square150x150Logo="Images\Square150x150Logo.png"
+			                    Square44x44Logo="Images\Square44x44Logo.png">
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExecutionAlias"
+				                Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe"
+				                EntryPoint="Windows.FullTrustApplication">
+					<uap3:AppExecutionAlias>
+						<desktop:ExecutionAlias Alias="PengwinEnterprise8SW.exe" />
+					</uap3:AppExecutionAlias>
+				</uap3:Extension>
+				<desktop:Extension
+                  Category="windows.startupTask"
+                  Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe"
+                  EntryPoint="Windows.FullTrustApplication">
+					<desktop:StartupTask
+                      TaskId="pengwinenterprise8w-systemd"
+                      Enabled="false"
+                      DisplayName="Pengwin Enterprise 8 (SystemD) - No Window"/>
+				</desktop:Extension>
+			</Extensions>
+		</Application>
+	</Applications>
+	<Capabilities>
+		<Capability Name="internetClient" />
+		<rescap:Capability Name="runFullTrust" />
+	</Capabilities>
 </Package>

@@ -9,7 +9,7 @@
 WslApiLoader::WslApiLoader(const std::wstring& distributionName) :
     _distributionName(distributionName)
 {
-    _wslApiDll = LoadLibraryEx(L"wslapi.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+    _wslApiDll = LoadLibraryExW(L"wslapi.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
     if (_wslApiDll != nullptr)
     {
         _isDistributionRegistered = (WSL_IS_DISTRIBUTION_REGISTERED)GetProcAddress(

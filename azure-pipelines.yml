@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
@@ -54,27 +54,30 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 - task: DownloadSecureFile@1
-  name: signingCert
+  name: signingCertDCF
   inputs:
-    secureFile: 'store.pfx'
+    secureFile: 'store-DCF.pfx'
 - task: DownloadSecureFile@1
   name: signingCertDD0
   inputs:
-    secureFile: 'store-DD0.pfx'
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
-    platform: 'x64'
-    configuration: '$(buildConfiguration)'
-    maximumCpuCount: true
-    msbuildArchitecture: 'x64'
+    secureFile: 'store.pfx'
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: |
       version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise8/Package.appxmanifest)
-      sed -E -i "s/(^.*commandline.*PengwinEnterprise8_)([0-9\.]+)(_.*$)/\1${version}\3/" PengwinEnterprise8/Public/Fragments/PengwinEnterprise8.json
+      sed -E -i "s/(^.*commandline.*PengwinEnterprise8_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise8/Public/Fragments/PengwinEnterprise8.json
+      
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDCF.secureFilePath)" /p:PackageCertificatePassword="1"'
+    platform: 'x64'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+    msbuildArchitecture: 'x64'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -83,7 +86,6 @@ steps:
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: 'x64'
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
@@ -132,7 +134,7 @@ steps:
     serviceEndpoint: 'Whitewater Foundry'
     appId: '9N8LP0X93VCP'
     flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise7_7*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
@@ -146,7 +148,7 @@ steps:
     metadataUpdateMethod: 'TextMetadata'
     metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
     updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise_7*bundle.*xupload'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise7_7*bundle.*xupload'
     force: true
     skipPolling: false
     deletePackages: true
