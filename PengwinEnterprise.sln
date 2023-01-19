@@ -35,6 +35,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PengwinEnterprise8S", "Peng
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PengwinEnterprise7S", "PengwinEnterprise7S\PengwinEnterprise7S.vcxproj", "{106355A0-81CD-4AD3-9902-B1E472DC135F}"
 EndProject
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "PengwinEnterprise9", "PengwinEnterprise9\PengwinEnterprise9.wapproj", "{47F69E81-FD96-4364-B730-45B61616D0E1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher9", "Launcher9\Launcher9.vcxproj", "{294869A6-A54A-4E2F-B139-81F53C37C1E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +189,40 @@ Global
 		{106355A0-81CD-4AD3-9902-B1E472DC135F}.Release|x64.ActiveCfg = Release|x64
 		{106355A0-81CD-4AD3-9902-B1E472DC135F}.Release|x64.Build.0 = Release|x64
 		{106355A0-81CD-4AD3-9902-B1E472DC135F}.Release|x86.ActiveCfg = Release|Win32
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|x64.ActiveCfg = Debug|x64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|x64.Build.0 = Debug|x64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|x64.Deploy.0 = Debug|x64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Debug|x86.ActiveCfg = Debug|x86
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|ARM.ActiveCfg = Release|ARM
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|ARM64.ActiveCfg = Release|ARM64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|x64.ActiveCfg = Release|x64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|x64.Build.0 = Release|x64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|x64.Deploy.0 = Release|x64
+		{47F69E81-FD96-4364-B730-45B61616D0E1}.Release|x86.ActiveCfg = Release|x86
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|Any CPU.Build.0 = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|ARM.ActiveCfg = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|ARM.Build.0 = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|ARM64.ActiveCfg = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|ARM64.Build.0 = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|x64.ActiveCfg = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|x64.Build.0 = Debug|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|x86.ActiveCfg = Debug|Win32
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Debug|x86.Build.0 = Debug|Win32
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|Any CPU.ActiveCfg = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|Any CPU.Build.0 = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|ARM.ActiveCfg = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|ARM.Build.0 = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|ARM64.ActiveCfg = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|ARM64.Build.0 = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|x64.ActiveCfg = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|x64.Build.0 = Release|x64
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|x86.ActiveCfg = Release|Win32
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -198,6 +236,7 @@ Global
 		{26BA9CD3-EA71-4317-B945-6F62AACE5C49} = {84194E14-C782-4A0D-A081-BE83BE29D786}
 		{0B45B404-C16C-44A0-9B26-FC23A4E57A73} = {A9CB22B3-D4A6-48DF-AF8C-373509BC4F4B}
 		{106355A0-81CD-4AD3-9902-B1E472DC135F} = {84194E14-C782-4A0D-A081-BE83BE29D786}
+		{294869A6-A54A-4E2F-B139-81F53C37C1E8} = {1CF1791A-8D5D-4BB1-BF02-EE49537C854E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CBEEAE2-D963-465A-A538-A30F8D615037}
@@ -206,6 +245,7 @@ Global
 		LauncherShared\LauncherShared.vcxitems*{0b45b404-c16c-44a0-9b26-fc23a4e57a73}*SharedItemsImports = 4
 		LauncherShared\LauncherShared.vcxitems*{106355a0-81cd-4ad3-9902-b1e472dc135f}*SharedItemsImports = 4
 		WrapperShared\WrapperShared.vcxitems*{26ba9cd3-ea71-4317-b945-6f62aace5c49}*SharedItemsImports = 4
+		LauncherShared\LauncherShared.vcxitems*{294869a6-a54a-4e2f-b139-81f53c37c1e8}*SharedItemsImports = 4
 		WrapperShared\WrapperShared.vcxitems*{6dadda46-7c10-4cb3-a0bd-2d8c2381e15d}*SharedItemsImports = 4
 		LauncherShared\LauncherShared.vcxitems*{6e112a2e-4274-4022-8bdf-41e90bc00fb6}*SharedItemsImports = 4
 		LauncherShared\LauncherShared.vcxitems*{87f82700-d870-401f-8bf1-4d11a12ac8d7}*SharedItemsImports = 9

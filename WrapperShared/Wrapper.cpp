@@ -13,6 +13,9 @@ constexpr auto EXE_NAME = L"WLE.exe";
 #elif VERSION8
 constexpr auto EXE_PATH = L"Launcher8";
 constexpr auto EXE_NAME = L"PengwinEnterprise8.exe";
+#elif VERSION9
+constexpr auto EXE_PATH = L"Launcher9";
+constexpr auto EXE_NAME = L"PengwinEnterprise9.exe";
 #endif
 
 #ifdef SYSTEMD

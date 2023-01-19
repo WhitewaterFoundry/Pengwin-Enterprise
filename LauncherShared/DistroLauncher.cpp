@@ -220,6 +220,9 @@ fire_and_forget ShowPengwinEnterpriseUi()
 #elif VERSION8
         // ReSharper disable once StringLiteralTypo
         const hstring str = L"pengwinenterprise8ui://";
+#elif VERSION9
+        // ReSharper disable once StringLiteralTypo
+        const hstring str = L"pengwinenterprise9ui://";
 #endif
 
         const auto uri = Uri(str);
