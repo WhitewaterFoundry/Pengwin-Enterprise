@@ -2,8 +2,6 @@
 //
 
 #include "framework.h"
-#include <PathCch.h>
-#include <iostream>
 
 using namespace std;
 
