@@ -1,0 +1,4 @@
+Existing users can update immediately by running $ update.sh
+
+9.1.0
+* Upgraded to Rocky Linux 9.1

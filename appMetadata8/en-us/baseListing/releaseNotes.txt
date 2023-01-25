@@ -1,7 +1,20 @@
 Existing users can update immediately by running $ update.sh
 
-8.7.0
-* Upgraded to RHEL 8.7
+8.7.1
+* Upgrade Mesa to 22.1.5 enabling Accelerated OpenGL 4 support
+* Upgrade to RHEL 8.7
+* Improved support for WSL built-in SystemD
+
+8.6.1
+* Added SystemD optional support, creating a new Start Menu icon and a profile in Windows Terminal. Both have (SystemD) in their name.
+* Added a new command wslsystemctl to start services without starting SystemD, as other distros like Ubuntu does with the service command.
+* Added tweaks to be able to run GNOME Desktop using Remote Desktop Connection.
+
+8.6.0
+* Upgraded to RHEL 8.6
+
+8.5.1
+* Fix a launch error with Windows Terminal 1.12
 
 8.5.0
 * Upgraded to RHEL 8.5

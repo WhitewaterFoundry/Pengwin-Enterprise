@@ -1,5 +1,16 @@
 Existing users can update immediately by running $ upgrade.sh
 
+7.9.11
+* Added SystemD optional support, creating a new Start Menu icon and a profile in Windows Terminal. Both have (SystemD) in their name.
+* Added a new command wslsystemctl to start services without starting SystemD, as other distros like Ubuntu does with the service command.
+
+7.9.10
+* Fix a launch error with Windows Terminal 1.12
+
+7.9.9
+* If Windows Terminal is the default console, now it correctly shows the profile when you double-click Pengwin Enterprise 7 in start menu
+* Corrected the logo look in Windows 11 light theme
+
 7.9.6
 * Corrected some wrong file permissions
 
@@ -26,18 +37,3 @@ Existing users can update immediately by running $ upgrade.sh
 
 * Now, the image is based on SL 7.8
 * Corrected an error related ssh port forwarding.
-
-1.2.2
-
-Support kernel upgrade in WSL2
-
-1.2.1
-
-Made it compatible with WSL 2 now DISPLAY variable have the right value for WSL2
-A symbolic link called winhome is automatically created, pointing to the user's home folder.
-
-1.1.1
-Added Man Pages
-Fixed issue with ping
-Install by default bash-completion, vim, which and wget
-Set defaults in vim for dark background terminal, syntax highlight, and no bells!

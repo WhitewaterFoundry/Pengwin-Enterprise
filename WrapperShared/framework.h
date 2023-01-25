@@ -9,3 +9,5 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <PathCch.h>
+#include <iostream>
