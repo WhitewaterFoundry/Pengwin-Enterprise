@@ -1,8 +1,8 @@
 {
   "profiles": [
     {
-      "updates": "{32101ab0-27ea-518c-9551-3231daf3fd14}",
-      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise9_9.1.0.0_x64__zxdhfybd17krt\\Launcher8\\PengwinEnterprise9.exe\"",
+      "updates": "{8b5eb413-23b0-5ec1-be7c-244d8f9ee208}",
+      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise9_9.1.0.0_x64__zxdhfybd17krt\\Launcher9\\PengwinEnterprise9.exe\"",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 9",
       "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_zxdhfybd17krt\\LocalState\\background.png",
