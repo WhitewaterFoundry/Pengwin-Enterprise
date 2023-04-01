@@ -20,6 +20,22 @@ steps:
   inputs:
     buildType: 'specific'
     project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+    pipeline: '15'
+    specificBuildWithTriggering: true
+    buildVersionToDownload: 'latest'
+    downloadType: 'single'
+    artifactName: 'drop'
+    downloadPath: '$(System.ArtifactsDirectory)'
+- task: CmdLine@2
+  inputs:
+    script: |
+      mkdir x64
+      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install9.tar.gz
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
     pipeline: '12'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'latest'
@@ -68,6 +84,9 @@ steps:
       version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise8/Package.appxmanifest)
       sed -E -i "s/(^.*commandline.*PengwinEnterprise8_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise8/Public/Fragments/PengwinEnterprise8.json
       
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise9/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
+        
       version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
       sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
 - task: VSBuild@1
@@ -82,6 +101,14 @@ steps:
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
+    platform: 'x64'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+    msbuildArchitecture: 'x64'
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
@@ -101,6 +128,32 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: store-flight@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: '9P70GX2HQNHN'
+    flightName: 'Azure Pipelines'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise9*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
+- task: store-publish@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: '9P70GX2HQNHN'
+    metadataUpdateMethod: 'TextMetadata'
+    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata9'
+    updateImages: false
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise9*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '3'
 - task: store-flight@0
   continueOnError: true
   timeoutInMinutes: 10

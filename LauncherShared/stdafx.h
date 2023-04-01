@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <Windows.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 #include <io.h>
 #include <string>
@@ -25,6 +25,10 @@
 #include <string_view>
 #include <vector>
 #include <wslapi.h>
+
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Collections.h>
+
 #include "WslApiLoader.h"
 #include "Helpers.h"
 #include "DistributionInfo.h"
