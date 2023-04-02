@@ -129,15 +129,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='x64'">
-    <Content Include="..\x64\$(Configuration)\PengwinEnterprise8.exe">
+    <Content Include="..\x64\$(Configuration)\PengwinEnterprise9.exe">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
-      <Link>PengwinEnterprise8.exe</Link>
+      <Link>PengwinEnterprise9.exe</Link>
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='ARM64'">
-    <Content Include="..\ARM64\$(Configuration)\PengwinEnterprise8.exe">
+    <Content Include="..\ARM64\$(Configuration)\PengwinEnterprise9.exe">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
-      <Link>PengwinEnterprise8.exe</Link>
+      <Link>PengwinEnterprise9.exe</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
