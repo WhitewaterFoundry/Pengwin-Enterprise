@@ -89,8 +89,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="MSG00409.bin" />
     <None Include="packages.config" />
     <None Include="PropertySheet.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Update="F:\WhitewaterFoundry\Pengwin-Enterprise\LauncherShared\messages.mc">
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

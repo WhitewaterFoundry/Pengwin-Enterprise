@@ -12,6 +12,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="MSG00409.bin" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -93,4 +94,9 @@
     <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.230225.1\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.230225.1\build\native\Microsoft.Windows.CppWinRT.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.230225.1\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.230225.1\build\native\Microsoft.Windows.CppWinRT.targets'))" />
   </Target>
+  <ItemGroup>
+    <CustomBuild Update="F:\WhitewaterFoundry\Pengwin-Enterprise\LauncherShared\messages.mc">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
 </Project>

@@ -41,6 +41,23 @@
     <Image Include="$(MSBuildThisFileDirectory)images\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)messages.mc" />
+    <CustomBuild Include="$(MSBuildThisFileDirectory)messages.mc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">mc %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mc %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mc %(FullPath)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">mc %(FullPath)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Compiling Messages...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling Messages...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling Messages...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Compiling Messages...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+    </CustomBuild>
   </ItemGroup>
 </Project>
