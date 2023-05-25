@@ -36,9 +36,11 @@ WslApiLoader g_wslApi(DistributionInfo::Name);
 static HRESULT InstallDistribution(bool createUser);
 static HRESULT SetDefaultUser(std::wstring_view userName);
 
+
 HRESULT InstallDistribution(bool createUser)
 {
     // Register the distribution.
+    Helpers::SendStartProcessSignal();
     Helpers::PrintMessage(MSG_STATUS_INSTALLING);
     auto hr = g_wslApi.WslRegisterDistribution();
     if (FAILED(hr))
@@ -84,6 +86,8 @@ HRESULT InstallDistribution(bool createUser)
     {
         return hr;
     }
+
+    Helpers::SendStopProcessSignal();
 
     // Display welcome
     Helpers::PrintMessage(MSG_WELCOME_MSG_PROMPT);

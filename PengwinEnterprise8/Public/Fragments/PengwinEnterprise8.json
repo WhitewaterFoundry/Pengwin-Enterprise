@@ -13,7 +13,8 @@
       "colorScheme": "Pengwin Enterprise 8",
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
-      "startingDirectory": null
+      "startingDirectory": null,
+      "experimental.showMarksOnScrollbar": true
     },
     {
       "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise8_8.6.0.0_x64__r1wwvvmhjq692\\PengwinEnterprise8S\\PengwinEnterprise8S.exe\"",
@@ -27,7 +28,8 @@
       "colorScheme": "Pengwin Enterprise 8",
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
-      "startingDirectory": null
+      "startingDirectory": null,
+      "experimental.showMarksOnScrollbar": true
     }
   ],
   "schemes": [
