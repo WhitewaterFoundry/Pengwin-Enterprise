@@ -13,7 +13,9 @@
       "colorScheme": "Pengwin Enterprise 7",
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
-      "startingDirectory": null
+      "startingDirectory": null,
+      "experimental.showMarksOnScrollbar": true,
+      "experimental.autoMarkPrompts": true
     },
     {
       "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_7.9.9.0_x64__zxdhfybd17krt\\PengwinEnterprise7S\\PengwinEnterprise7S.exe\"",
@@ -27,7 +29,9 @@
       "colorScheme": "Pengwin Enterprise 7",
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
-      "startingDirectory": null
+      "startingDirectory": null,
+      "experimental.showMarksOnScrollbar": true,
+      "experimental.autoMarkPrompts": true
     }
   ],
   "schemes": [
