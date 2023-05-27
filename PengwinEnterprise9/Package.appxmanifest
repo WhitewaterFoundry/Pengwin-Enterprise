@@ -63,9 +63,6 @@
                   Enabled="false"
                   DisplayName="Pengwin Enterprise 9"/>
         </desktop:Extension>
-        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
-          <uap:Protocol Name="pengwinenterprise9ui"/>
-        </uap:Extension>
       </Extensions>
     </Application>
     <Application Id="App2"
