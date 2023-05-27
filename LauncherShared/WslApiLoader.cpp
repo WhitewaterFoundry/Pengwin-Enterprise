@@ -15,6 +15,7 @@ WslApiLoader::WslApiLoader(const std::wstring& distributionName) :
         _isDistributionRegistered = (WSL_IS_DISTRIBUTION_REGISTERED)GetProcAddress(
             _wslApiDll, "WslIsDistributionRegistered");
         _registerDistribution = (WSL_REGISTER_DISTRIBUTION)GetProcAddress(_wslApiDll, "WslRegisterDistribution");
+        _unRegisterDistribution = (WSL_UN_REGISTER_DISTRIBUTION)GetProcAddress(_wslApiDll, "WslUnregisterDistribution");
         _configureDistribution = (WSL_CONFIGURE_DISTRIBUTION)GetProcAddress(_wslApiDll, "WslConfigureDistribution");
         _launchInteractive = (WSL_LAUNCH_INTERACTIVE)GetProcAddress(_wslApiDll, "WslLaunchInteractive");
         _launch = (WSL_LAUNCH)GetProcAddress(_wslApiDll, "WslLaunch");
@@ -50,6 +51,18 @@ HRESULT WslApiLoader::WslRegisterDistribution()
     if (FAILED(hr))
     {
         Helpers::PrintMessage(MSG_WSL_REGISTER_DISTRIBUTION_FAILED, hr);
+    }
+
+    return hr;
+}
+
+HRESULT WslApiLoader::WslUnregisterDistribution() const
+{
+    const auto hr = _unRegisterDistribution(_distributionName.c_str());
+    if (FAILED(hr))
+    {
+        wprintf(L"failed");
+        Helpers::PrintMessage(MSG_WSL_UN_REGISTER_DISTRIBUTION_FAILED, hr);
     }
 
     return hr;

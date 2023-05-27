@@ -2,17 +2,13 @@ Pengwin Enterprise is a Windows Subsystem for Linux (WSL) solution that is compa
 
 Pengwin Enterprise can be customized to fit the organization's needs and leverage existing Linux infrastructure and subscriptions. Pengwin Enterprise also comes with a rich set of tools and packages to help you work productively with Linux on Windows.
 
-The build of Pengwin Enterprise that is available on the Microsoft Store is based on **Rocky Linux**, which is derived from the source code of **RedHat Enterprise Linux** .
-
 Whether you are a developer, a system administrator, a data scientist, or a power user, Pengwin Enterprise can meet your needs and enhance your workflow.
 
-Pengwin Enterprise installs itself as a menu entry in Windows Terminal. We crafted the background and the color palette for the best looking and usability in Windows Terminal.
+Pengwin Enterprise installs itself as a menu entry in Windows Terminal. We crafted the background and the color palette for the best looking and usability in Windows Terminal. If you configure Pengwin Enterprise as your Default Profile in Windows Terminal, it allows for greater integration with Windows environment. Specifically, if you right-click a folder in File Explorer and select Open in Terminal, it will open in the selected directory, making it easier to access all necessary files and tools from within the terminal.
 
 Access your C:\ drive at /mnt/C automatically. Copy and paste from Visual Studio into Emacs. Open Word from zsh. Pipe ifconfig.exe output into a Python script. It is a hybrid world. Pengwin Enterprise bridges the gap between Windows and Linux.
 
 Pengwin Enterprise is designed for custom deployments in consultation with Whitewater Foundry's international team of WSL experts.
-
-Pengwin Enterprise is a Windows Subsystem for Linux (WSL) solution compatible with Oracle Linux and Red Hat Enterprise Linux.
 
 This build provided on the Microsoft Store is built from Rocky Linux, for demonstration purposes and personal use only.
 

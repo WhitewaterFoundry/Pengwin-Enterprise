@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <None Include="MSG00409.bin">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
 </Project>
