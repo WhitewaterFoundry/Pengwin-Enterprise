@@ -148,6 +148,5 @@
     <ProjectReference Include="..\PengwinEnterprise9SW\PengwinEnterprise9SW.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise9S\PengwinEnterprise9S.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise9W\PengwinEnterprise9W.vcxproj" />
-    <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
 </Project>

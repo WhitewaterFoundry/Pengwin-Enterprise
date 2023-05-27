@@ -145,7 +145,6 @@
     <ProjectReference Include="..\PengwinEnterprise8SW\PengwinEnterprise8SW.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise8S\PengwinEnterprise8S.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise8W\PengwinEnterprise8W.vcxproj" />
-    <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>
