@@ -1,4 +1,8 @@
 Existing users can update immediately by running $ update.sh
 
+9.2.0
+* Upgraded to RHEL 9.2
+* Upgraded Mesa to 22.3.0 with OpenGL 4 support and video acceleration
+
 9.1.0
 * Upgraded to Rocky Linux 9.1

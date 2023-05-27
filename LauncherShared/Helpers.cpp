@@ -62,8 +62,19 @@ HRESULT Helpers::PrintMessage(DWORD messageId, ...)
 
 void Helpers::PromptForInput()
 {
+    // ReSharper disable once CppFunctionResultShouldBeUsed
     PrintMessage(MSG_PRESS_A_KEY);
     _getwch();
+}
+
+void Helpers::SendStartProcessSignal()
+{
+    wprintf(L"\033]9;4;3;100\033\\");
+}
+
+void Helpers::SendStopProcessSignal()
+{
+    wprintf(L"\033]9;4;0;100\033\\");
 }
 
 namespace

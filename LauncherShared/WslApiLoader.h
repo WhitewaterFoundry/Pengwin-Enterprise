@@ -13,6 +13,7 @@
 
 using WSL_IS_DISTRIBUTION_REGISTERED = BOOL(STDAPICALLTYPE*)(PCWSTR);
 using WSL_REGISTER_DISTRIBUTION = HRESULT(STDAPICALLTYPE*)(PCWSTR, PCWSTR);
+using WSL_UN_REGISTER_DISTRIBUTION = HRESULT(STDAPICALLTYPE*)(PCWSTR);
 using WSL_CONFIGURE_DISTRIBUTION = HRESULT(STDAPICALLTYPE*)(PCWSTR, ULONG, WSL_DISTRIBUTION_FLAGS);
 using WSL_GET_DISTRIBUTION_CONFIGURATION = HRESULT(STDAPICALLTYPE*)(PCWSTR, ULONG*, ULONG*, WSL_DISTRIBUTION_FLAGS*,
                                                                     PSTR**, ULONG*);
@@ -30,6 +31,8 @@ public:
     BOOL WslIsDistributionRegistered();
 
     HRESULT WslRegisterDistribution();
+
+    HRESULT WslUnregisterDistribution() const;
 
     HRESULT WslConfigureDistribution(ULONG defaultUID,
                                      WSL_DISTRIBUTION_FLAGS wslDistributionFlags);
@@ -50,6 +53,7 @@ private:
     HMODULE _wslApiDll;
     WSL_IS_DISTRIBUTION_REGISTERED _isDistributionRegistered;
     WSL_REGISTER_DISTRIBUTION _registerDistribution;
+    WSL_UN_REGISTER_DISTRIBUTION _unRegisterDistribution;
     WSL_CONFIGURE_DISTRIBUTION _configureDistribution;
     WSL_LAUNCH_INTERACTIVE _launchInteractive;
     WSL_LAUNCH _launch;

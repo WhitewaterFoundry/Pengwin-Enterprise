@@ -1,6 +1,14 @@
-Compatible with Red Hat Enterprise Linux.
-Use yum and dnf.
-Support for many Linux graphical applications with no need to configure display or libGL. Requires a Windows-based X client, such as X410 or VcXsrv.
+Pengwin Enterprise is a secure Windows Subsystem for Linux solution for the enterprise.
+It allows you to deploy Enterprise Linux on Windows and access Linux command-line tools and open source development tools on the Windows workstations you already have and manage.
+It supports various compatible Linux distributions, such as Red Hat Enterprise Linux, Oracle Linux, Scientific Linux, and CentOS.
 A stable enterprise-grade distribution. It is focused on stability and security over new features.
+Use yum and dnf.
+Support for many Linux graphical applications.
+It enables you to use powerful Linux software on Windows and Windows Server, such as Azure and Amazon cloud tools, Apache, Docker, Git, Go, Node.js, OpenJDK, Ruby on Rails, and Rust.
+It lets you securely connect to and administer Linux/BSD servers, both on-site and cloud, from Windows devices, such as a Surface Pro.
+It helps you automate routine Windows and Linux tasks with Bash, Python, PowerShell, and other scripting languages, weaving tools from both platforms together.
+It integrates with Visual Studio, Code, and JetBrains IDEs to conduct continuous integration testing and simplify DevOps.
 You have access to your Windows home directly from your Linux one via winhome symbolic link.
 We have handcrafted a Windows Terminal profile for a pleasant experience.
+It can be customized by Whitewater Foundry to fit your organization’s needs and leverage your existing enterprise Linux subscriptions and infrastructure.
+

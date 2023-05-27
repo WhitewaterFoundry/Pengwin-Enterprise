@@ -207,3 +207,12 @@
 //
 #define MSG_ENABLE_VIRTUALIZATION        0x000003F8L
 
+//
+// MessageId: MSG_WSL_UN_REGISTER_DISTRIBUTION_FAILED
+//
+// MessageText:
+//
+// WslUnRegisterDistribution failed with error: 0x%1!x!
+//
+#define MSG_WSL_UN_REGISTER_DISTRIBUTION_FAILED 0x000003F9L
+

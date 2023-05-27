@@ -1,32 +1,23 @@
 Existing users can update immediately by running $ update.sh
 
+8.8.2
+* Upgraded to RHEL 8.8
+* Upgraded Mesa to 22.3.0 with OpenGL 4 support and video acceleration
+* Added experimental prompt escape sequences for Windows Terminal 1.18 Shell Integration
+* When the distro is being installed, now a progress icon appears in the Windows Terminal tab
+* [FIX] After performing a Reset in App Settings, the distro can be installed again without reinstalling the app.
+* [FIX] Now, if you configure Pengwin Enterprise as your Default Profile in Windows Terminal, right-click a folder in File Explorer and select Open in Terminal, it will correctly open in the desired directory.
+* [FIX] The icon is now correctly displayed in the Windows Terminal tab with the default dark theme.
+
 8.7.1
-* Upgrade Mesa to 22.1.5 enabling Accelerated OpenGL 4 support
+* Upgrade Mesa to 22.1.5, enabling Accelerated OpenGL 4 support
 * Upgrade to RHEL 8.7
 * Improved support for WSL built-in SystemD
 
 8.6.1
 * Added SystemD optional support, creating a new Start Menu icon and a profile in Windows Terminal. Both have (SystemD) in their name.
-* Added a new command wslsystemctl to start services without starting SystemD, as other distros like Ubuntu does with the service command.
-* Added tweaks to be able to run GNOME Desktop using Remote Desktop Connection.
+* Added a new command wslsystemctl to start services without starting SystemD, as other distros like Ubuntu do with the service command.
+* Added tweaks to run GNOME Desktop using Remote Desktop Connection.
 
 8.6.0
 * Upgraded to RHEL 8.6
-
-8.5.1
-* Fix a launch error with Windows Terminal 1.12
-
-8.5.0
-* Upgraded to RHEL 8.5
-* NEW: If you are in Windows 11 and x64 you'll have GPU Acceleration. Type glxinfo -B to try it.
-
-8.4.11
-* Fixed an error in some configurations that the executable cannot be launched from Windows Terminal
-* For Windows Terminal 1.12 and Windows 11 when Windows Terminal is the default console, the profile will be correctly matched.
-8.4.10
-* Corrected some wrong file permissions
-8.4.9
-* Improved the update.sh script
-8.4.6
-* First version based on Rocky Linux 8
-
