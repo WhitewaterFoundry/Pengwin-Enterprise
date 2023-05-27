@@ -1,10 +1,10 @@
-Pengwin Enterprise is a Windows Subsystem for Linux (WSL) solution that is compatible with mainstream enterprise Linux distributions such as **Oracle Linux** and **Red Hat Enterprise Linux**. It is designed for enterprise users who need a secure, reliable, and fast Linux environment on their Windows machines.
+Pengwin Enterprise is a Windows Subsystem for Linux (WSL) solution compatible with mainstream enterprise Linux distributions such as **Oracle Linux** and **Red Hat Enterprise Linux**. It is designed for enterprise users who need a secure, reliable, and fast Linux environment on their Windows machines.
 
 Pengwin Enterprise can be customized to fit the organization's needs and leverage existing Linux infrastructure and subscriptions. Pengwin Enterprise also comes with a rich set of tools and packages to help you work productively with Linux on Windows.
 
 Whether you are a developer, a system administrator, a data scientist, or a power user, Pengwin Enterprise can meet your needs and enhance your workflow.
 
-Pengwin Enterprise installs itself as a menu entry in Windows Terminal. We crafted the background and the color palette for the best looking and usability in Windows Terminal. If you configure Pengwin Enterprise as your Default Profile in Windows Terminal, it allows for greater integration with Windows environment. Specifically, if you right-click a folder in File Explorer and select Open in Terminal, it will open in the selected directory, making it easier to access all necessary files and tools from within the terminal.
+Pengwin Enterprise installs itself as a menu entry in Windows Terminal. We crafted the background and the color palette for the best looking and usability in Windows Terminal. Configuring Pengwin Enterprise as your Default Profile in Windows Terminal allows greater integration with the Windows environment. Specifically, right-click a folder in File Explorer and select Open in Terminal. It will open in the chosen directory, making it easier to access all necessary files and tools from within the terminal.
 
 Access your C:\ drive at /mnt/C automatically. Copy and paste from Visual Studio into Emacs. Open Word from zsh. Pipe ifconfig.exe output into a Python script. It is a hybrid world. Pengwin Enterprise bridges the gap between Windows and Linux.
 
@@ -16,10 +16,10 @@ Businesses and institutions who wish to license Pengwin Enterprise, use Pengwin 
 
 Individual end-users are very strongly encouraged to obtain Pengwin or Fedora Remix for WSL instead. Pengwin includes end-user support and several usability modifications and tools, such as pengwin-setup, to improve the overall WSL experience for end-users.
 
-The Pengwin Enterprise build provided on the Microsoft Store does NOT include Red Hat Enterprise Linux packages, end-user support, pengwin-setup, or the WSL usability features that accompany Pengwin or built into Pengwin Enterprise in a custom deployment.
+The Pengwin Enterprise build provided on the Microsoft Store does NOT include Red Hat Enterprise Linux packages, end-user support, pengwin-setup, or the WSL usability features that accompany Pengwin or are built into Pengwin Enterprise in a custom deployment.
 
 Whitewater Foundry is a Microsoft Partner, Red Hat Business Partner, and licensee in the Open Innovation Network.
 
-Pengwin Enterprise is not endorsed by or affiliated with the CentOS Project, Scientific Linux, Rocky Linux or Fermi National Accelerator Laboratory.
+Pengwin Enterprise is not endorsed by or affiliated with the CentOS Project, Scientific Linux, Rocky Linux, or Fermi National Accelerator Laboratory.
 
 DISCLAIMER: Windows Insider Preview versions are not production-ready and can contain incompatibilities or bugs that affect the performance of Pengwin. We support insider versions on a best-effort basis.
