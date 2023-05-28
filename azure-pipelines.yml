@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
@@ -20,7 +20,7 @@ steps:
   inputs:
     buildType: 'specific'
     project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-    pipeline: '15'
+    pipeline: '17'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'latest'
     downloadType: 'single'
