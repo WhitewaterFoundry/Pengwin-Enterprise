@@ -16,18 +16,6 @@ variables:
   appxPackageDir: '$(System.DefaultWorkingDirectory)\AppxPackages'
 
 steps:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '7.x'
-- task: NuGetToolInstaller@1
-  inputs:
-    versionSpec: '6.x'
-    checkLatest: true
-- task: NuGetCommand@2
-  inputs:
-    command: 'restore'
-    restoreSolution: '$(solution)'
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'specific'
@@ -76,6 +64,11 @@ steps:
       mkdir x64
       move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install.tar.gz
 
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
 - task: DownloadSecureFile@1
   name: signingCertDCF
   inputs:
