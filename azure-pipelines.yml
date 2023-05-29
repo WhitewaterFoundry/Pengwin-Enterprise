@@ -16,6 +16,10 @@ variables:
   appxPackageDir: '$(System.DefaultWorkingDirectory)\AppxPackages'
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '7.x'
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'specific'
