@@ -20,6 +20,10 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '7.x'
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '6.x'
+    checkLatest: true
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'specific'
