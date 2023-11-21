@@ -146,7 +146,7 @@ steps:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise9*.*xbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@2
+- task: DeleteFiles@1
   inputs:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise9*.*xbundle'
@@ -155,7 +155,7 @@ steps:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise8*.*xbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@2
+- task: DeleteFiles@1
   inputs:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise8*.*xbundle'
@@ -164,7 +164,7 @@ steps:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise7_7*.*xbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@2
+- task: DeleteFiles@1
   inputs:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise7_7*.*xbundle'
