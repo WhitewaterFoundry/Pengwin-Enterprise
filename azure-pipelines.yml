@@ -113,16 +113,62 @@ steps:
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: 'x64'
+
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: '**\*bundle.*xupload'
+    Contents: '**\PengwinEnterprise9*bundle.*xupload'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise9*bundle.*xupload'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: '**\*.*xbundle'
+    Contents: '**\PengwinEnterprise8*bundle.*xupload'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise8*bundle.*xupload'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise7_7*bundle.*xupload'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise7_7*bundle.*xupload'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise9*.*xbundle'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise9*.*xbundle'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise8*.*xbundle'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise8*.*xbundle'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise7_7*.*xbundle'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise7_7*.*xbundle'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
