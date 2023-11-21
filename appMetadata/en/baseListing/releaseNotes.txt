@@ -1,5 +1,8 @@
 Existing users can update immediately by running $ upgrade.sh
 
+7.9.16
+* Fixed an incompatibility with WSL 2.0.9 when you are launching or installing Pengwin Enterprise.
+
 7.9.11
 * Added SystemD optional support, creating a new Start Menu icon and a profile in Windows Terminal. Both have (SystemD) in their name.
 * Added a new command wslsystemctl to start services without starting SystemD, as other distros like Ubuntu does with the service command.
