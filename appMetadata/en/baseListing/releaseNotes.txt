@@ -1,5 +1,8 @@
 Existing users can update immediately by running $ update.sh
 
+7.9.16
+* Fixed an incompatibility with WSL 2.0.9 when you are launching or installing Pengwin Enterprise.
+
 7.9.15
 * Added experimental prompt escape sequences for Windows Terminal 1.18 Shell Integration
 * When the distro is being installed, now a progress icon appears in the Windows Terminal tab

@@ -245,21 +245,6 @@ bool IsCurrentDirNotSystem32()
     return _wcsicmp(system32Dir, currentDir) != 0;
 }
 
-void CheckIfAResetWasMade()
-{
-    const auto localStateFolder = ApplicationData::Current().LocalFolder();
-    const auto files = localStateFolder.GetFilesAsync().get();
-    const bool isLocalStateEmpty = files.Size() == 0;
-
-    if (!isLocalStateEmpty || !g_wslApi.WslIsDistributionRegistered())
-    {
-        return;
-    }
-
-    // ReSharper disable once CppExpressionWithoutSideEffects
-    g_wslApi.WslUnregisterDistribution();
-}
-
 int wmain(int argc, const wchar_t* argv[])
 {
     // Update the title bar of the console window.
@@ -284,8 +269,6 @@ int wmain(int argc, const wchar_t* argv[])
 
         return static_cast<int>(exitCode);
     }
-
-    CheckIfAResetWasMade();
 
     // Install the distribution if it is not already.
     const auto installOnly = arguments.size() > 0 && arguments[0] == ARG_INSTALL;
