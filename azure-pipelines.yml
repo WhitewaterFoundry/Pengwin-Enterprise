@@ -144,8 +144,30 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: '**\*.*xbundle'
+    Contents: '**\PengwinEnterprise9*.*xbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise9*.*xbundle'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise8*.*xbundle'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise8*.*xbundle'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise7_7*.*xbundle'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: DeleteFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: '**\PengwinEnterprise7_7*.*xbundle'
 
 - task: PublishBuildArtifacts@1
   inputs:
