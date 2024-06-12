@@ -72,7 +72,7 @@ steps:
   - task: DownloadSecureFile@1
     name: signingCertDD0
     inputs:
-      secureFile: 'store.pfx'
+      secureFile: 'store-DD0.pfx'
   - task: Bash@3
     inputs:
       targetType: 'inline'
