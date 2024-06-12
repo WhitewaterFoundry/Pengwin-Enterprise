@@ -7,7 +7,7 @@ trigger:
   - rhel
 
 pool:
-  name: 'Windows'
+  vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
@@ -70,9 +70,9 @@ steps:
     inputs:
       restoreSolution: '$(solution)'
   - task: DownloadSecureFile@1
-    name: signingCert2
+    name: signingCertDD0
     inputs:
-      secureFile: 'appsign.pfx'
+      secureFile: 'store.pfx'
   - task: Bash@3
     inputs:
       targetType: 'inline'
@@ -88,7 +88,7 @@ steps:
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly'
+      msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
@@ -96,7 +96,7 @@ steps:
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly'
+      msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
@@ -104,7 +104,7 @@ steps:
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly'
+      msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
@@ -113,8 +113,30 @@ steps:
   - task: CopyFiles@2
     inputs:
       SourceFolder: '$(appxPackageDir)'
-      Contents: '**\*.*xbundle'
+      Contents: '**\PengwinEnterprise9*.*xbundle'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise9*.*xbundle'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise8*.*xbundle'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise8*.*xbundle'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise7_7*.*xbundle'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise7_7*.*xbundle'
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
