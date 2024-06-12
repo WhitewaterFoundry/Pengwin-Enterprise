@@ -15,7 +15,7 @@ steps:
     script: |
       mkdir x64
       move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install${{ parameters.install_version }}.tar.gz
-  displayName: 'Moving install${{ parameters.install_version }}.tar.gz to the right place'
+  displayName: 'Moving install${{ parameters.install_version }}.tar.gz'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -24,13 +24,13 @@ steps:
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: 'x64'
-  displayName: 'Building Pengwin Enterprise ${{ parameters.distro_version }}'
+  displayName: 'Building Version ${{ parameters.distro_version }}'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
     Contents: '**\PengwinEnterprise${{ parameters.distro_version }}*.*xbundle'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Copying the PengwinEnterprise${{ parameters.distro_version }}.msixbundle'
+  displayName: 'Copying the msixbundle'
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '$(appxPackageDir)'
