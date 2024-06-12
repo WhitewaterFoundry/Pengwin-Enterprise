@@ -88,11 +88,23 @@ steps:
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
+      msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
       msbuildArchitecture: 'x64'
+  - task: TrustedSigning@0
+    inputs:
+      AzureTenantID: '$(tenant-id)'
+      AzureClientID: '$(client-id)'
+      AzureClientSecret: '$(client-secret)'
+      Endpoint: 'https://eus.codesigning.azure.net/'
+      CodeSigningAccountName: 'WWFCodeSign'
+      CertificateProfileName: 'WWFAppSign'
+      FilesFolder: '$(appxPackageDir)'
+      FilesFolderFilter: 'msixbundle'
+      FilesFolderRecurse: true
+      FileDigest: 'SHA256'
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
@@ -101,19 +113,33 @@ steps:
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
       msbuildArchitecture: 'x64'
+
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
+      msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
       msbuildArchitecture: 'x64'
 
+  - task: TrustedSigning@0
+    inputs:
+      AzureTenantID: '$(tenant-id)'
+      AzureClientID: '$(client-id)'
+      AzureClientSecret: '$(client-secret)'
+      Endpoint: 'https://eus.codesigning.azure.net/'
+      CodeSigningAccountName: 'WWFCodeSign'
+      CertificateProfileName: 'WWFAppSign'
+      FilesFolder: '$(appxPackageDir)'
+      FilesFolderFilter: 'msixbundle'
+      FilesFolderRecurse: true
+      FileDigest: 'SHA256'
+
   - task: CopyFiles@2
     inputs:
       SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise9*.*xbundle'
+      Contents: '**\PengwinEnterprise9*.*'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
   - task: DeleteFiles@1
     inputs:
