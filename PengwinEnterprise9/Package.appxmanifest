@@ -14,9 +14,12 @@
     Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, L=Miami, S=Florida, C=US"
     Version="9.4.0.0" />
   <Properties>
-    <DisplayName>Pengwin Enterprise 9</DisplayName>
+    <DisplayName>Pengwin Enterprise 9 - Licensed to BP</DisplayName>
     <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
+    <uap10:PackageIntegrity>
+      <uap10:Content Enforcement="on" />
+    </uap10:PackageIntegrity>
   </Properties>
 
   <Dependencies>
@@ -153,8 +156,4 @@
     <Capability Name="internetClient" />
     <rescap:Capability Name="runFullTrust" />
   </Capabilities>
-
-  <uap10:PackageIntegrity>
-    <uap10:Content Enforcement="on" />
-  </uap10:PackageIntegrity>
 </Package>

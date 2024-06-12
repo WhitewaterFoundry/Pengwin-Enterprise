@@ -15,9 +15,12 @@
       Version="7.9.17.0" />
 
     <Properties>
-        <DisplayName>Pengwin Enterprise 7</DisplayName>
+        <DisplayName>Pengwin Enterprise 7 - Licensed to BP</DisplayName>
         <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
         <Logo>Images\StoreLogo.png</Logo>
+		<uap10:PackageIntegrity>
+			<uap10:Content Enforcement="on" />
+		</uap10:PackageIntegrity>
     </Properties>
 
     <Dependencies>
@@ -154,8 +157,4 @@
         <Capability Name="internetClient" />
         <rescap:Capability Name="runFullTrust" />
     </Capabilities>
-
-    <uap10:PackageIntegrity>
-	    <uap10:Content Enforcement="on" />
-	</uap10:PackageIntegrity>
 </Package>
