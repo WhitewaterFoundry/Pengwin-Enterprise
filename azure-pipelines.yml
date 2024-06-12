@@ -98,6 +98,11 @@ steps:
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
       msbuildArchitecture: 'x64'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise9*.*'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
   - task: TrustedSigning@0
     inputs:
       AzureTenantID: '$(tenant-id)'
@@ -106,10 +111,13 @@ steps:
       Endpoint: 'https://eus.codesigning.azure.net/'
       CodeSigningAccountName: 'WWFCodeSign'
       CertificateProfileName: 'WWFAppSign'
-      FilesFolder: '$(appxPackageDir)'
+      FilesFolder: '$(Build.ArtifactStagingDirectory)'
       FilesFolderFilter: 'msixbundle'
       FilesFolderRecurse: true
+      FilesFolderDepth: 1
       FileDigest: 'SHA256'
+      TimestampRfc3161: 'http://timestamp.acs.microsoft.com'
+      TimestampDigest: 'SHA256'
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
