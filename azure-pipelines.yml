@@ -93,7 +93,7 @@ steps:
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
+      msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
