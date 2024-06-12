@@ -9,7 +9,7 @@
 
 	<Identity
       Name="WhitewaterFoundryLtd.Co.PengwinEnterprise8"
-      Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, S=Florida, C=US"
+	  Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, L=Miami, S=Florida, C=US"
       Version="8.9.0.0" />
 	<Properties>
 		<DisplayName>Pengwin Enterprise 8</DisplayName>

@@ -21,54 +21,6 @@ variables:
   value: '$(System.DefaultWorkingDirectory)\AppxPackages'
 
 steps:
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: 'specific'
-      project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-      pipeline: '15'
-      specificBuildWithTriggering: true
-      buildVersionToDownload: 'latest'
-      downloadType: 'single'
-      artifactName: 'drop'
-      downloadPath: '$(System.ArtifactsDirectory)'
-  - task: CmdLine@2
-    inputs:
-      script: |
-        mkdir x64
-        move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install9.tar.gz
-
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: 'specific'
-      project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-      pipeline: '11'
-      specificBuildWithTriggering: true
-      buildVersionToDownload: 'latest'
-      downloadType: 'single'
-      artifactName: 'drop'
-      downloadPath: '$(System.ArtifactsDirectory)'
-  - task: CmdLine@2
-    inputs:
-      script: |
-        mkdir x64
-        move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install8.tar.gz
-
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: 'specific'
-      project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-      pipeline: '14'
-      specificBuildWithTriggering: true
-      buildVersionToDownload: 'latest'
-      downloadType: 'single'
-      artifactName: 'drop'
-      downloadPath: '$(System.ArtifactsDirectory)'
-  - task: CmdLine@2
-    inputs:
-      script: |
-        mkdir x64
-        move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install.tar.gz
-
   - task: NuGetToolInstaller@1
 
   - task: NuGetCommand@2
@@ -90,6 +42,22 @@ steps:
         
         version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
         sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
+
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'specific'
+      project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+      pipeline: '15'
+      specificBuildWithTriggering: true
+      buildVersionToDownload: 'latest'
+      downloadType: 'single'
+      artifactName: 'drop'
+      downloadPath: '$(System.ArtifactsDirectory)'
+  - task: CmdLine@2
+    inputs:
+      script: |
+        mkdir x64
+        move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install9.tar.gz
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
@@ -101,8 +69,92 @@ steps:
   - task: CopyFiles@2
     inputs:
       SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise9*.*'
+      Contents: '**\PengwinEnterprise9*.*xbundle'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise9*.*xbundle'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: 'x64\install9.tar.gz'
+
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'specific'
+      project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+      pipeline: '11'
+      specificBuildWithTriggering: true
+      buildVersionToDownload: 'latest'
+      downloadType: 'single'
+      artifactName: 'drop'
+      downloadPath: '$(System.ArtifactsDirectory)'
+  - task: CmdLine@2
+    inputs:
+      script: |
+        mkdir x64
+        move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install8.tar.gz
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
+      platform: 'x64'
+      configuration: '$(buildConfiguration)'
+      maximumCpuCount: true
+      msbuildArchitecture: 'x64'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise8*.*xbundle'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise8*.*xbundle'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: 'x64\install8.tar.gz'
+
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'specific'
+      project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+      pipeline: '14'
+      specificBuildWithTriggering: true
+      buildVersionToDownload: 'latest'
+      downloadType: 'single'
+      artifactName: 'drop'
+      downloadPath: '$(System.ArtifactsDirectory)'
+  - task: CmdLine@2
+    inputs:
+      script: |
+        mkdir x64
+        move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install.tar.gz
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
+      platform: 'x64'
+      configuration: '$(buildConfiguration)'
+      maximumCpuCount: true
+      msbuildArchitecture: 'x64'
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise7_7*.*xbundle'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: '**\PengwinEnterprise7_7*.*xbundle'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: 'x64\install.tar.gz'
+
   - task: TrustedSigning@0
     inputs:
       AzureTenantID: '$(tenant-id)'
@@ -118,64 +170,7 @@ steps:
       FileDigest: 'SHA256'
       TimestampRfc3161: 'http://timestamp.acs.microsoft.com'
       TimestampDigest: 'SHA256'
-  - task: VSBuild@1
-    inputs:
-      solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
-      platform: 'x64'
-      configuration: '$(buildConfiguration)'
-      maximumCpuCount: true
-      msbuildArchitecture: 'x64'
 
-  - task: VSBuild@1
-    inputs:
-      solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
-      platform: 'x64'
-      configuration: '$(buildConfiguration)'
-      maximumCpuCount: true
-      msbuildArchitecture: 'x64'
-
-  - task: TrustedSigning@0
-    inputs:
-      AzureTenantID: '$(tenant-id)'
-      AzureClientID: '$(client-id)'
-      AzureClientSecret: '$(client-secret)'
-      Endpoint: 'https://eus.codesigning.azure.net/'
-      CodeSigningAccountName: 'WWFCodeSign'
-      CertificateProfileName: 'WWFAppSign'
-      FilesFolder: '$(appxPackageDir)'
-      FilesFolderFilter: 'msixbundle'
-      FilesFolderRecurse: true
-      FileDigest: 'SHA256'
-
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise9*.*'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  - task: DeleteFiles@1
-    inputs:
-      SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise9*.*xbundle'
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise8*.*xbundle'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  - task: DeleteFiles@1
-    inputs:
-      SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise8*.*xbundle'
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise7_7*.*xbundle'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  - task: DeleteFiles@1
-    inputs:
-      SourceFolder: '$(appxPackageDir)'
-      Contents: '**\PengwinEnterprise7_7*.*xbundle'
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
