@@ -68,12 +68,12 @@
 		             Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
 		             EntryPoint="Windows.FullTrustApplication">
 			<uap:VisualElements
-				DisplayName="Pengwin Enterprise 8 (SystemD)"
+				DisplayName="Pengwin Enterprise 8 (systemd)"
 				Description="Pengwin Enterprise 8"
 				BackgroundColor="white"
 				Square150x150Logo="Images\Square150x150Logo.png"
 				Square44x44Logo="Images\Square44x44Logo.png">
-				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
 				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 			</uap:VisualElements>
 			<Extensions>
@@ -89,7 +89,7 @@
 					<desktop:StartupTask
 						TaskId="pengwinenterprise8-systemd"
 						Enabled="false"
-						DisplayName="Pengwin Enterprise 8 (SystemD)"/>
+						DisplayName="Pengwin Enterprise 8 (systemd)"/>
 				</desktop:Extension>
 			</Extensions>
 		</Application>
@@ -118,12 +118,12 @@
 		             Executable="PengwinEnterprise8SW\PengwinEnterprise8SW.exe"
 		             EntryPoint="Windows.FullTrustApplication">
 			<uap:VisualElements AppListEntry="none"
-			                    DisplayName="Pengwin Enterprise 8 (SystemD) (W)"
+			                    DisplayName="Pengwin Enterprise 8 (systemd) (W)"
 			                    Description="Pengwin Enterprise 8"
 			                    BackgroundColor="white"
 			                    Square150x150Logo="Images\Square150x150Logo.png"
 			                    Square44x44Logo="Images\Square44x44Logo.png">
-				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+				<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
 				<uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 			</uap:VisualElements>
 			<Extensions>
@@ -141,7 +141,7 @@
 					<desktop:StartupTask
                       TaskId="pengwinenterprise8w-systemd"
                       Enabled="false"
-                      DisplayName="Pengwin Enterprise 8 (SystemD) - No Window"/>
+                      DisplayName="Pengwin Enterprise 8 (systemd) - No Window"/>
 				</desktop:Extension>
 			</Extensions>
 		</Application>

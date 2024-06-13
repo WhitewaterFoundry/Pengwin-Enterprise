@@ -20,7 +20,7 @@
     {
       "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_7.9.9.0_x64__zxdhfybd17krt\\PengwinEnterprise7S\\PengwinEnterprise7S.exe\"",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
-      "name": "Pengwin Enterprise 7 (SystemD)",
+      "name": "Pengwin Enterprise 7 (systemd)",
       "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundryLtd.Co.WLinuxEnterprise_zxdhfybd17krt\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
