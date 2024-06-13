@@ -28,7 +28,10 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise${{ parameters.distro_version }}*.*xbundle'
+    Contents: |
+      **\PengwinEnterprise${{ parameters.distro_version }}*.*xbundle
+      **\Dependencies\**\*.appx
+      **\Dependencies\**\*.msix
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copying the msixbundle'
 - task: DeleteFiles@1
