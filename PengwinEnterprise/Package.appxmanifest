@@ -6,6 +6,7 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
   xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
   IgnorableNamespaces="uap rescap">
 
     <Identity
@@ -18,6 +19,9 @@
         <DisplayName>Pengwin Enterprise 7</DisplayName>
         <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
         <Logo>Images\StoreLogo.png</Logo>
+		<uap10:PackageIntegrity>
+			<uap10:Content Enforcement="on" />
+		</uap10:PackageIntegrity>
     </Properties>
 
     <Dependencies>
@@ -74,12 +78,12 @@
 	                 Executable="PengwinEnterprise7S\PengwinEnterprise7S.exe"
 	                 EntryPoint="Windows.FullTrustApplication">
 		    <uap:VisualElements
-			    DisplayName="Pengwin Enterprise 7 (SystemD)"
+			    DisplayName="Pengwin Enterprise 7 (systemd)"
 			    Description="Pengwin Enterprise 7"
 			    BackgroundColor="white"
 			    Square150x150Logo="Images\Square150x150Logo.png"
 			    Square44x44Logo="Images\Square44x44Logo.png">
-			    <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+			    <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
 			    <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 		    </uap:VisualElements>
 		    <Extensions>
@@ -95,7 +99,7 @@
 				    <desktop:StartupTask
 					    TaskId="pengwinenterprise7-systemd"
 					    Enabled="false"
-					    DisplayName="Pengwin Enterprise 7 (SystemD)"/>
+					    DisplayName="Pengwin Enterprise 7 (systemd)"/>
 			    </desktop:Extension>
 		    </Extensions>
 	    </Application>
@@ -124,12 +128,12 @@
 	                 Executable="PengwinEnterprise7SW\PengwinEnterprise7SW.exe"
 	                 EntryPoint="Windows.FullTrustApplication">
 		    <uap:VisualElements AppListEntry="none"
-		                        DisplayName="Pengwin Enterprise 7 (SystemD) (W)"
+		                        DisplayName="Pengwin Enterprise 7 (systemd) (W)"
 		                        Description="Pengwin Enterprise 7"
 		                        BackgroundColor="white"
 		                        Square150x150Logo="Images\Square150x150Logo.png"
 		                        Square44x44Logo="Images\Square44x44Logo.png">
-			    <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="SystemD (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+			    <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
 			    <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
 		    </uap:VisualElements>
 		    <Extensions>
@@ -147,7 +151,7 @@
 				    <desktop:StartupTask
 					    TaskId="pengwinenterprise7w-systemd"
 					    Enabled="false"
-					    DisplayName="Pengwin Enterprise 7 (SystemD) - No Window"/>
+					    DisplayName="Pengwin Enterprise 7 (systemd) - No Window"/>
 			    </desktop:Extension>
 		    </Extensions>
 	    </Application>

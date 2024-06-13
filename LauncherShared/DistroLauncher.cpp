@@ -336,7 +336,7 @@ int wmain(int argc, const wchar_t* argv[])
         {
 #endif
             const std::wstring command =
-                L"[ -f /usr/local/bin/start-systemd ] && (sudo /usr/local/bin/start-systemd || echo '') || (echo 'Installing SystemD support' && upgrade.sh && upgrade.sh && sudo /usr/local/bin/start-systemd)";
+                L"[ -f /usr/local/bin/start-systemd ] && (sudo /usr/local/bin/start-systemd || echo '') || (echo 'Installing systemd support' && upgrade.sh && upgrade.sh && sudo /usr/local/bin/start-systemd)";
             hr = g_wslApi.WslLaunchInteractive(command.c_str(), true, &exitCode);
 #ifndef SYSTEMD
         }

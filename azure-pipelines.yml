@@ -10,10 +10,14 @@ pool:
   vmImage: 'windows-2022'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'x64'
-  buildConfiguration: 'Release'
-  appxPackageDir: '$(System.DefaultWorkingDirectory)\AppxPackages'
+- name: solution
+  value: '**/*.sln'
+- name: buildPlatform
+  value: 'x64'
+- name: buildConfiguration
+  value: 'Release'
+- name: appxPackageDir
+  value: '$(System.DefaultWorkingDirectory)\AppxPackages'
 
 steps:
 - task: DownloadBuildArtifacts@0

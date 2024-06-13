@@ -1,6 +1,6 @@
 Existing users can update immediately by running $ update.sh
 
-7.9.16
+7.9.17
 * Fixed an incompatibility with WSL 2.0.9 when you are launching or installing Pengwin Enterprise.
 
 7.9.15
