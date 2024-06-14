@@ -43,9 +43,7 @@ steps:
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '$(appxPackageDir)'
-    Contents: |
-      PengwinEnterprise${{ parameters.distro_version }}*.msixupload
-      PengwinEnterprise${{ parameters.distro_version }}*\PengwinEnterprise${{ parameters.distro_version }}*.msixbundle
+    Contents: '**\*.*'
   displayName: 'Cleaning up 1'
 - task: DeleteFiles@1
   inputs:
