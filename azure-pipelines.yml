@@ -1,8 +1,3 @@
-# Universal Windows Platform
-# Build a Universal Windows Platform project using Visual Studio.
-# Add steps that test and distribute an app, save build artifacts, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -20,239 +15,41 @@ variables:
   value: '$(System.DefaultWorkingDirectory)\AppxPackages'
 
 steps:
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'specific'
-    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-    pipeline: '17'
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
-    downloadType: 'single'
-    artifactName: 'drop'
-    downloadPath: '$(System.ArtifactsDirectory)'
-- task: CmdLine@2
-  inputs:
-    script: |
-      mkdir x64
-      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install9.tar.gz
-
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'specific'
-    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-    pipeline: '12'
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
-    downloadType: 'single'
-    artifactName: 'drop'
-    downloadPath: '$(System.ArtifactsDirectory)'
-- task: CmdLine@2
-  inputs:
-    script: |
-      mkdir x64
-      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install8.tar.gz
-
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'specific'
-    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-    pipeline: '7'
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
-    downloadType: 'single'
-    artifactName: 'drop'
-    downloadPath: '$(System.ArtifactsDirectory)'
-- task: CmdLine@2
-  inputs:
-    script: |
-      mkdir x64
-      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install.tar.gz
-
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-- task: DownloadSecureFile@1
-  name: signingCertDCF
-  inputs:
-    secureFile: 'store-DCF.pfx'
-- task: DownloadSecureFile@1
-  name: signingCertDD0
-  inputs:
-    secureFile: 'store-DD0.pfx'
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise8/Package.appxmanifest)
-      sed -E -i "s/(^.*commandline.*PengwinEnterprise8_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise8/Public/Fragments/PengwinEnterprise8.json
-      
-      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise9/Package.appxmanifest)
-      sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
-        
-      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
-      sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise7 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDCF.secureFilePath)" /p:PackageCertificatePassword="1"'
-    platform: 'x64'
-    configuration: '$(buildConfiguration)'
-    maximumCpuCount: true
-    msbuildArchitecture: 'x64'
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise8 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
-    platform: 'x64'
-    configuration: '$(buildConfiguration)'
-    maximumCpuCount: true
-    msbuildArchitecture: 'x64'
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise9 /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCertDD0.secureFilePath)" /p:PackageCertificatePassword="1"'
-    platform: 'x64'
-    configuration: '$(buildConfiguration)'
-    maximumCpuCount: true
-    msbuildArchitecture: 'x64'
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise9*bundle.*xupload'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise9*bundle.*xupload'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise8*bundle.*xupload'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise8*bundle.*xupload'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise7_7*bundle.*xupload'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise7_7*bundle.*xupload'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise9*.*xbundle'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise9*.*xbundle'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise8*.*xbundle'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise8*.*xbundle'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise7_7*.*xbundle'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(appxPackageDir)'
-    Contents: '**\PengwinEnterprise7_7*.*xbundle'
+- template: build-version.yml
+  parameters:
+    pipeline: '17'
+    install_version: '9'
+    distro_version: '9'
+    certificate_name: 'store-DD0.pfx'
+    app_id: '9P70GX2HQNHN'
+    package_name: 'PengwinEnterprise9'
+
+- template: build-version.yml
+  parameters:
+    pipeline: '12'
+    install_version: '8'
+    distro_version: '8'
+    certificate_name: 'store-DD0.pfx'
+    app_id: '9N2XZFWMRRQW'
+    package_name: 'PengwinEnterprise8'
+
+- template: build-version.yml
+  parameters:
+    pipeline: '7'
+    install_version: ''
+    distro_version: '7'
+    certificate_name: 'store-DCF.pfx'
+    app_id: '9N8LP0X93VCP'
+    package_name: 'WLinuxEnterprise'
 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-- task: store-flight@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9P70GX2HQNHN'
-    flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise9*bundle.*xupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '0'
-- task: store-publish@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9P70GX2HQNHN'
-    metadataUpdateMethod: 'TextMetadata'
-    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata9'
-    updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise9*bundle.*xupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '3'
-- task: store-flight@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9N2XZFWMRRQW'
-    flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '0'
-- task: store-publish@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9N2XZFWMRRQW'
-    metadataUpdateMethod: 'TextMetadata'
-    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata8'
-    updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise8*bundle.*xupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '3'
-- task: store-flight@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9N8LP0X93VCP'
-    flightName: 'Azure Pipelines'
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise7_7*bundle.*xupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '0'
-- task: store-publish@0
-  continueOnError: true
-  timeoutInMinutes: 10
-  inputs:
-    serviceEndpoint: 'Whitewater Foundry'
-    appId: '9N8LP0X93VCP'
-    metadataUpdateMethod: 'TextMetadata'
-    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata'
-    updateImages: false
-    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise7_7*bundle.*xupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '3'

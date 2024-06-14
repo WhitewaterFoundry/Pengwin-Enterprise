@@ -1,0 +1,84 @@
+steps:
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
+    pipeline: ${{ parameters.pipeline }}
+    specificBuildWithTriggering: true
+    buildVersionToDownload: 'latest'
+    downloadType: 'single'
+    artifactName: 'drop'
+    downloadPath: '$(System.ArtifactsDirectory)'
+  displayName: 'Downloading install${{ parameters.install_version }}.tar.gz'
+- task: CmdLine@2
+  inputs:
+    script: |
+      mkdir x64
+      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install${{ parameters.install_version }}.tar.gz
+  displayName: 'Moving install${{ parameters.install_version }}.tar.gz'
+- task: DownloadSecureFile@1
+  name: signingCert
+  inputs:
+    secureFile: ${{ parameters.certificate_name }}
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise${{ parameters.install_version }}/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*${{ parameters.package_name }}_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise${{ parameters.install_version }}/Public/Fragments/PengwinEnterprise${{ parameters.distro_version }}.json
+    displayName: 'Updating Terminal profile'
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/t:PengwinEnterprise${{ parameters.distro_version }} /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:AppxPackageSigningEnabled=false /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
+    platform: 'x64'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+    msbuildArchitecture: 'x64'
+  displayName: 'Building Version ${{ parameters.distro_version }}'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: |
+      PengwinEnterprise${{ parameters.distro_version }}*.msixupload
+      PengwinEnterprise${{ parameters.distro_version }}*\PengwinEnterprise${{ parameters.distro_version }}*.msixbundle
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copying the msix'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(appxPackageDir)'
+    Contents: |
+      PengwinEnterprise${{ parameters.distro_version }}*.msixupload
+      PengwinEnterprise${{ parameters.distro_version }}*\PengwinEnterprise${{ parameters.distro_version }}*.msixbundle
+  displayName: 'Cleaning up 1'
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: 'x64\install${{ parameters.install_version }}.tar.gz'
+  displayName: 'Cleaning up 2'
+- task: store-flight@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: ${{ parameters.app_id }}
+    flightName: 'Azure Pipelines'
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise${{ parameters.distro_version }}*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
+- task: store-publish@0
+  continueOnError: true
+  timeoutInMinutes: 10
+  inputs:
+    serviceEndpoint: 'Whitewater Foundry'
+    appId: ${{ parameters.app_id }}
+    metadataUpdateMethod: 'TextMetadata'
+    metadataPath: '$(System.DefaultWorkingDirectory)\appMetadata${{ parameters.install_version }}'
+    updateImages: false
+    packagePath: '$(Build.ArtifactStagingDirectory)\**\PengwinEnterprise${{ parameters.distro_version }}*bundle.*xupload'
+    force: true
+    skipPolling: false
+    deletePackages: true
+    numberOfPackagesToKeep: '3'
