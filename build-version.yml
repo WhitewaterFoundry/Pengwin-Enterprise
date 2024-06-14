@@ -16,10 +16,6 @@ steps:
       mkdir x64
       move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install${{ parameters.install_version }}.tar.gz
   displayName: 'Moving install${{ parameters.install_version }}.tar.gz'
-- task: DownloadSecureFile@1
-  name: signingCert
-  inputs:
-    secureFile: ${{ parameters.certificate_name }}
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -30,7 +26,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/t:PengwinEnterprise${{ parameters.distro_version }} /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:AppxPackageSigningEnabled=false /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)" /p:PackageCertificatePassword="1"'
+    msbuildArgs: '/t:PengwinEnterprise${{ parameters.distro_version }} /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:AppxPackageSigningEnabled=false /p:PackageCertificateThumbprint=""  /p:PackageCertificateKeyFile="$(${{ parameters.certificate_name }}.secureFilePath)" /p:PackageCertificatePassword="1"'
     platform: 'x64'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true

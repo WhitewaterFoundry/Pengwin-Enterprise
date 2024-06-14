@@ -21,12 +21,22 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: DownloadSecureFile@1
+  name: signingCertDD0
+  inputs:
+    secureFile: 'store-DD0.pfx'
+
+- task: DownloadSecureFile@1
+  name: signingCertDCF
+  inputs:
+    secureFile: 'store-DCF.pfx'
+
 - template: build-version.yml
   parameters:
     pipeline: '17'
     install_version: '9'
     distro_version: '9'
-    certificate_name: 'store-DD0.pfx'
+    certificate_name: 'signingCertDD0'
     app_id: '9P70GX2HQNHN'
     package_name: 'PengwinEnterprise9'
 
@@ -35,7 +45,7 @@ steps:
     pipeline: '12'
     install_version: '8'
     distro_version: '8'
-    certificate_name: 'store-DD0.pfx'
+    certificate_name: 'signingCertDD0'
     app_id: '9N2XZFWMRRQW'
     package_name: 'PengwinEnterprise8'
 
@@ -44,7 +54,7 @@ steps:
     pipeline: '7'
     install_version: ''
     distro_version: '7'
-    certificate_name: 'store-DCF.pfx'
+    certificate_name: 'signingCertDCF'
     app_id: '9N8LP0X93VCP'
     package_name: 'WLinuxEnterprise'
 
