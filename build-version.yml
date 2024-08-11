@@ -37,7 +37,6 @@ steps:
     SourceFolder: '$(appxPackageDir)'
     Contents: |
       PengwinEnterprise${{ parameters.distro_version }}*.msixupload
-      PengwinEnterprise${{ parameters.distro_version }}*\PengwinEnterprise${{ parameters.distro_version }}*.msixbundle
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copying the msix'
 - task: DeleteFiles@1
