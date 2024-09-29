@@ -42,6 +42,14 @@ steps:
         sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterprise9/Package.appxmanifest
         sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
 
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'Microsoft Partner Network(f09d9bd9-613b-451c-af5f-317bb659c029)'
+      scriptType: 'ps'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        mkdir $(Build.SourcesDirectory)\BlobFile
+        az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\BlobFile --name "install9.tar.gz" --account-key $(accountkey) --account-name "raftenterprisedistroimg"
   - template: build-version-ondemand.yml
     parameters:
       pipeline: '15'
