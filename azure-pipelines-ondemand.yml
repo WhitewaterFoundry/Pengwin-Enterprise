@@ -7,7 +7,13 @@ parameters:
 - name: version
   displayName: Application version
   type: string
-  
+  default: '1.0.0.0'
+
+- name: distro_image_filename
+  displayName: Name of the file that contains the distro image
+  type: string
+  default: 'install9.tar.gz'
+
 trigger: none
 
 pool:
@@ -47,10 +53,11 @@ steps:
       azureSubscription: 'Raft WSL Enterprise Custom Image Download'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "install9.tar.gz" --account-name "raftenterprisedistroimg" --auth-mode login'
+      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "${{ parameters.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
+    displayName: 'Downloading the distro image'
+
   - template: build-version-ondemand.yml
     parameters:
-      pipeline: '15'
       install_version: '9'
       distro_version: '9'
 
