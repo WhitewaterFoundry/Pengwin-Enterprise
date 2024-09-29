@@ -1,0 +1,67 @@
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - rhel
+
+pool:
+  vmImage: 'windows-2022'
+
+variables:
+- group: 'trusted-signing-azure-client-secret'
+- name: solution
+  value: '**/*.sln'
+- name: buildPlatform
+  value: 'x64'
+- name: buildConfiguration
+  value: 'Release'
+- name: appxPackageDir
+  value: '$(System.DefaultWorkingDirectory)\AppxPackages'
+
+steps:
+  - task: NuGetToolInstaller@1
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
+  - task: DownloadSecureFile@1
+    name: signingCertDD0
+    inputs:
+      secureFile: 'store-DD0.pfx'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        version='${{ parameters.version }}'
+        sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterprise9/Package.appxmanifest
+        sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
+
+  - template: build-version-ondemand.yml
+    parameters:
+      pipeline: '15'
+      install_version: '9'
+      distro_version: '9'
+
+  - task: TrustedSigning@0
+    inputs:
+      AzureTenantID: '$(tenant-id)'
+      AzureClientID: '$(client-id)'
+      AzureClientSecret: '$(client-secret)'
+      Endpoint: 'https://eus.codesigning.azure.net/'
+      CodeSigningAccountName: 'WWFCodeSign'
+      CertificateProfileName: 'WWFAppSign'
+      FilesFolder: '$(Build.ArtifactStagingDirectory)'
+      FilesFolderFilter: 'msixbundle'
+      FilesFolderRecurse: true
+      FilesFolderDepth: 1
+      FileDigest: 'SHA256'
+      TimestampRfc3161: 'http://timestamp.acs.microsoft.com'
+      TimestampDigest: 'SHA256'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
