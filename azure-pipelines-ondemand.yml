@@ -3,6 +3,11 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
+parameters:
+- name: version
+  displayName: Application version
+  type: string
+  
 trigger: none
 
 pool:
