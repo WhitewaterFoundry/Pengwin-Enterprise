@@ -44,11 +44,10 @@ steps:
 
   - task: AzureCLI@2
     inputs:
-      azureSubscription: 'Microsoft Partner Network(f09d9bd9-613b-451c-af5f-317bb659c029)'
+      azureSubscription: 'Raft WSL Enterprise Custom Image Download'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: |
-        az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "install9.tar.gz" --account-name "raftenterprisedistroimg" --auth-mode login
+      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "install9.tar.gz" --account-name "raftenterprisedistroimg" --auth-mode login'
   - template: build-version-ondemand.yml
     parameters:
       pipeline: '15'
