@@ -8,8 +8,7 @@ parameters:
   displayName: Application version
   type: string
   
-trigger:
-  - rhel
+trigger: none
 
 pool:
   vmImage: 'windows-2022'
