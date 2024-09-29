@@ -1,21 +1,4 @@
 steps:
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'specific'
-    project: '69a61c30-d0ea-48c2-b3dc-5605a3802544'
-    pipeline: ${{ parameters.pipeline }}
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
-    downloadType: 'single'
-    artifactName: 'drop'
-    downloadPath: '$(System.ArtifactsDirectory)'
-  displayName: 'Downloading install${{ parameters.install_version }}.tar.gz'
-- task: CmdLine@2
-  inputs:
-    script: |
-      mkdir x64
-      move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install${{ parameters.install_version }}.tar.gz
-  displayName: 'Moving install${{ parameters.install_version }}.tar.gz'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
