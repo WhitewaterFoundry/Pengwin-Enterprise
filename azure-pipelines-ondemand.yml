@@ -3,17 +3,6 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-parameters:
-- name: packageVersion
-  displayName: Application version
-  type: string
-  default: '1.0.0.0'
-
-- name: distro_image_filename
-  displayName: Name of the file that contains the distro image
-  type: string
-  default: 'install9.tar.gz'
-
 trigger: none
 
 pool:
@@ -29,6 +18,10 @@ variables:
   value: 'Release'
 - name: appxPackageDir
   value: '$(System.DefaultWorkingDirectory)\AppxPackages'
+- name: packageVersion
+  value: '1.0.0.0'
+- name: distro_image_filename
+  value: 'install9.tar.gz'
 
 steps:
   - task: NuGetToolInstaller@1
@@ -44,7 +37,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        version='${{ parameters.packageVersion }}'
+        version='${{ variables.packageVersion }}'
         sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterprise9/Package.appxmanifest
         sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
 
@@ -53,7 +46,7 @@ steps:
       azureSubscription: 'Raft WSL Enterprise Custom Image Download'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "${{ parameters.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
+      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "${{ variables.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
     displayName: 'Downloading the distro image'
 
   - template: build-version-ondemand.yml
