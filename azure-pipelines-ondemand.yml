@@ -18,8 +18,6 @@ variables:
   value: 'Release'
 - name: appxPackageDir
   value: '$(System.DefaultWorkingDirectory)\AppxPackages'
-- name: packageVersion
-  value: '1.0.0.0'
 - name: distro_image_filename
   value: 'install9.tar.gz'
 
@@ -37,7 +35,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        version='${{ variables.packageVersion }}'
+        version='${PACKAGEVERSION}'
         sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterprise9/Package.appxmanifest
         sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
 
