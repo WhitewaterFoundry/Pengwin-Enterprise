@@ -18,8 +18,6 @@ variables:
   value: 'Release'
 - name: appxPackageDir
   value: '$(System.DefaultWorkingDirectory)\AppxPackages'
-- name: distro_image_filename
-  value: 'install9.tar.gz'
 
 steps:
   - task: NuGetToolInstaller@1
