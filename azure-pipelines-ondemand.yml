@@ -42,7 +42,7 @@ steps:
       azureSubscription: 'Raft WSL Enterprise Custom Image Download'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "${{ variables.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
+      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "${env:DISTROIMAGEFILENAME}" --account-name "raftenterprisedistroimg" --auth-mode login'
     displayName: 'Downloading the distro image'
 
   - template: build-version-ondemand.yml
