@@ -22,7 +22,7 @@ pool:
 variables:
 - group: 'trusted-signing-azure-client-secret'
 - name: solution
-  value: '**/*.sln'
+  value: 'PengwinEnterpriseCustom.sln'
 - name: buildPlatform
   value: 'x64'
 - name: buildConfiguration
@@ -45,21 +45,21 @@ steps:
       targetType: 'inline'
       script: |
         version='${{ parameters.version }}'
-        sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterprise9/Package.appxmanifest
-        sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
+        sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterpriseX/Package.appxmanifest
+        sed -E -i "s/(^.*commandline.*PengwinEnterpriseX_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterpriseX/Public/Fragments/PengwinEnterpriseX.json
 
   - task: AzureCLI@2
     inputs:
       azureSubscription: 'Raft WSL Enterprise Custom Image Download'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\install9.tar.gz --name "${{ parameters.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
+      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\installX.tar.gz --name "${{ parameters.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
     displayName: 'Downloading the distro image'
 
   - template: build-version-ondemand.yml
     parameters:
-      install_version: '9'
-      distro_version: '9'
+      install_version: 'X'
+      distro_version: 'X'
 
   - task: TrustedSigning@0
     inputs:

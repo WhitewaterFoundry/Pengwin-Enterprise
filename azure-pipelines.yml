@@ -11,7 +11,7 @@ pool:
 variables:
 - group: 'trusted-signing-azure-client-secret'
 - name: solution
-  value: '**/*.sln'
+  value: 'PengwinEnterprise.sln'
 - name: buildPlatform
   value: 'x64'
 - name: buildConfiguration
