@@ -3,17 +3,6 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-parameters:
-- name: version
-  displayName: Application version
-  type: string
-  default: '1.0.0.0'
-
-- name: distro_image_filename
-  displayName: Name of the file that contains the distro image
-  type: string
-  default: 'install9.tar.gz'
-
 trigger: none
 
 pool:
@@ -44,7 +33,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        version='${{ parameters.version }}'
+        version="${PACKAGEVERSION}"
         sed -E -i "s/(^ +Version=\")([0-9\.]*)(\".*$)/\1${version}\3/" PengwinEnterpriseX/Package.appxmanifest
         sed -E -i "s/(^.*commandline.*PengwinEnterpriseX_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterpriseX/Public/Fragments/PengwinEnterpriseX.json
 
@@ -53,7 +42,7 @@ steps:
       azureSubscription: 'Raft WSL Enterprise Custom Image Download'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\installX.tar.gz --name "${{ parameters.distro_image_filename }}" --account-name "raftenterprisedistroimg" --auth-mode login'
+      inlineScript: 'az storage blob download --container-name "distroimages" --file $(Build.SourcesDirectory)\x64\installX.tar.gz --name "${env:DISTROIMAGEFILENAME}" --account-name "raftenterprisedistroimg" --auth-mode login'
     displayName: 'Downloading the distro image'
 
   - template: build-version-ondemand.yml
