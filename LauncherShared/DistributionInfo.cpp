@@ -50,15 +50,72 @@ void DistributionInfo::ChangeDefaultUserInWslConf(std::wstring_view userName)
     RunProcess(buff);
 }
 
+#ifdef VERSIONX
+
+void RestorePreviousHome(const std::wstring_view userName, const BOOL previousHome)
+{
+    DWORD exitCode;
+    if (previousHome)
+    {
+        std::wstring commandLine = L"mv /home/";
+        commandLine += userName;
+        commandLine += L" /home/userhome";
+        g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+    }
+}
+
+bool MovePreviousHome(const std::wstring_view userName, BOOL& previousHome)
+{
+    previousHome = false;
+    DWORD exitCode;
+
+    std::wstring commandLine = L"test -d /home/userhome";
+    // ReSharper disable once CppTooWideScopeInitStatement
+    HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    if (exitCode == 0)
+    {
+        previousHome = true;
+        commandLine = L"mv /home/userhome /home/";
+        commandLine += userName;
+        hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+        if (FAILED(hr))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+#endif
+
 bool DistributionInfo::CreateUser(std::wstring_view userName)
 {
-    // Create the user account.
     DWORD exitCode;
-    std::wstring commandLine = L"/usr/sbin/useradd -m ";
+    std::wstring commandLine = L"";
+
+#ifdef VERSIONX
+    BOOL previousHome;
+    if (!MovePreviousHome(userName, previousHome)) {
+        return false;
+    }
+#endif
+
+
+    // Create the user account.
+    commandLine = L"/usr/sbin/useradd -m ";
     commandLine += userName;
     HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if (FAILED(hr) || exitCode != 0)
     {
+#ifdef VERSIONX
+        RestorePreviousHome(userName, previousHome);
+#endif
+
         return false;
     }
 
@@ -72,6 +129,11 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
         commandLine = L"/usr/sbin/userdel ";
         commandLine += userName;
         g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+
+#ifdef VERSIONX
+        RestorePreviousHome(userName, previousHome);
+#endif
+
         return false;
     }
 
@@ -82,6 +144,10 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
 
     if (FAILED(hr) || exitCode != 0)
     {
+#ifdef VERSIONX
+        RestorePreviousHome(userName, previousHome);
+#endif
+
         return false;
     }
 
