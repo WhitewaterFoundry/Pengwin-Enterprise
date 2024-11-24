@@ -12,7 +12,7 @@
   <Identity
     Name="WhitewaterFoundry.PengwinEnterprise9"
     Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, L=Miami, S=Florida, C=US"
-    Version="9.4.0.0" />
+    Version="9.5.0.0" />
   <Properties>
     <DisplayName>Pengwin Enterprise 9</DisplayName>
     <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
@@ -72,6 +72,7 @@
                  Executable="PengwinEnterprise9S\PengwinEnterprise9S.exe"
                  EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
+              AppListEntry="none"
               DisplayName="Pengwin Enterprise 9 (systemd)"
               Description="Pengwin Enterprise 9"
               BackgroundColor="white"

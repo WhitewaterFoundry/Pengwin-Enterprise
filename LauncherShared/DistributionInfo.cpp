@@ -144,6 +144,11 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
 
     if (FAILED(hr) || exitCode != 0)
     {
+        // Delete the user if the set password failed.
+        commandLine = L"/usr/sbin/userdel ";
+        commandLine += userName;
+        g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+
 #ifdef VERSIONX
         RestorePreviousHome(userName, previousHome);
 #endif
