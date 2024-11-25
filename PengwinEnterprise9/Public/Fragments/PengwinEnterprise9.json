@@ -8,6 +8,7 @@
       "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise9_9.1.0.0_x64__jrhb67h10t4wm\\Launcher9\\PengwinEnterprise9.exe\"",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_jrhb67h10t4wm\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 9",
+      "guid": "{6f886802-f691-5300-a508-8ba1b32e50ad}",
       "pathTranslationStyle": "wsl",
       "wsl.distribution-type": "rhel",
       "wsl.distribution-version": "9.1",

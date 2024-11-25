@@ -2,15 +2,15 @@
   "profiles": [
     {
       "updates": "{8b5eb413-23b0-5ec1-be7c-244d8f9ee208}",
-      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterpriseX_9.1.0.0_x64__zxdhfybd17krt\\LauncherX\\PengwinEnterpriseX.exe\"",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterpriseX_zxdhfybd17krt\\LocalState\\pengwinenterprise.png",
+      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterpriseX_9.1.0.0_x64__agy79bm74gxpp\\LauncherX\\PengwinEnterpriseX.exe\"",
+      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterpriseX_agy79bm74gxpp\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 9",
-      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterpriseX_zxdhfybd17krt\\LocalState\\background.png",
+      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterpriseX_agy79bm74gxpp\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
       "backgroundImageStretchMode": "none",
       "bellStyle": "none",
-      "colorScheme": "Pengwin Enterprise 9",
+      "colorScheme": "Pengwin Enterprise",
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
       "startingDirectory": null,
@@ -20,7 +20,7 @@
   ],
   "schemes": [
     {
-      "name": "Pengwin Enterprise 9",
+      "name": "Pengwin Enterprise",
 
       "background": "#1E1E1E",
       "black": "#171421",
