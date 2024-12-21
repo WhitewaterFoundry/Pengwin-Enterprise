@@ -1,0 +1,7 @@
+wsl
+linux
+enterprise
+el9
+el
+dnf
+rpm

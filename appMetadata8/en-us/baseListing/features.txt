@@ -1,14 +1,16 @@
-Pengwin Enterprise is a secure Windows Subsystem for Linux solution for the enterprise.
-It allows you to deploy Enterprise Linux on Windows and access Linux command-line tools and open source development tools on the Windows workstations you already have and manage.
-It supports various compatible Linux distributions, such as Red Hat Enterprise Linux, Oracle Linux, Scientific Linux, and CentOS.
-A stable enterprise-grade distribution. It is focused on stability and security over new features.
-Use yum and dnf.
-Support for many Linux graphical applications.
-It enables you to use powerful Linux software on Windows and Windows Server, such as Azure and Amazon cloud tools, Apache, Docker, Git, Go, Node.js, OpenJDK, Ruby on Rails, and Rust.
+This personal edition is based on Rocky Linux, built on the foundation of Enterprise Linux version 8.
+Compatible with Red Hat Enterprise Linux: Seamlessly integrates with RHEL-based workflows.
+Enterprise-Grade Distribution: Focused on stability and security over new features, ensuring reliability for business environments.
+Support for Linux Graphical Applications: Run many Linux GUI apps with WSLg GPU acceleration support.
+Streamlined Workflow: Smooth integration between Windows and Linux systems for increased productivity.
 It lets you securely connect to and administer Linux/BSD servers, both on-site and cloud, from Windows devices, such as a Surface Pro.
-It helps you automate routine Windows and Linux tasks with Bash, Python, PowerShell, and other scripting languages, weaving tools from both platforms together.
+Active Directory Integration: Easily connect to corporate directories for authentication.
+Windows Home Integration: Access your Windows home directory directly from Linux using the winhome symbolic link.
+Windows Terminal Profile: Preconfigured Windows Terminal profile for an optimized user experience.
+Linux Environment: Full Linux command-line capabilities within Windows.
+Developer Tools Preinstalled: Ready-to-use developer toolsets for immediate productivity.
 It integrates with Visual Studio, Code, and JetBrains IDEs to conduct continuous integration testing and simplify DevOps.
-You have access to your Windows home directly from your Linux one via winhome symbolic link.
-We have handcrafted a Windows Terminal profile for a pleasant experience.
-It can be customized by Whitewater Foundry to fit your organization’s needs and leverage your existing enterprise Linux subscriptions and infrastructure.
-
+Ready for command-line usage, including nano, vim, man, info, git, and sudo.
+Cross-Platform File Sharing: Simplify file exchanges between Linux and Windows environments.
+Use yum and dnf: Native support for popular package managers to simplify software installation and updates.
+Continuous Updates: Regular updates for compatibility and performance enhancements.
