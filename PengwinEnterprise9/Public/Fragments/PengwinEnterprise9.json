@@ -21,8 +21,8 @@
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
       "startingDirectory": null,
-      "experimental.showMarksOnScrollbar": true,
-      "experimental.autoMarkPrompts": true
+      "showMarksOnScrollbar": true,
+      "autoMarkPrompts": true
     }
   ],
   "schemes": [
