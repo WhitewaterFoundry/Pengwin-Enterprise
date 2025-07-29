@@ -5,8 +5,8 @@
       "updates": "{8b5eb413-23b0-5ec1-be7c-244d8f9ee208}"
     },
     {
-      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise9_9.1.0.0_x64__jrhb67h10t4wm\\Launcher9\\PengwinEnterprise9.exe\"",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_jrhb67h10t4wm\\LocalState\\pengwinenterprise.png",
+      "commandline": "PengwinEnterprise9.exe",
+      "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise9/Assets/pengwinenterprise.theme-dark.png",
       "name": "Pengwin Enterprise 9",
       "guid": "{cd7a6dbb-fab4-5d5d-b42d-3adf32f21ed6}",
       "pathTranslationStyle": "wsl",
