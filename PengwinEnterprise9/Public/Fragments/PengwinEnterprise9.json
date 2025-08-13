@@ -11,7 +11,7 @@
       "guid": "{cd7a6dbb-fab4-5d5d-b42d-3adf32f21ed6}",
       "pathTranslationStyle": "wsl",
       "wsl.distribution-type": "rhel",
-      "wsl.distribution-version": "9.1",
+      "wsl.distribution-version": "9.6",
       "backgroundImage": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise9/Assets/background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
