@@ -8,6 +8,7 @@
       "commandline": "PengwinEnterprise8.exe",
       "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise8/Assets/pengwinenterprise.theme-dark.png",
       "name": "Pengwin Enterprise 8",
+      "guid": "{6e8e35db-ae48-55c4-87c5-0739900d86ca}",
       "pathTranslationStyle": "wsl",
       "wsl.distribution-type": "rhel",
       "wsl.distribution-version": "8.10",
