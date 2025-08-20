@@ -16,13 +16,6 @@ steps:
       mkdir x64
       move $(System.ArtifactsDirectory)\drop\install_x64_rootfs.tar.gz x64\install${{ parameters.install_version }}.tar.gz
   displayName: 'Moving install${{ parameters.install_version }}.tar.gz'
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise${{ parameters.install_version }}/Package.appxmanifest)
-      sed -E -i "s/(^.*commandline.*${{ parameters.package_name }}_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise${{ parameters.install_version }}/Public/Fragments/PengwinEnterprise${{ parameters.distro_version }}.json
-    displayName: 'Updating Terminal profile'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'

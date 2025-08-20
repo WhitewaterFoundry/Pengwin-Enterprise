@@ -61,9 +61,32 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\background.png" />
-    <Content Include="Assets\pengwinenterprise.png" />
-    <Content Include="Assets\pengwinenterprise.theme-dark.png" />
+    <Content Include="Assets\background.png">
+      <CopyToOutputDirectory>true</CopyToOutputDirectory>
+      <Link>Assets\background.png</Link>
+    </Content>
+    <Content Include="Assets\background.png">
+      <CopyToOutputDirectory>true</CopyToOutputDirectory>
+      <Link>Public\Fragments\background.png</Link>
+    </Content>
+    <Content Include="Assets\pengwinenterprise.png">
+      <CopyToOutputDirectory>true</CopyToOutputDirectory>
+      <Link>Assets\pengwinenterprise.png</Link>
+    </Content>
+    <Content Include="Assets\pengwinenterprise.png">
+      <CopyToOutputDirectory>true</CopyToOutputDirectory>
+      <Link>Public\Fragments\pengwinenterprise.png</Link>
+    </Content>
+    <Content Include="Assets\pengwinenterprise.theme-dark.png">
+      <CopyToOutputDirectory>true</CopyToOutputDirectory>
+      <Link>Assets\pengwinenterprise.theme-dark.png</Link>
+    </Content>
+    <Content Include="Assets\pengwinenterprise.theme-dark.png">
+      <CopyToOutputDirectory>true</CopyToOutputDirectory>
+      <Link>Public\Fragments\pengwinenterprise.theme-dark.png</Link>
+    </Content>
+	</ItemGroup>
+  <ItemGroup>
     <Content Include="Images\LargeTile.scale-100.png" />
     <Content Include="Images\LargeTile.scale-125.png" />
     <Content Include="Images\LargeTile.scale-150.png" />

@@ -7,12 +7,12 @@
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
   xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
   xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
-  IgnorableNamespaces="uap rescap">
+  IgnorableNamespaces="uap rescap uap10">
 
   <Identity
     Name="WhitewaterFoundry.PengwinEnterprise9"
     Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
-    Version="9.4.0.0" />
+    Version="9.6.0.0" />
   <Properties>
     <DisplayName>Pengwin Enterprise 9</DisplayName>
     <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
@@ -75,6 +75,7 @@
                  Executable="PengwinEnterprise9S\PengwinEnterprise9S.exe"
                  EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
+              AppListEntry="none"
               DisplayName="Pengwin Enterprise 9 (systemd)"
               Description="Pengwin Enterprise 9"
               BackgroundColor="white"

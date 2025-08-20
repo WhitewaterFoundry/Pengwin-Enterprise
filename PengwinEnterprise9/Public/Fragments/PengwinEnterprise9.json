@@ -1,10 +1,17 @@
 {
   "profiles": [
     {
-      "updates": "{8b5eb413-23b0-5ec1-be7c-244d8f9ee208}",
+      "hidden": true,
+      "updates": "{8b5eb413-23b0-5ec1-be7c-244d8f9ee208}"
+    },
+    {
       "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise9_9.2.0.0_x64__r1wwvvmhjq692\\Launcher9\\PengwinEnterprise9.exe\"",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_r1wwvvmhjq692\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 9",
+      "guid": "{cd7a6dbb-fab4-5d5d-b42d-3adf32f21ed6}",
+      "pathTranslationStyle": "wsl",
+      "wsl.distribution-type": "rhel",
+      "wsl.distribution-version": "9.6",
       "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_r1wwvvmhjq692\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
@@ -14,8 +21,8 @@
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
       "startingDirectory": null,
-      "experimental.showMarksOnScrollbar": true,
-      "experimental.autoMarkPrompts": true
+      "showMarksOnScrollbar": true,
+      "autoMarkPrompts": true
     }
   ],
   "schemes": [

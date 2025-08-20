@@ -91,6 +91,7 @@ HRESULT InstallDistribution(bool createUser)
     // Display welcome
     Helpers::PrintMessage(MSG_WELCOME_MSG_PROMPT);
 
+#ifndef VERSIONX
     // Set root password
     UINT8 count = 0;
     Helpers::PrintMessage(MSG_CREATE_ROOT_PROMPT);
@@ -98,6 +99,7 @@ HRESULT InstallDistribution(bool createUser)
     {
         count++;
     }
+#endif
 
     // Create a user account.
     if (createUser)
@@ -226,6 +228,9 @@ fire_and_forget ShowPengwinEnterpriseUi()
 #elif VERSION9
         // ReSharper disable once StringLiteralTypo
         const hstring str = L"pengwinenterprise9ui://";
+#elif VERSIONX
+        // ReSharper disable once StringLiteralTypo
+        const hstring str = L"pengwinenterprisexui://";
 #endif
 
         const auto uri = Uri(str);

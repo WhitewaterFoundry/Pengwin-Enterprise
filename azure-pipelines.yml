@@ -25,6 +25,20 @@ steps:
   name: signingCertDD0
   inputs:
     secureFile: 'store-DD0.pfx'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise8/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*PengwinEnterprise8_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise8/Public/Fragments/PengwinEnterprise8.json
+      
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise9/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
+      shortVersion=$(echo "${version}" | cut -d. -f1,2)
+      sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
+      
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
 
 - task: DownloadSecureFile@1
   name: signingCertDCF
@@ -49,14 +63,14 @@ steps:
     app_id: '9N2XZFWMRRQW'
     package_name: 'PengwinEnterprise8'
 
-- template: build-version.yml
-  parameters:
-    pipeline: '7'
-    install_version: ''
-    distro_version: '7'
-    certificate_name: 'signingCertDCF'
-    app_id: '9N8LP0X93VCP'
-    package_name: 'WLinuxEnterprise'
+#- template: build-version.yml
+#  parameters:
+#    pipeline: '7'
+#    install_version: ''
+#    distro_version: '7'
+#    certificate_name: 'signingCertDCF'
+#    app_id: '9N8LP0X93VCP'
+#    package_name: 'WLinuxEnterprise'
 
 - task: PublishBuildArtifacts@1
   inputs:

@@ -19,6 +19,8 @@ namespace DistributionInfo
     const std::wstring Name = L"PengwinEnterprise8";
 #elif VERSION9
     const std::wstring Name = L"PengwinEnterprise9";
+#elif VERSIONX
+    const std::wstring Name = L"PengwinEnterpriseX";
 #endif
 
     // The title bar for the console window while the distribution is installing.

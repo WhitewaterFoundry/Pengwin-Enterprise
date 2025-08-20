@@ -1,10 +1,17 @@
 {
   "profiles": [
     {
+      "hidden": true,
       "updates": "{32101ab0-27ea-518c-9551-3231daf3fd14}",
+    },
+    {
       "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise8_8.8.2.0_x64__r1wwvvmhjq692\\Launcher8\\PengwinEnterprise8.exe\"",
       "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_r1wwvvmhjq692\\LocalState\\pengwinenterprise.png",
       "name": "Pengwin Enterprise 8",
+      "guid": "{6e8e35db-ae48-55c4-87c5-0739900d86ca}",
+      "pathTranslationStyle": "wsl",
+      "wsl.distribution-type": "rhel",
+      "wsl.distribution-version": "8.10",
       "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_r1wwvvmhjq692\\LocalState\\background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
@@ -14,24 +21,8 @@
       "cursorShape": "filledBox",
       "fontFace": "Cascadia Code",
       "startingDirectory": null,
-      "experimental.showMarksOnScrollbar": true,
-      "experimental.autoMarkPrompts": true
-    },
-    {
-      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise8_8.8.2.0_x64__r1wwvvmhjq692\\PengwinEnterprise8S\\PengwinEnterprise8S.exe\"",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_r1wwvvmhjq692\\LocalState\\pengwinenterprise.png",
-      "name": "Pengwin Enterprise 8 (systemd)",
-      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise8_r1wwvvmhjq692\\LocalState\\background.png",
-      "backgroundImageAlignment": "bottomRight",
-      "backgroundImageOpacity": 0.15,
-      "backgroundImageStretchMode": "none",
-      "bellStyle": "none",
-      "colorScheme": "Pengwin Enterprise 8",
-      "cursorShape": "filledBox",
-      "fontFace": "Cascadia Code",
-      "startingDirectory": null,
-      "experimental.showMarksOnScrollbar": true,
-      "experimental.autoMarkPrompts": true
+      "showMarksOnScrollbar": true,
+      "autoMarkPrompts": true
     }
   ],
   "schemes": [

@@ -27,31 +27,31 @@
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
     <ProjectGuid>2bd1f71d-ea65-46df-b3e4-da754e9f6705</ProjectGuid>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+		<TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <PackageCertificateThumbprint>B5B375E2F0F833B74CF20D5A7334386978E00C98</PackageCertificateThumbprint>
+    <EntryPointProjectUniqueName>..\Launcher8\Launcher8.vcxproj</EntryPointProjectUniqueName>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampServerUrl>http://timestamp.sectigo.com/</AppxPackageSigningTimestampServerUrl>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <EntryPointProjectUniqueName>..\Launcher8\Launcher8.vcxproj</EntryPointProjectUniqueName>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <ItemGroup>
@@ -60,9 +60,32 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\background.png" />
-    <Content Include="Assets\pengwinenterprise.png" />
-    <Content Include="Assets\pengwinenterprise.theme-dark.png" />
+		<Content Include="Assets\background.png">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+			<Link>Assets\background.png</Link>
+		</Content>
+		<Content Include="Assets\background.png">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+			<Link>Public\Fragments\background.png</Link>
+		</Content>
+		<Content Include="Assets\pengwinenterprise.png">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+			<Link>Assets\pengwinenterprise.png</Link>
+		</Content>
+		<Content Include="Assets\pengwinenterprise.png">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+			<Link>Public\Fragments\pengwinenterprise.png</Link>
+		</Content>
+		<Content Include="Assets\pengwinenterprise.theme-dark.png">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+			<Link>Assets\pengwinenterprise.theme-dark.png</Link>
+		</Content>
+		<Content Include="Assets\pengwinenterprise.theme-dark.png">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+			<Link>Public\Fragments\pengwinenterprise.theme-dark.png</Link>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
     <Content Include="Images\LargeTile.scale-100.png" />
     <Content Include="Images\LargeTile.scale-125.png" />
     <Content Include="Images\LargeTile.scale-150.png" />
@@ -140,6 +163,7 @@
       <Link>PengwinEnterprise8.exe</Link>
     </Content>
   </ItemGroup>
+  <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Launcher8\Launcher8.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise8SW\PengwinEnterprise8SW.vcxproj" />
@@ -147,5 +171,4 @@
     <ProjectReference Include="..\PengwinEnterprise8W\PengwinEnterprise8W.vcxproj" />
     <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
-  <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>
