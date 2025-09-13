@@ -1,5 +1,11 @@
 Existing users can update immediately by running $ update.sh
 
+8.10.1
+* Systemd by default: Now enabled and optimised for WSL, with conflicting services safely masked to ensure maximum compatibility.
+* Desktop installer: Updated for newer desktop environments with clearer guidance, improved validation, and automatic hostname detection for greater discoverability.
+* Graphics: Introduces a vGEM loader as a workaround for GPU video acceleration issues in WSL 2.5.x, alongside Mesa 23.1.4. Full codec support is now included, with VP9 and AV1 hardware acceleration enabled.
+* Quality-of-life (non-systemd users): Enhanced support for dbus and graphical applications when systemd is not in use. A new create_userpath.sh utility ensures /run/user/<uid> and /etc/xdg are present, while shell prompt scripts have been refined.
+
 8.10.0
 * Upgraded to Rocky Linux 8.10
 

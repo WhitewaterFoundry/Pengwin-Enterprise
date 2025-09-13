@@ -5,23 +5,7 @@ Existing users may apply these updates by running $ update.sh. To enable systemd
 * Systemd by default: Now enabled and optimised for WSL, with conflicting services safely masked to ensure maximum compatibility.
 * Desktop installer: Updated for newer desktop environments with clearer guidance, improved validation, and automatic hostname detection for greater discoverability.
 * Graphics: Introduces a vGEM loader as a workaround for GPU video acceleration issues in WSL 2.5.x, alongside Mesa 24.2.8. Full codec support is now included, with VP9 and AV1 hardware acceleration enabled. This Mesa release also incorporates Microsoft OpenCLOn12, providing an OpenCL 1.2 implementation atop D3D12 for the first time.
-* Windows Terminal: Profiles refreshed with portable launchers (no hard-coded paths), stable settings, and updated icons and backgrounds for a more polished experience.
 * Quality-of-life (non-systemd users): Enhanced support for dbus and graphical applications when systemd is not in use. A new create_userpath.sh utility ensures /run/user/<uid> and /etc/xdg are present, while shell prompt scripts have been refined.
 
 9.4.0
 * Upgraded to Rocky Linux 9.4
-
-9.2.1
-* Fixed an incompatibility with WSL 2.0.9 when you are launching or installing Pengwin Enterprise.
-
-9.2.0
-* Upgraded to Rocky Linux 9.2
-* Upgraded Mesa to 22.3.0 with OpenGL 4 support and video acceleration
-* Added experimental prompt escape sequences for Windows Terminal 1.18 Shell Integration
-* When the distro is being installed, now a progress icon appears in the Windows Terminal tab
-* [FIX] After performing a Reset in App Settings, the distro can be installed again without reinstalling the app.
-* [FIX] Now, if you configure Pengwin Enterprise as your Default Profile in Windows Terminal, right-click a folder in File Explorer and select Open in Terminal, it will correctly open in the desired directory.
-* [FIX] The icon is now correctly displayed in the Windows Terminal tab with the default dark theme.
-
-9.1.0
-* Upgraded to Rocky Linux 9.1
