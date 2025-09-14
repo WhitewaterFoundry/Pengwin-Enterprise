@@ -71,6 +71,7 @@
 		             Executable="PengwinEnterprise8S\PengwinEnterprise8S.exe"
 		             EntryPoint="Windows.FullTrustApplication">
 			<uap:VisualElements
+                AppListEntry="none"
 				DisplayName="Pengwin Enterprise 8 (systemd)"
 				Description="Pengwin Enterprise 8"
 				BackgroundColor="white"
