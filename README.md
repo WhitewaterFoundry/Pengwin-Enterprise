@@ -28,7 +28,7 @@ There are several approaches to deploying Pengwin Enterprise on existing Windows
 - [Microsoft Intune](https://docs.microsoft.com/en-us/intune/apps-windows-10-app-deploy)
 - [SCCM](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/deploy-applications)
 - [App Installer](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/deploy-applications)
-- [Sideload](https://docs.microsoft.com/en-us/windows/application-management/sideload-apps-in-windows-10)
+- [Sideload](https://learn.microsoft.com/en-us/windows/application-management/sideload-apps-in-windows-10)
 
 ## Microsoft Store Build
 
