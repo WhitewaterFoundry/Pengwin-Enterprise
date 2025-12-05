@@ -80,7 +80,7 @@ Scientific Linux is sponsored by Fermi National Accelerator Laboratory.
 See https://www.scientificlinux.org/ for additional information.
 
 Scientific Linux EULA
-http://ftp.scientificlinux.org/linux/scientific/7.0/x86_64/os/EULA
+https://ftp.scientificlinux.org/linux/scientific/7.0/x86_64/os/EULA
 
 Components from Rocky Linux (Pengwin Enterprise 8 and 9):
 **Pengwin Enterprise is not endorsed by or affiliated with the Rocky Enterprise Software Foundation.**

@@ -122,12 +122,12 @@ update.sh
 
 ### General WSL Resources
 
-- [Troubleshooting Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/troubleshooting) - Solving common problems when installing WSL distros on Windows from Microsoft
+- [Troubleshooting Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting) - Solving common problems when installing WSL distros on Windows from Microsoft
 - [Awesome WSL](https://github.com/sirredbeard/Awesome-WSL) - An Awesome collection of Windows Subsystem for Linux (WSL) information, distributions, and tools
 
 ## Support
 
-Pengwin Enterprise is provided on the Microsoft Store for individual users on a self-support basis. [Basic troubleshooting](https://docs.microsoft.com/en-us/windows/wsl/troubleshooting) will solve many problems. You may also [open an issue](https://github.com/WhitewaterFoundry/Pengwin-Enterprise/issues) on our GitHub for community support.
+Pengwin Enterprise is provided on the Microsoft Store for individual users on a self-support basis. [Basic troubleshooting](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting) will solve many problems. You may also [open an issue](https://github.com/WhitewaterFoundry/Pengwin-Enterprise/issues) on our GitHub for community support.
 
 Businesses and other organizations who would like to receive professional ongoing support should [e-mail us](mailto:enterprise@whitewaterfoundry.com) or visit [our website](https://www.whitewaterfoundry.com/pengwin-enterprise).
 
