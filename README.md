@@ -43,7 +43,7 @@ The Pengwin Enterprise 9 build provided on the Microsoft Store is derived from [
 - Windows Terminal integration with custom profile
 - WSL utilities and enhancements
 - Access to Rocky Linux package repositories
-- Graphics support with Mesa and vGEM loader
+- Graphics support with Mesa
 
 ### What's NOT Included in Microsoft Store Version
 
