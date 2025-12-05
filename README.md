@@ -118,7 +118,7 @@ update.sh
 ### Pengwin Enterprise 7 (Scientific Linux 7 based - Legacy)
 
 - [Red Hat Enterprise Linux 7 Documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/)
-- [Man page for yum](http://man7.org/linux/man-pages/man8/yum.8.html) - Guide for the yum package manager
+- [Man page for yum](https://man7.org/linux/man-pages/man8/yum.8.html) - Guide for the yum package manager
 
 ### General WSL Resources
 
