@@ -1,0 +1,54 @@
+{
+  "profiles": [
+    {
+      "hidden": true,
+      "updates": "{c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f}"
+    },
+    {
+      "commandline": "PengwinEnterprise10.exe",
+      "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise10/Assets/pengwinenterprise.theme-dark.png",
+      "name": "Pengwin Enterprise 10",
+      "guid": "{d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a}",
+      "pathTranslationStyle": "wsl",
+      "wsl.distribution-type": "rhel",
+      "wsl.distribution-version": "10.0",
+      "backgroundImage": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise10/Assets/background.png",
+      "backgroundImageAlignment": "bottomRight",
+      "backgroundImageOpacity": 0.15,
+      "backgroundImageStretchMode": "none",
+      "bellStyle": "none",
+      "colorScheme": "Pengwin Enterprise 10",
+      "cursorShape": "filledBox",
+      "fontFace": "Cascadia Code",
+      "startingDirectory": null,
+      "showMarksOnScrollbar": true,
+      "autoMarkPrompts": true
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Pengwin Enterprise 10",
+
+      "background": "#1E1E1E",
+      "black": "#171421",
+      "blue": "#12488B",
+      "brightBlack": "#5E5C64",
+      "brightBlue": "#2A7BDE",
+      "brightCyan": "#33C7DE",
+      "brightGreen": "#33DA7A",
+      "brightPurple": "#C061CB",
+      "brightRed": "#F66151",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#E9AD0C",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#2AA1B3",
+      "foreground": "#E8E8E8",
+      "green": "#26A269",
+      "purple": "#A347BA",
+      "red": "#C01C28",
+      "selectionBackground": "#FFFFFF",
+      "white": "#D0CFCC",
+      "yellow": "#A2734C"
+    }
+  ]
+}
