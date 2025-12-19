@@ -1,0 +1,4 @@
+Existing users can update immediately by running $ update.sh
+
+10.0.0
+* Initial release of Pengwin Enterprise 10 based on Rocky Linux 10.

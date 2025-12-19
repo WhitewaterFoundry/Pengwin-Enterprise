@@ -1,0 +1,16 @@
+This personal edition is based on Rocky Linux, built on the foundation of Enterprise Linux version 10.
+Compatible with Red Hat Enterprise Linux: Seamlessly integrates with RHEL-based workflows.
+Enterprise-Grade Distribution: Focused on stability and security over new features, ensuring reliability for business environments.
+Support for Linux Graphical Applications: Run many Linux GUI apps with WSLg GPU acceleration support.
+Streamlined Workflow: Smooth integration between Windows and Linux systems for increased productivity.
+It lets you securely connect to and administer Linux/BSD servers, both on-site and cloud, from Windows devices, such as a Surface Pro.
+Active Directory Integration: Easily connect to corporate directories for authentication.
+Windows Home Integration: Access your Windows home directory directly from Linux using the winhome symbolic link.
+Windows Terminal Profile: Preconfigured Windows Terminal profile for an optimized user experience.
+Linux Environment: Full Linux command-line capabilities within Windows.
+Developer Tools Preinstalled: Ready-to-use developer toolsets for immediate productivity.
+It integrates with Visual Studio, Code, and JetBrains IDEs to conduct continuous integration testing and simplify DevOps.
+Ready for command-line usage, including nano, vim, man, info, git, and sudo.
+Cross-Platform File Sharing: Simplify file exchanges between Linux and Windows environments.
+Use yum and dnf: Native support for popular package managers to simplify software installation and updates.
+Continuous Updates: Regular updates for compatibility and performance enhancements.
