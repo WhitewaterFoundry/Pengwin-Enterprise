@@ -10,7 +10,7 @@
     <ProjectGuid>{e5e05156-5dd0-46d8-a5d5-105fbc342fa7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PengwinEnterprise9S</RootNamespace>
-    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.17134.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

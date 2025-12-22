@@ -19,6 +19,8 @@ namespace DistributionInfo
     const std::wstring Name = L"PengwinEnterprise8";
 #elif VERSION9
     const std::wstring Name = L"PengwinEnterprise9";
+#elif VERSION10
+    const std::wstring Name = L"PengwinEnterprise10";
 #elif VERSIONX
     const std::wstring Name = L"PengwinEnterpriseX";
 #endif

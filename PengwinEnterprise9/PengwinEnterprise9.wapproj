@@ -27,8 +27,8 @@
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
     <ProjectGuid>47f69e81-fd96-4364-b730-45b61616d0e1</ProjectGuid>
-    <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <NoWarn>$(NoWarn);NU1702</NoWarn>
@@ -60,7 +60,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
   </ItemGroup>
-	<ItemGroup>
+  <ItemGroup>
     <Content Include="Assets\background.png">
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
       <Link>Assets\background.png</Link>
@@ -85,7 +85,7 @@
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
       <Link>Public\Fragments\pengwinenterprise.theme-dark.png</Link>
     </Content>
-	</ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Images\LargeTile.scale-100.png" />
     <Content Include="Images\LargeTile.scale-125.png" />
