@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  IgnorableNamespaces="uap rescap uap10">
+
+  <Identity
+    Name="WhitewaterFoundry.PengwinEnterprise10"
+    Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, L=Miami, S=Florida, C=US"
+    Version="10.1.0.0" />
+  <Properties>
+    <DisplayName>Pengwin Enterprise 10</DisplayName>
+    <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
+    <uap10:PackageIntegrity>
+      <uap10:Content Enforcement="on" />
+    </uap10:PackageIntegrity>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="Pengwin Enterprise 10"
+        Description="Pengwin Enterprise 10"
+        BackgroundColor="black"
+        Square150x150Logo="Images\Square150x150Logo.png"
+        Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Pengwin Enterprise 10" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="black"/>
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="Launcher10\pengwinenterprise10.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="pengwinenterprise10.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+        <uap3:Extension Category="windows.appExtension">
+          <uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
+                             Id="pengwinenterprise10"
+                             PublicFolder="Public"
+                             DisplayName="Pengwin Enterprise 10"/>
+        </uap3:Extension>
+        <desktop:Extension
+                Category="windows.startupTask"
+                Executable="Launcher10\PengwinEnterprise10.exe"
+                EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask
+                  TaskId="pengwinenterprise10"
+                  Enabled="false"
+                  DisplayName="Pengwin Enterprise 10"/>
+        </desktop:Extension>
+      </Extensions>
+    </Application>
+    <Application Id="App2"
+                 Executable="PengwinEnterprise10S\PengwinEnterprise10S.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+              AppListEntry="none"
+              DisplayName="Pengwin Enterprise 10 (systemd)"
+              Description="Pengwin Enterprise 10"
+              BackgroundColor="white"
+              Square150x150Logo="Images\Square150x150Logo.png"
+              Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="PengwinEnterprise10S\PengwinEnterprise10S.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="PengwinEnterprise10S.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+        <desktop:Extension
+                Category="windows.startupTask"
+                Executable="PengwinEnterprise10S\PengwinEnterprise10S.exe"
+                EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask
+                  TaskId="pengwinenterprise10-systemd"
+                  Enabled="false"
+                  DisplayName="Pengwin Enterprise 10 (systemd)"/>
+        </desktop:Extension>
+      </Extensions>
+    </Application>
+    <Application Id="App3"
+                 Executable="PengwinEnterprise10W\PengwinEnterprise10W.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+              AppListEntry="none"
+              DisplayName="Pengwin Enterprise 10 (W)"
+              Description="Pengwin Enterprise 10"
+              BackgroundColor="white"
+              Square150x150Logo="Images\Square150x150Logo.png"
+              Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise 10 (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="PengwinEnterprise10W\PengwinEnterprise10W.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="PengwinEnterprise10W.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+    <Application Id="App4"
+                 Executable="PengwinEnterprise10SW\PengwinEnterprise10SW.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements AppListEntry="none"
+                          DisplayName="Pengwin Enterprise 10 (systemd) (W)"
+                          Description="Pengwin Enterprise 10"
+                          BackgroundColor="white"
+                          Square150x150Logo="Images\Square150x150Logo.png"
+                          Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="white"/>
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appExecutionAlias"
+                        Executable="PengwinEnterprise10SW\PengwinEnterprise10SW.exe"
+                        EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="PengwinEnterprise10SW.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+        <desktop:Extension
+                Category="windows.startupTask"
+                Executable="PengwinEnterprise10SW\PengwinEnterprise10SW.exe"
+                EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask
+                  TaskId="pengwinenterprise10w-systemd"
+                  Enabled="false"
+                  DisplayName="Pengwin Enterprise 10 (systemd) - No Window"/>
+        </desktop:Extension>
+      </Extensions>
+    </Application>
+
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
