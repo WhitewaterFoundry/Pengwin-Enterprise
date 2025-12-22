@@ -36,7 +36,12 @@ steps:
       sed -E -i "s/(^.*commandline.*PengwinEnterprise9_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
       shortVersion=$(echo "${version}" | cut -d. -f1,2)
       sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
-      
+
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise10/Package.appxmanifest)
+      sed -E -i "s/(^.*commandline.*PengwinEnterprise10_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise10/Public/Fragments/PengwinEnterprise10.json
+      shortVersion=$(echo "${version}" | cut -d. -f1,2)
+      sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise10.json
+
       version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
       sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
 
@@ -44,6 +49,15 @@ steps:
   name: signingCertDCF
   inputs:
     secureFile: 'store-DCF.pfx'
+
+- template: build-version.yml
+  parameters:
+    pipeline: '17'
+    install_version: '10'
+    distro_version: '10'
+    certificate_name: 'signingCertDD0'
+    app_id: '9P70GX2HQNHN'
+    package_name: 'PengwinEnterprise10'
 
 - template: build-version.yml
   parameters:
