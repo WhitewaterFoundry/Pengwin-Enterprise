@@ -41,8 +41,19 @@ steps:
         shortVersion=$(echo "${version}" | cut -d. -f1,2)
         sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise9.json
 
+        version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise10/Package.appxmanifest)
+        sed -E -i "s/(^.*commandline.*PengwinEnterprise10_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise10/Public/Fragments/PengwinEnterprise10.json
+        shortVersion=$(echo "${version}" | cut -d. -f1,2)
+        sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise10/Public/Fragments/PengwinEnterprise10.json
+
         version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
         sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
+
+  - template: build-version.yml
+    parameters:
+      pipeline: '21'
+      install_version: '10'
+      distro_version: '10'
 
   - template: build-version.yml
     parameters:
@@ -56,11 +67,11 @@ steps:
       install_version: '8'
       distro_version: '8'
 
-  - template: build-version.yml
-    parameters:
-      pipeline: '14'
-      install_version: ''
-      distro_version: '7'
+ # - template: build-version.yml
+ #   parameters:
+ #     pipeline: '14'
+ #     install_version: ''
+ #     distro_version: '7'
 
   - task: TrustedSigning@0
     inputs:
