@@ -119,6 +119,12 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
         return false;
     }
 
+    // Create the group wsl-video if it doesn't exist.
+    commandLine = L"getent group wsl-video >/dev/null || /usr/sbin/groupadd -g 44 wsl-video";
+    hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
+    if (FAILED(hr) || exitCode != 0)
+        return false;
+    
     // Add the user account to any relevant groups.
     commandLine = L"/usr/sbin/usermod -aG adm,cdrom,wheel,video,wsl-video,render ";
     commandLine += userName;
