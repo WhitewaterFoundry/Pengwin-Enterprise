@@ -53,15 +53,6 @@ steps:
 - template: build-version.yml
   parameters:
     pipeline: '17'
-    install_version: '10'
-    distro_version: '10'
-    certificate_name: 'signingCertDD0'
-    app_id: '9P70GX2HQNHN'
-    package_name: 'PengwinEnterprise10'
-
-- template: build-version.yml
-  parameters:
-    pipeline: '17'
     install_version: '9'
     distro_version: '9'
     certificate_name: 'signingCertDD0'
