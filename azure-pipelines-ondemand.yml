@@ -6,7 +6,7 @@
 trigger: none
 
 pool:
-  vmImage: 'windows-2022'
+  vmImage: 'windows-2025-vs2026'
 
 variables:
 - group: 'trusted-signing-azure-client-secret'
