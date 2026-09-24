@@ -42,6 +42,10 @@ steps:
       shortVersion=$(echo "${version}" | cut -d. -f1,2)
       sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise9/Public/Fragments/PengwinEnterprise10.json
 
+      version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterpriseP/Package.appxmanifest)
+      shortVersion=$(echo "${version}" | cut -d. -f1,2)
+      sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterpriseP/Public/Fragments/PengwinEnterpriseP.json
+
       version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
       sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
 
@@ -55,6 +59,7 @@ steps:
     pipeline: '17'
     install_version: '9'
     distro_version: '9'
+    tarball_name: 'install9.tar.gz'
     certificate_name: 'signingCertDD0'
     app_id: '9P70GX2HQNHN'
     package_name: 'PengwinEnterprise9'
@@ -64,15 +69,30 @@ steps:
     pipeline: '12'
     install_version: '8'
     distro_version: '8'
+    tarball_name: 'install8.tar.gz'
     certificate_name: 'signingCertDD0'
     app_id: '9N2XZFWMRRQW'
     package_name: 'PengwinEnterprise8'
+
+# Pengwin (regular) packaged in the Pengwin Enterprise offering.
+# TODO: set 'pipeline' to the Azure DevOps pipeline id that publishes the Pengwin rootfs
+#       and 'app_id' to the Microsoft Store app id before enabling this block.
+#- template: build-version.yml
+#  parameters:
+#    pipeline: 'TODO'
+#    install_version: 'P'
+#    distro_version: 'P'
+#    tarball_name: 'install.tar.gz'
+#    certificate_name: 'signingCertDD0'
+#    app_id: 'TODO'
+#    package_name: 'PengwinEnterpriseP'
 
 #- template: build-version.yml
 #  parameters:
 #    pipeline: '7'
 #    install_version: ''
 #    distro_version: '7'
+#    tarball_name: 'install.tar.gz'
 #    certificate_name: 'signingCertDCF'
 #    app_id: '9N8LP0X93VCP'
 #    package_name: 'WLinuxEnterprise'
