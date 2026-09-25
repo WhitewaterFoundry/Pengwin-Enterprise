@@ -28,11 +28,11 @@
   <PropertyGroup>
     <ProjectGuid>4cb6bf5b-fb61-4b62-b298-b6def243dc0b</ProjectGuid>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <PackageCertificateThumbprint>B5B375E2F0F833B74CF20D5A7334386978E00C98</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>FC31D506C0E78DF64C933CB2D6990469AEE7E113</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampServerUrl>http://timestamp.sectigo.com/</AppxPackageSigningTimestampServerUrl>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
@@ -146,7 +146,6 @@
     <ProjectReference Include="..\PengwinEnterprise7SW\PengwinEnterprise7SW.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise7S\PengwinEnterprise7S.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise7W\PengwinEnterprise7W.vcxproj" />
-    <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

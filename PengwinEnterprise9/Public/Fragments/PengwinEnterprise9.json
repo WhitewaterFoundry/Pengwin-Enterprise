@@ -5,14 +5,14 @@
       "updates": "{8b5eb413-23b0-5ec1-be7c-244d8f9ee208}"
     },
     {
-      "commandline": "\"%ProgramFiles%\\WindowsApps\\WhitewaterFoundry.PengwinEnterprise9_9.2.0.0_x64__r1wwvvmhjq692\\Launcher9\\PengwinEnterprise9.exe\"",
-      "icon": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_r1wwvvmhjq692\\LocalState\\pengwinenterprise.png",
+      "commandline": "PengwinEnterprise9.exe",
+      "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise9/Assets/pengwinenterprise.theme-dark.png",
       "name": "Pengwin Enterprise 9",
       "guid": "{cd7a6dbb-fab4-5d5d-b42d-3adf32f21ed6}",
       "pathTranslationStyle": "wsl",
       "wsl.distribution-type": "rhel",
       "wsl.distribution-version": "9.6",
-      "backgroundImage": "%LOCALAPPDATA%\\Packages\\WhitewaterFoundry.PengwinEnterprise9_r1wwvvmhjq692\\LocalState\\background.png",
+      "backgroundImage": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/433dccd768400f275716b1dfcfc583affa2eeeef/PengwinEnterprise9/Assets/background.png",
       "backgroundImageAlignment": "bottomRight",
       "backgroundImageOpacity": 0.15,
       "backgroundImageStretchMode": "none",

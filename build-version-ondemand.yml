@@ -1,0 +1,30 @@
+﻿steps:
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      msbuildArgs: '/t:PengwinEnterprise${{ parameters.distro_version }} /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
+      platform: 'x64'
+      configuration: '$(buildConfiguration)'
+      maximumCpuCount: true
+      msbuildArchitecture: 'x64'
+    displayName: 'Building Version ${{ parameters.distro_version }}'
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: |
+        PengwinEnterprise${{ parameters.distro_version }}*\PengwinEnterprise${{ parameters.distro_version }}*.msixbundle
+        PengwinEnterprise${{ parameters.distro_version }}*\Dependencies\x64\*.appx
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copying the msixbundle'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(appxPackageDir)'
+      Contents: |
+        PengwinEnterprise${{ parameters.distro_version }}*\PengwinEnterprise${{ parameters.distro_version }}*.msixbundle
+        PengwinEnterprise${{ parameters.distro_version }}*\Dependencies\x64\*.appx
+    displayName: 'Cleaning up 1'
+  - task: DeleteFiles@1
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: 'x64\install${{ parameters.install_version }}.tar.gz'
+    displayName: 'Cleaning up 2'

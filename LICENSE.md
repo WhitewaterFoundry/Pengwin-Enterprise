@@ -12,8 +12,6 @@
 
 - Scientific Linux is sponsored by Fermi National Accelerator Laboratory. **Pengwin Enterprise is not endorsed by or affiliated with Fermi National Accelerator Laboratory or the United States Department of Energy.**
 
-- Rocky Linux® is a registered trademark of the Rocky Enterprise Software Foundation. See [Rocky Linux Trademark Guidelines](https://rockylinux.org/legal/trademarks). **Pengwin Enterprise is not endorsed by or affiliated with the Rocky Enterprise Software Foundation.**
-
 - Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Used in compliance with a [Linux sublicense](https://www.linuxmark.org/programs/legal/trademark/sublicense-agreement) obtained from the Linux Foundation.
 
 - Other names may be trademarks of their respective owners.
@@ -72,7 +70,7 @@ Components from Whitewater Foundry, Ltd. Co.:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE
     
-Components from Scientific Linux (Pengwin Enterprise 7):
+Components from Scientific Linux:
 **Pengwin Enterprise is not endorsed by or affiliated with Fermi National Accelerator Laboratory or the United States Department of Energy.**
 
 Scientific Linux is sponsored by Fermi National Accelerator Laboratory.
@@ -80,17 +78,7 @@ Scientific Linux is sponsored by Fermi National Accelerator Laboratory.
 See https://www.scientificlinux.org/ for additional information.
 
 Scientific Linux EULA
-https://ftp.scientificlinux.org/linux/scientific/7.0/x86_64/os/EULA
-
-Components from Rocky Linux (Pengwin Enterprise 8 and 9):
-**Pengwin Enterprise is not endorsed by or affiliated with the Rocky Enterprise Software Foundation.**
-
-Rocky Linux is sponsored by the Rocky Enterprise Software Foundation.
-
-See https://rockylinux.org/ for additional information.
-
-Rocky Linux Licensing
-https://rockylinux.org/legal/licensing
+http://ftp.scientificlinux.org/linux/scientific/7.0/x86_64/os/EULA
 
 Most packages are licensed under one or more of the following licenses:
 

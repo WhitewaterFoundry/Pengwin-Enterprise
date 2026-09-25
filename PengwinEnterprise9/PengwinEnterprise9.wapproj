@@ -27,12 +27,12 @@
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
     <ProjectGuid>47f69e81-fd96-4364-b730-45b61616d0e1</ProjectGuid>
-    <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <NoWarn>$(NoWarn);NU1702</NoWarn>
-    <PackageCertificateThumbprint>B5B375E2F0F833B74CF20D5A7334386978E00C98</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>FC31D506C0E78DF64C933CB2D6990469AEE7E113</PackageCertificateThumbprint>
     <EntryPointProjectUniqueName>..\Launcher9\Launcher9.vcxproj</EntryPointProjectUniqueName>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampServerUrl>http://timestamp.sectigo.com/</AppxPackageSigningTimestampServerUrl>
@@ -85,7 +85,7 @@
       <CopyToOutputDirectory>true</CopyToOutputDirectory>
       <Link>Public\Fragments\pengwinenterprise.theme-dark.png</Link>
     </Content>
-	</ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Images\LargeTile.scale-100.png" />
     <Content Include="Images\LargeTile.scale-125.png" />
@@ -171,6 +171,5 @@
     <ProjectReference Include="..\PengwinEnterprise9SW\PengwinEnterprise9SW.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise9S\PengwinEnterprise9S.vcxproj" />
     <ProjectReference Include="..\PengwinEnterprise9W\PengwinEnterprise9W.vcxproj" />
-    <ProjectReference Include="..\PengwinEnterpriseUI\PengwinEnterpriseUI.vcxproj" />
   </ItemGroup>
 </Project>

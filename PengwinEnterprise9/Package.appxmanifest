@@ -11,11 +11,11 @@
 
   <Identity
     Name="WhitewaterFoundry.PengwinEnterprise9"
-    Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
-    Version="9.6.0.0" />
+    Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, L=Miami, S=Florida, C=US"
+    Version="9.7.0.0" />
   <Properties>
     <DisplayName>Pengwin Enterprise 9</DisplayName>
-    <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
+    <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
     <uap10:PackageIntegrity>
       <uap10:Content Enforcement="on" />
@@ -23,8 +23,8 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.19041.0" MaxVersionTested="10.0.18362.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.18362.0" />
     <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
   </Dependencies>
 
@@ -66,9 +66,6 @@
                   Enabled="false"
                   DisplayName="Pengwin Enterprise 9"/>
         </desktop:Extension>
-        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
-          <uap:Protocol Name="pengwinenterprise9ui"/>
-        </uap:Extension>
       </Extensions>
     </Application>
     <Application Id="App2"

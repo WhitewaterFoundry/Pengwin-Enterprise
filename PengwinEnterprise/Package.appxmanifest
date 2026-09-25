@@ -11,13 +11,12 @@
 
     <Identity
       Name="WhitewaterFoundryLtd.Co.WLinuxEnterprise"
-      Publisher="CN=9879127B-9E92-4DE5-9C32-0B1F09F95DCF"
-      Version="7.9.18.0"
-      ProcessorArchitecture="x64" />
+	  Publisher="CN=&quot;Whitewater Foundry, Ltd. Co.&quot;, O=&quot;Whitewater Foundry, Ltd. Co.&quot;, L=Miami, S=Florida, C=US"
+      Version="7.9.17.0" />
 
     <Properties>
-        <DisplayName>Pengwin Enterprise 7</DisplayName>
-        <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
+        <DisplayName>Pengwin Enterprise 7 - Licensed to BP</DisplayName>
+        <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
         <Logo>Images\StoreLogo.png</Logo>
 		<uap10:PackageIntegrity>
 			<uap10:Content Enforcement="on" />
@@ -25,8 +24,8 @@
     </Properties>
 
     <Dependencies>
-        <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
-        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
+	    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+	    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
         <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
     </Dependencies>
 
@@ -69,9 +68,6 @@
                       Enabled="false"
                       DisplayName="Pengwin Enterprise 7"/>
                 </desktop:Extension>
-				<uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
-					<uap:Protocol Name="pengwinenterprise7ui"/>
-				</uap:Extension>
             </Extensions>
         </Application>
 	    <Application Id="WLE2"
