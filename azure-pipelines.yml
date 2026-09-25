@@ -46,6 +46,10 @@ steps:
         shortVersion=$(echo "${version}" | cut -d. -f1,2)
         sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterprise10/Public/Fragments/PengwinEnterprise10.json
 
+        version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterpriseP/Package.appxmanifest)
+        shortVersion=$(echo "${version}" | cut -d. -f1,2)
+        sed -E -i "s/(^.*wsl\.distribution-version[^0-9]*)([0-9\.]+)(.*$)/\1${shortVersion}\3/g" PengwinEnterpriseP/Public/Fragments/PengwinEnterpriseP.json
+
         version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
         sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
 
@@ -54,24 +58,39 @@ steps:
       pipeline: '21'
       install_version: '10'
       distro_version: '10'
+      tarball_name: 'install10.tar.gz'
 
   - template: build-version.yml
     parameters:
       pipeline: '15'
       install_version: '9'
       distro_version: '9'
+      tarball_name: 'install9.tar.gz'
 
   - template: build-version.yml
     parameters:
       pipeline: '11'
       install_version: '8'
       distro_version: '8'
-  
+      tarball_name: 'install8.tar.gz'
+    
+    # Pengwin (regular) packaged in the Pengwin Enterprise offering.
+    # TODO: set 'pipeline' to the Azure DevOps pipeline id that publishes the Pengwin rootfs
+    # and 'app_id' to the Microsoft Store app id before enabling this block.
+    #- template: build-version.yml
+    # parameters:
+    # pipeline: 'TODO'
+    # install_version: 'P'
+    # distro_version: 'P'
+    # tarball_name: 'install.tar.gz'
+    
+    
   # - template: build-version.yml
   #   parameters:
   #     pipeline: '14'
   #     install_version: ''
   #     distro_version: '7'
+  #     tarball_name: 'install.tar.gz'
 
   - task: TrustedSigning@0
     inputs:

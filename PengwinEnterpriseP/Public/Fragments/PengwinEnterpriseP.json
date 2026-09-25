@@ -1,0 +1,54 @@
+{
+  "profiles": [
+    {
+      "hidden": true,
+      "updates": "{8de49649-4729-5157-87d4-9b100182fa3c}"
+    },
+    {
+      "commandline": "PengwinEnterpriseP.exe",
+      "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/refs/heads/master/PengwinEnterpriseP/Assets/pengwin.png",
+      "name": "Pengwin",
+      "guid": "{67e22b1e-37a2-48b1-ace5-bd05de1299bc}",
+      "pathTranslationStyle": "wsl",
+      "wsl.distribution-type": "debian",
+      "wsl.distribution-version": "13.0",
+      "backgroundImage": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/refs/heads/master/PengwinEnterpriseP/Assets/background1.png",
+      "backgroundImageAlignment": "bottomRight",
+      "backgroundImageOpacity": 0.2,
+      "backgroundImageStretchMode": "none",
+      "bellStyle": "none",
+      "colorScheme": "Pengwin",
+      "cursorShape": "vintage",
+      "fontFace": "Cascadia Code",
+      "startingDirectory": null,
+      "showMarksOnScrollbar": true,
+      "autoMarkPrompts": true
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Pengwin",
+
+      "background": "#16001A",
+      "black": "#0C0C0C",
+      "blue": "#003DE8",
+      "brightBlack": "#767676",
+      "brightBlue": "#3B78FF",
+      "brightCyan": "#61D6D6",
+      "brightGreen": "#16C60C",
+      "brightPurple": "#F500D8",
+      "brightRed": "#E74856",
+      "brightWhite": "#F2F2F2",
+      "brightYellow": "#F9F1A5",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#3A96DD",
+      "foreground": "#CCCCCC",
+      "green": "#13A10E",
+      "purple": "#9B1AAD",
+      "red": "#E01123",
+      "selectionBackground": "#FFFFFF",
+      "white": "#CCCCCC",
+      "yellow": "#C19C00"
+    }
+  ]
+}

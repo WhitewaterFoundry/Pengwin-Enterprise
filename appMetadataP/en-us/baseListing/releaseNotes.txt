@@ -1,0 +1,4 @@
+﻿Existing users may apply these updates by running $ update.sh. To enable systemd, please edit /etc/wsl.conf.
+
+24.09.0
+* First release of Pengwin packaged within the Pengwin Enterprise offering.
