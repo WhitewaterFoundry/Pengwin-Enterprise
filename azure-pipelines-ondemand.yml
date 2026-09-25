@@ -9,15 +9,15 @@ pool:
   vmImage: 'windows-2025-vs2026'
 
 variables:
-- group: 'trusted-signing-azure-client-secret'
-- name: solution
-  value: 'PengwinEnterpriseCustom.sln'
-- name: buildPlatform
-  value: 'x64'
-- name: buildConfiguration
-  value: 'Release'
-- name: appxPackageDir
-  value: '$(System.DefaultWorkingDirectory)\AppxPackages'
+  - group: 'trusted-signing-azure-client-secret'
+  - name: solution
+    value: 'PengwinEnterpriseCustom.sln'
+  - name: buildPlatform
+    value: 'x64'
+  - name: buildConfiguration
+    value: 'Release'
+  - name: appxPackageDir
+    value: '$(System.DefaultWorkingDirectory)\AppxPackages'
 
 steps:
   - task: NuGetToolInstaller@1
