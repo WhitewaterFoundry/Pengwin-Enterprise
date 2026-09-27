@@ -67,11 +67,11 @@ steps:
       install_version: '8'
       distro_version: '8'
   
-  # - template: build-version.yml
-  #   parameters:
-  #     pipeline: '14'
-  #     install_version: ''
-  #     distro_version: '7'
+  - template: build-version.yml
+    parameters:
+      pipeline: '14'
+      install_version: ''
+      distro_version: '7'
 
   - task: TrustedSigning@0
     inputs:
