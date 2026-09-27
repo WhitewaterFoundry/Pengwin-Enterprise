@@ -52,7 +52,7 @@ steps:
   - template: build-version.yml
     parameters:
       pipeline: '21'
-      install_version: '10'
+      distro_version: '10'
       tarball_name: 'install10.tar.gz'
 
   - template: build-version.yml
