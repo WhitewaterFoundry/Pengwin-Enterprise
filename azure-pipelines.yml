@@ -55,18 +55,18 @@ steps:
       distro_version: 'P'
       tarball_name: 'install.tar.gz'
 
-#  - template: build-version.yml
-#    parameters:
-#      pipeline: '21'
-#      distro_version: '10'
-#      tarball_name: 'install10.tar.gz'
-#
-#  - template: build-version.yml
-#    parameters:
-#      pipeline: '15'
-#      distro_version: '9'
-#      tarball_name: 'install9.tar.gz'
-#
+  - template: build-version.yml
+    parameters:
+      pipeline: '21'
+      distro_version: '10'
+      tarball_name: 'install10.tar.gz'
+
+  - template: build-version.yml
+    parameters:
+      pipeline: '15'
+      distro_version: '9'
+      tarball_name: 'install9.tar.gz'
+
 #  - template: build-version.yml
 #    parameters:
 #      pipeline: '11'
