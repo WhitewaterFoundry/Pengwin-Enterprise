@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -51,13 +51,13 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mc %(FullPath)</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">mc %(FullPath)</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Compiling Messages...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">%(Filename).rc;%(Filename).h;MSG00409.bin</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling Messages...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).rc;%(Filename).h;MSG00409.bin</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling Messages...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).rc;%(Filename).h;MSG00409.bin</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Compiling Messages...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">%(Filename).rc;%(Filename).h;MSG0409.bin</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">%(Filename).rc;%(Filename).h;MSG00409.bin</Outputs>
     </CustomBuild>
   </ItemGroup>
 </Project>
