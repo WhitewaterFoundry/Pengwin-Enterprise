@@ -51,7 +51,7 @@ steps:
 
   - template: build-version-p.yml
     parameters:
-      pipeline: '1'
+      pipeline: '22'
       distro_version: 'P'
       tarball_name: 'install.tar.gz'
 
