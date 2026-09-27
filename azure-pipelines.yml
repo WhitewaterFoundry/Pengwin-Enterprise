@@ -67,7 +67,7 @@ steps:
       distro_version: '8'
       tarball_name: 'install8.tar.gz'
     
-  - template: build-version.yml
+  - template: build-version-p.yml
     parameters:
       pipeline: '1'
       distro_version: 'P'
