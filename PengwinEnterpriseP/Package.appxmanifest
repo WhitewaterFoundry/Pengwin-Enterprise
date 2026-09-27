@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -10,12 +10,12 @@
   IgnorableNamespaces="uap rescap uap10">
 
   <Identity
-    Name="WhitewaterFoundry.PengwinEnterpriseP"
+    Name="WhitewaterFoundry.PengwinEnterprise"
     Publisher="CN=331CB47E-A7B9-4FD6-9787-FBFF478E4DD0"
-    Version="24.09.0.0" />
+    Version="26.9.0.0" />
   <Properties>
-    <DisplayName>Pengwin</DisplayName>
-    <PublisherDisplayName>Whitewater Foundry</PublisherDisplayName>
+    <DisplayName>Pengwin Enterprise</DisplayName>
+    <PublisherDisplayName>Whitewater Foundry, Ltd. Co.</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
     <uap10:PackageIntegrity>
       <uap10:Content Enforcement="on" />
@@ -23,8 +23,8 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.18362.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
     <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
   </Dependencies>
 
@@ -37,12 +37,12 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Pengwin"
+        DisplayName="Pengwin Enterprise"
         Description="The bespoke WSL distro."
         BackgroundColor="black"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Pengwin" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Pengwin Enterprise" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
         <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="black"/>
       </uap:VisualElements>
       <Extensions>
@@ -55,7 +55,7 @@
           <uap3:AppExtension Name="com.microsoft.windows.terminal.settings"
                              Id="pengwinenterprisep"
                              PublicFolder="Public"
-                             DisplayName="Pengwin"/>
+                             DisplayName="Pengwin Enterprise"/>
         </uap3:Extension>
         <desktop:Extension
                 Category="windows.startupTask"
@@ -64,11 +64,8 @@
           <desktop:StartupTask
                   TaskId="pengwinenterprisep"
                   Enabled="false"
-                  DisplayName="Pengwin"/>
+                  DisplayName="Pengwin Enterprise"/>
         </desktop:Extension>
-        <uap:Extension Category="windows.protocol" EntryPoint="PengwinEnterpriseUI.App" Executable="PengwinEnterpriseUI.exe">
-          <uap:Protocol Name="pengwinenterprisepui"/>
-        </uap:Extension>
       </Extensions>
     </Application>
     <Application Id="App2"
@@ -76,12 +73,12 @@
                  EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
               AppListEntry="none"
-              DisplayName="Pengwin (W)"
-              Description="The bespoke WSL distro."
+              DisplayName="Pengwin Enterprise (W)"
+              Description="The bespoke WSL distro (No Window)"
               BackgroundColor="black"
               Square150x150Logo="Images\Square150x150Logo.png"
               Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="Pengwin Enterprise (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
         <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="black"/>
       </uap:VisualElements>
       <Extensions>
@@ -92,38 +89,6 @@
         </uap3:Extension>
       </Extensions>
     </Application>
-    <Application Id="App3"
-                 Executable="PengwinEnterprisePSW\PengwinEnterprisePSW.exe"
-                 EntryPoint="Windows.FullTrustApplication">
-      <uap:VisualElements AppListEntry="none"
-                          DisplayName="Pengwin (systemd) (W)"
-                          Description="The bespoke WSL distro."
-                          BackgroundColor="black"
-                          Square150x150Logo="Images\Square150x150Logo.png"
-                          Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" ShortName="systemd (W)" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
-        <uap:SplashScreen Image="Images\SplashScreen.png"  BackgroundColor="black"/>
-      </uap:VisualElements>
-      <Extensions>
-        <uap3:Extension Category="windows.appExecutionAlias"
-                        Executable="PengwinEnterprisePSW\PengwinEnterprisePSW.exe"
-                        EntryPoint="Windows.FullTrustApplication">
-          <uap3:AppExecutionAlias>
-            <desktop:ExecutionAlias Alias="PengwinEnterprisePSW.exe" />
-          </uap3:AppExecutionAlias>
-        </uap3:Extension>
-        <desktop:Extension
-                Category="windows.startupTask"
-                Executable="PengwinEnterprisePSW\PengwinEnterprisePSW.exe"
-                EntryPoint="Windows.FullTrustApplication">
-          <desktop:StartupTask
-                  TaskId="pengwinenterprisepw-systemd"
-                  Enabled="false"
-                  DisplayName="Pengwin (systemd) - No Window"/>
-        </desktop:Extension>
-      </Extensions>
-    </Application>
-
   </Applications>
 
   <Capabilities>
