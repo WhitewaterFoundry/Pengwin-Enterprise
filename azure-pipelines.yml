@@ -49,17 +49,17 @@ steps:
         version=$(sed -n -E '/^ +Version=/s/^ +Version="([0-9\.]*)(.*)/\1/p' PengwinEnterprise/Package.appxmanifest)
         sed -E -i "s/(^.*commandline.*WLinuxEnterprise_)([0-9\.]+)(_.*$)/\1${version}\3/g" PengwinEnterprise/Public/Fragments/PengwinEnterprise7.json
 
-#  - template: build-version-p.yml
-#    parameters:
-#      pipeline: '22'
-#      distro_version: 'P'
-#      tarball_name: 'install.tar.gz'
-
-  - template: build-version.yml
+  - template: build-version-p.yml
     parameters:
-      pipeline: '21'
-      distro_version: '10'
-      tarball_name: 'install10.tar.gz'
+      pipeline: '22'
+      distro_version: 'P'
+      tarball_name: 'install.tar.gz'
+
+#  - template: build-version.yml
+#    parameters:
+#      pipeline: '21'
+#      distro_version: '10'
+#      tarball_name: 'install10.tar.gz'
 #
 #  - template: build-version.yml
 #    parameters:
