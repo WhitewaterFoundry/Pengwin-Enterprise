@@ -6,8 +6,8 @@
     },
     {
       "commandline": "PengwinEnterpriseP.exe",
-      "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/refs/heads/master/PengwinEnterpriseP/Assets/pengwin.png",
-      "name": "Pengwin",
+      "icon": "https://raw.githubusercontent.com/WhitewaterFoundry/Pengwin-Enterprise/refs/heads/master/PengwinEnterpriseP/Assets/pengwinenterprise.png",
+      "name": "Pengwin Enterprise",
       "guid": "{67e22b1e-37a2-48b1-ace5-bd05de1299bc}",
       "pathTranslationStyle": "wsl",
       "wsl.distribution-type": "debian",
@@ -17,7 +17,7 @@
       "backgroundImageOpacity": 0.2,
       "backgroundImageStretchMode": "none",
       "bellStyle": "none",
-      "colorScheme": "Pengwin",
+      "colorScheme": "Pengwin Enterprise",
       "cursorShape": "vintage",
       "fontFace": "Cascadia Code",
       "startingDirectory": null,
@@ -27,9 +27,8 @@
   ],
   "schemes": [
     {
-      "name": "Pengwin",
-
-      "background": "#16001A",
+      "name": "Pengwin Enterprise",
+      "background": "#01101A",
       "black": "#0C0C0C",
       "blue": "#003DE8",
       "brightBlack": "#767676",

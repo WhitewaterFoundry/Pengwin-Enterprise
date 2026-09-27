@@ -55,30 +55,6 @@ HRESULT InstallDistribution(bool createUser)
         return hr;
     }
 
-    /*
-    // Create /etc/shadow and /etc/gshadow
-    hr = g_wslApi.WslLaunchInteractive(L"/usr/sbin/pwconv ; /usr/sbin/grpconv", true, &exitCode);
-    if (FAILED(hr))
-    {
-        return hr;
-    }
-
-    // Make /etc/shadow and /etc/gshadow writeable
-    hr = g_wslApi.WslLaunchInteractive(L"chmod 0744 /etc/shadow ; chmod 0744 /etc/gshadow", true, &exitCode);
-    if (FAILED(hr))
-    {
-        return hr;
-    }
-
-    // Enable su
-    hr = g_wslApi.WslLaunchInteractive(L"chown -R root:root /bin/su ; chmod 755 /bin/su ; chmod u+s /bin/su", true,
-                                       &exitCode);
-    if (FAILED(hr))
-    {
-        return hr;
-    }
-    */
-
     // Configure dbus
     hr = g_wslApi.WslLaunchInteractive(L"dbus-uuidgen --ensure", true, &exitCode);
     if (FAILED(hr))
@@ -138,8 +114,6 @@ HRESULT SetDefaultUser(std::wstring_view userName)
     {
         return hr;
     }
-
-    DistributionInfo::ChangeDefaultUserInWslConf(userName);
 
     return hr;
 }

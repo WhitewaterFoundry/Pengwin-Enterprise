@@ -107,7 +107,7 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
 
 
     // Create the user account.
-    commandLine = L"/usr/sbin/useradd -m ";
+    commandLine = L"/usr/sbin/useradd -m -s /bin/bash ";
     commandLine += userName;
     HRESULT hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if (FAILED(hr) || exitCode != 0)
@@ -119,14 +119,20 @@ bool DistributionInfo::CreateUser(std::wstring_view userName)
         return false;
     }
 
+#ifndef VERSIONP
     // Create the group wsl-video if it doesn't exist.
     commandLine = L"getent group wsl-video >/dev/null || /usr/sbin/groupadd -g 44 wsl-video";
     hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if (FAILED(hr) || exitCode != 0)
         return false;
-    
+#endif
+
     // Add the user account to any relevant groups.
+#ifndef VERSIONP
     commandLine = L"/usr/sbin/usermod -aG adm,cdrom,wheel,video,wsl-video,render ";
+#else
+    commandLine = L"/usr/sbin/usermod -aG adm,cdrom,sudo,dip,plugdev,video,irc,render ";
+#endif
     commandLine += userName;
     hr = g_wslApi.WslLaunchInteractive(commandLine.c_str(), true, &exitCode);
     if (FAILED(hr) || exitCode != 0)
