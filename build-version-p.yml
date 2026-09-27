@@ -14,7 +14,7 @@ steps:
     inputs:
       script: |
         mkdir x64
-        move $(System.ArtifactsDirectory)\drop\install_amdx64_rootfs.tar.gz x64\${{ parameters.tarball_name }}
+        move $(System.ArtifactsDirectory)\drop\install_amd64_rootfs.tar.gz x64\${{ parameters.tarball_name }}
     displayName: 'Moving ${{ parameters.tarball_name }}'
   - task: VSBuild@1
     inputs:
