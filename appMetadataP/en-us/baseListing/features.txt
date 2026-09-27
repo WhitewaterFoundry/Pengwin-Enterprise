@@ -1,0 +1,5 @@
+﻿A Linux environment tuned for WSL from the first boot.
+pengwin-setup, a guided installer to add only the components you need.
+Support for many Linux graphical applications with no need to configure display or libGL.
+You have access to your Windows home directly from your Linux one via winhome symbolic link.
+We have handcrafted a Windows Terminal profile for a pleasant experience.

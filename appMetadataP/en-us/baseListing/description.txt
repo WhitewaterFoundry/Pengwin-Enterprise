@@ -1,0 +1,11 @@
+﻿Pengwin is a Linux environment for the Windows Subsystem for Linux (WSL), packaged and maintained by Whitewater Foundry and delivered here as part of the Pengwin Enterprise offering.
+
+Pengwin is tuned for WSL from the first boot: sane defaults, a curated set of tools, and pengwin-setup, a guided installer that lets you add only the components you need, such as desktop environments, programming languages, editors, container tooling, and GPU support.
+
+Pengwin installs itself as a menu entry in Windows Terminal. We crafted the background and the color palette for the best looking and usability in Windows Terminal. Configuring Pengwin as your Default Profile in Windows Terminal allows greater integration with the Windows environment. Specifically, right-click a folder in File Explorer and select Open in Terminal. It will open in the chosen directory, making it easier to access all necessary files and tools from within the terminal.
+
+Access your C:\ drive at /mnt/C automatically. Copy and paste from Visual Studio into Emacs. Open Word from zsh. Pipe ifconfig.exe output into a Python script. It is a hybrid world. Pengwin bridges the gap between Windows and Linux.
+
+Whitewater Foundry is a Microsoft Partner, Red Hat Business Partner, and licensee in the Open Innovation Network.
+
+DISCLAIMER: Windows Insider Preview versions are not production-ready and can contain incompatibilities or bugs that affect the performance of Pengwin. We support insider versions on a best-effort basis.
