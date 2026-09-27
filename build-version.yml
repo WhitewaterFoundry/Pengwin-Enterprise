@@ -19,7 +19,7 @@ steps:
   - task: VSBuild@1
     inputs:
       solution: '$(solution)'
-      msbuildArgs: '/t:PengwinEnterprise${{ parameters.distro_version }} /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
+      msbuildArgs: '/t:PengwinEnterprise${{ parameters.distro_version }}:Build /m /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
       platform: 'x64'
       configuration: '$(buildConfiguration)'
       maximumCpuCount: true
