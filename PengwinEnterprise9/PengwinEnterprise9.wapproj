@@ -32,7 +32,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <NoWarn>$(NoWarn);NU1702</NoWarn>
-    <PackageCertificateThumbprint>FC31D506C0E78DF64C933CB2D6990469AEE7E113</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>FC558A1D61FCE60CBC5F51B99FA0BA95D0FDAE26</PackageCertificateThumbprint>
     <EntryPointProjectUniqueName>..\Launcher9\Launcher9.vcxproj</EntryPointProjectUniqueName>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampServerUrl>http://timestamp.sectigo.com/</AppxPackageSigningTimestampServerUrl>
